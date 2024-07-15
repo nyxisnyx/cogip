@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : mysql
--- Généré le : lun. 15 juil. 2024 à 09:59
+-- Généré le : lun. 15 juil. 2024 à 10:23
 -- Version du serveur : 8.0.38
 -- Version de PHP : 8.2.8
 
@@ -34,6 +34,15 @@ CREATE TABLE `companies` (
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Déchargement des données de la table `companies`
+--
+
+INSERT INTO `companies` (`company_id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Company A', '2024-07-15 10:12:11', '2024-07-15 10:12:11'),
+(2, 'Company B', '2024-07-15 10:12:11', '2024-07-15 10:12:11'),
+(3, 'Company C', '2024-07-15 10:12:11', '2024-07-15 10:12:11');
+
 -- --------------------------------------------------------
 
 --
@@ -49,6 +58,15 @@ CREATE TABLE `contacts` (
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Déchargement des données de la table `contacts`
+--
+
+INSERT INTO `contacts` (`contact_id`, `user_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES
+(1, 1, '1234567890', 'contact1@example.com', '2024-07-15 10:22:40', '2024-07-15 10:22:40'),
+(2, 2, '2345678901', 'contact2@example.com', '2024-07-15 10:22:40', '2024-07-15 10:22:40'),
+(3, 3, '3456789012', 'contact3@example.com', '2024-07-15 10:22:40', '2024-07-15 10:22:40');
+
 -- --------------------------------------------------------
 
 --
@@ -61,6 +79,15 @@ CREATE TABLE `invoices` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `invoices`
+--
+
+INSERT INTO `invoices` (`invoice_id`, `company_id`, `created_at`, `updated_at`) VALUES
+(1, 1, '2024-07-15 10:22:40', '2024-07-15 10:22:40'),
+(2, 2, '2024-07-15 10:22:40', '2024-07-15 10:22:40'),
+(3, 3, '2024-07-15 10:22:40', '2024-07-15 10:22:40');
 
 -- --------------------------------------------------------
 
@@ -75,6 +102,15 @@ CREATE TABLE `permissions` (
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Déchargement des données de la table `permissions`
+--
+
+INSERT INTO `permissions` (`permission_id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Read', '2024-07-15 10:13:31', '2024-07-15 10:13:31'),
+(2, 'Write', '2024-07-15 10:13:31', '2024-07-15 10:13:31'),
+(3, 'Delete', '2024-07-15 10:13:31', '2024-07-15 10:13:31');
+
 -- --------------------------------------------------------
 
 --
@@ -88,6 +124,15 @@ CREATE TABLE `roles` (
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Déchargement des données de la table `roles`
+--
+
+INSERT INTO `roles` (`role_id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', '2024-07-15 10:13:31', '2024-07-15 10:13:31'),
+(2, 'Editor', '2024-07-15 10:13:31', '2024-07-15 10:13:31'),
+(3, 'Viewer', '2024-07-15 10:13:31', '2024-07-15 10:13:31');
+
 -- --------------------------------------------------------
 
 --
@@ -98,6 +143,15 @@ CREATE TABLE `role_permissions` (
   `role_id` int NOT NULL,
   `permission_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `role_permissions`
+--
+
+INSERT INTO `role_permissions` (`role_id`, `permission_id`) VALUES
+(1, 1),
+(2, 2),
+(3, 3);
 
 -- --------------------------------------------------------
 
@@ -111,6 +165,15 @@ CREATE TABLE `types` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `types`
+--
+
+INSERT INTO `types` (`type_id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Type A', '2024-07-15 10:22:40', '2024-07-15 10:22:40'),
+(2, 'Type B', '2024-07-15 10:22:40', '2024-07-15 10:22:40'),
+(3, 'Type C', '2024-07-15 10:22:40', '2024-07-15 10:22:40');
 
 -- --------------------------------------------------------
 
@@ -126,16 +189,14 @@ CREATE TABLE `users` (
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- --------------------------------------------------------
-
 --
--- Structure de la table `user_roles`
+-- Déchargement des données de la table `users`
 --
 
-CREATE TABLE `user_roles` (
-  `user_id` int NOT NULL,
-  `role_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+INSERT INTO `users` (`user_id`, `email`, `password_hash`, `created_at`, `updated_at`) VALUES
+(1, 'user1@example.com', 'password1', '2024-07-15 10:13:31', '2024-07-15 10:13:31'),
+(2, 'user2@example.com', 'password2', '2024-07-15 10:13:31', '2024-07-15 10:13:31'),
+(3, 'user3@example.com', 'password3', '2024-07-15 10:13:31', '2024-07-15 10:13:31');
 
 --
 -- Index pour les tables déchargées
@@ -193,13 +254,6 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- Index pour la table `user_roles`
---
-ALTER TABLE `user_roles`
-  ADD PRIMARY KEY (`user_id`,`role_id`),
-  ADD KEY `role_id` (`role_id`);
-
---
 -- Contraintes pour les tables déchargées
 --
 
@@ -221,13 +275,6 @@ ALTER TABLE `invoices`
 ALTER TABLE `role_permissions`
   ADD CONSTRAINT `role_permissions_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`),
   ADD CONSTRAINT `role_permissions_ibfk_2` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`permission_id`);
-
---
--- Contraintes pour la table `user_roles`
---
-ALTER TABLE `user_roles`
-  ADD CONSTRAINT `user_roles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
-  ADD CONSTRAINT `user_roles_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
