@@ -2,14 +2,19 @@
 .btn-footer {
   margin: 5px;
   padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
+  color: black;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
+  display: flex;
+  /* mettre en bas a gache */
 }
 
 .btn-footer:hover {
   background-color: #0056b3;
+}
+
+.Copyright {
+  display: flex;
 }/*# sourceMappingURL=stylefooter.css.map */
