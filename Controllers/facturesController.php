@@ -15,7 +15,7 @@ class FacturesController extends Controller {
 
     public function getInvoices() {
         try {
-            $datas = $this->database->query("SELECT * FROM invoices ORDER BY created_at DESC");
+            $datas = $this->database->query("SELECT * FROM invoices ORDER BY created_at DESC LIMIT 5");
             return $this->jsonResponse($datas);
         } catch (\Throwable $th) {
             return $this->jsonResponse(['error' => $th->getMessage()], 500);
