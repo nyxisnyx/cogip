@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1deb5ubuntu1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:3306
--- Généré le : lun. 15 juil. 2024 à 09:49
--- Version du serveur : 8.0.37-0ubuntu0.22.04.3
--- Version de PHP : 8.1.2-1ubuntu2.18
+-- Hôte : mysql
+-- Généré le : lun. 15 juil. 2024 à 09:59
+-- Version du serveur : 8.0.38
+-- Version de PHP : 8.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `companies` (
-  `id` int NOT NULL,
+  `company_id` int NOT NULL,
   `name` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -41,14 +41,12 @@ CREATE TABLE `companies` (
 --
 
 CREATE TABLE `contacts` (
-  `id` int NOT NULL,
-  `first_name` varchar(50) DEFAULT NULL,
-  `last_name` varchar(50) DEFAULT NULL,
+  `contact_id` int NOT NULL,
+  `user_id` int DEFAULT NULL,
+  `phone` varchar(10) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `phone` varchar(50) DEFAULT NULL,
-  `company_id` int DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -58,10 +56,10 @@ CREATE TABLE `contacts` (
 --
 
 CREATE TABLE `invoices` (
-  `id` int NOT NULL,
+  `invoice_id` int NOT NULL,
   `company_id` int DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -71,10 +69,10 @@ CREATE TABLE `invoices` (
 --
 
 CREATE TABLE `permissions` (
-  `id` int NOT NULL,
+  `permission_id` int NOT NULL,
   `name` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -84,21 +82,34 @@ CREATE TABLE `permissions` (
 --
 
 CREATE TABLE `roles` (
-  `id` int NOT NULL,
+  `role_id` int NOT NULL,
   `name` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `roles_permission`
+-- Structure de la table `role_permissions`
 --
 
-CREATE TABLE `roles_permission` (
+CREATE TABLE `role_permissions` (
   `role_id` int NOT NULL,
   `permission_id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `types`
+--
+
+CREATE TABLE `types` (
+  `type_id` int NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -108,10 +119,22 @@ CREATE TABLE `roles_permission` (
 --
 
 CREATE TABLE `users` (
-  `id` int NOT NULL,
-  `name` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `user_id` int NOT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `password_hash` varchar(50) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user_roles`
+--
+
+CREATE TABLE `user_roles` (
+  `user_id` int NOT NULL,
+  `role_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -122,46 +145,59 @@ CREATE TABLE `users` (
 -- Index pour la table `companies`
 --
 ALTER TABLE `companies`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`company_id`);
 
 --
 -- Index pour la table `contacts`
 --
 ALTER TABLE `contacts`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `company_id` (`company_id`);
+  ADD PRIMARY KEY (`contact_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Index pour la table `invoices`
 --
 ALTER TABLE `invoices`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`invoice_id`),
   ADD KEY `company_id` (`company_id`);
 
 --
 -- Index pour la table `permissions`
 --
 ALTER TABLE `permissions`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`permission_id`);
 
 --
 -- Index pour la table `roles`
 --
 ALTER TABLE `roles`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`role_id`);
 
 --
--- Index pour la table `roles_permission`
+-- Index pour la table `role_permissions`
 --
-ALTER TABLE `roles_permission`
+ALTER TABLE `role_permissions`
   ADD PRIMARY KEY (`role_id`,`permission_id`),
   ADD KEY `permission_id` (`permission_id`);
+
+--
+-- Index pour la table `types`
+--
+ALTER TABLE `types`
+  ADD PRIMARY KEY (`type_id`);
 
 --
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- Index pour la table `user_roles`
+--
+ALTER TABLE `user_roles`
+  ADD PRIMARY KEY (`user_id`,`role_id`),
+  ADD KEY `role_id` (`role_id`);
 
 --
 -- Contraintes pour les tables déchargées
@@ -171,20 +207,27 @@ ALTER TABLE `users`
 -- Contraintes pour la table `contacts`
 --
 ALTER TABLE `contacts`
-  ADD CONSTRAINT `contacts_ibfk_1` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`);
+  ADD CONSTRAINT `contacts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 
 --
 -- Contraintes pour la table `invoices`
 --
 ALTER TABLE `invoices`
-  ADD CONSTRAINT `invoices_ibfk_1` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`);
+  ADD CONSTRAINT `invoices_ibfk_1` FOREIGN KEY (`company_id`) REFERENCES `companies` (`company_id`);
 
 --
--- Contraintes pour la table `roles_permission`
+-- Contraintes pour la table `role_permissions`
 --
-ALTER TABLE `roles_permission`
-  ADD CONSTRAINT `roles_permission_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`),
-  ADD CONSTRAINT `roles_permission_ibfk_2` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`);
+ALTER TABLE `role_permissions`
+  ADD CONSTRAINT `role_permissions_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`),
+  ADD CONSTRAINT `role_permissions_ibfk_2` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`permission_id`);
+
+--
+-- Contraintes pour la table `user_roles`
+--
+ALTER TABLE `user_roles`
+  ADD CONSTRAINT `user_roles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
+  ADD CONSTRAINT `user_roles_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
