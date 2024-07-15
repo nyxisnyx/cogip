@@ -15,10 +15,8 @@ use App\Controllers\HomeController;
 $router = new Router;
 
 $router->get('/', function() {
-    $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
-    return (new HomeController($db))->index();
+    return (new HomeController())->index();
 });
-
 
 $router->mount('/companies', function () use ($router) {
 

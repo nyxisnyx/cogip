@@ -10,8 +10,7 @@ class Controller
     */
     public function view($view, $data = [])
     {
-        
+        extract($data);
         require_once(__ROOT__.'/Resources/views/'.$view.'.php');
-        return$data;
     }
 }
