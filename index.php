@@ -10,6 +10,7 @@ require_once __DIR__.'/Helpers/request.php';
 use Bramus\Router\Router;
 use App\Config\Database;
 use App\Controllers\CompaniesController;
+use App\Controllers\ContactsController;
 use App\Controllers\HomeController;
 
 $router = new \Bramus\Router\Router();
@@ -30,6 +31,15 @@ $router->mount('/companies', function() use ($router) {
         echo 'test';
     });
 
+});
+
+$router->mount('/Contacts', function() use ($router) {
+   
+    $router->get('/', function() {
+
+    $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+    return (new ContactsController($db))->getContact();
+    });
 });
 
 $router->run();
