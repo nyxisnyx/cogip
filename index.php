@@ -9,10 +9,11 @@ require_once __DIR__.'/Helpers/request.php';
 
 use Bramus\Router\Router;
 use App\Config\Database;
+use App\Controllers\FacturesController;
 use App\Controllers\CompaniesController;
 use App\Controllers\HomeController;
 
-$router = new \Bramus\Router\Router();
+$router = new Router();
 
 $router->get('/', function() {
     return (new HomeController())->index();
@@ -30,6 +31,14 @@ $router->mount('/companies', function() use ($router) {
         echo 'test';
     });
 
+});
+
+$router->mount('/invoices', function() use ($router){
+
+    $router->get('/', function(){
+        $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+        return (new FacturesController($db))->getInvoices();
+    });
 });
 
 $router->run();
