@@ -30,7 +30,8 @@ class CompaniesController extends Controller {
                 'params' => $datas 
             ];
 
-            return $this->view('companies',$response);
+            $dataJson = createJson($response);
+            echo $dataJson;
 
         } catch (\Throwable $th) {
             //throw $th;
@@ -38,8 +39,8 @@ class CompaniesController extends Controller {
                 'status' => 404,
                 'message' =>'No found',
             ];
-
-            return $this->view('companies',$response);
+            $dataJson = createJson($response);
+            echo $dataJson;
         }
 
     }
@@ -53,15 +54,23 @@ class CompaniesController extends Controller {
             ];
             
             $datas = $this->database->query('SELECT * FROM companies Where company_id = :id',$params);           
-            return $this->view('companies',$datas);
+            
+            if($datas){
+                $response = [
+                    'status' => 202,
+                    'message' =>'OK',
+                    'params' => $datas 
+                ];
+            }else{
+                $response = [
+                    'status' => 404,
+                    'message' =>'No found Companie',
+                ];
+            }
 
-            $response = [
-                'status' => 202,
-                'message' =>'OK',
-                'params' => $datas 
-            ];
 
-            return $this->view('companies',$response);
+            $dataJson = createJson($response);
+            echo $dataJson;
 
         } catch (\Throwable $th) {
             throw $th;
@@ -70,7 +79,8 @@ class CompaniesController extends Controller {
                 'message' =>'No found Companies',
             ];
 
-            return $this->view('companies',$response);
+            $dataJson = createJson($response);
+            echo $dataJson;
         }
 
     }
