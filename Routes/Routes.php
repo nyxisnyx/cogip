@@ -2,11 +2,11 @@
 
 namespace App\Routes;
 
+use App\Controllers\FacturesController;
 use Bramus\Router\Router;
 use App\Controllers\HomeController;
 use App\Config\Database;
 use App\Controllers\CompaniesController;
-use App\Controllers\FacturesController;
 use App\Controllers\ContactsController;
 
 $router = new Router();
