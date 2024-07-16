@@ -25,5 +25,9 @@
             </ul>
        </section>
     </main>
+   
+
+    <script src="./assets/scripts/"></script>
+
 </body>
 </html>

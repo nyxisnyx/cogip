@@ -2,13 +2,12 @@
 .btn-footer {
   margin: 5px;
   padding: 10px 20px;
-  color: black;
+  background-color: #007bff;
+  color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
-  display: flex;
-  /* mettre en bas a gache */
 }
 
 .btn-footer:hover {
@@ -16,5 +15,12 @@
 }
 
 .Copyright {
-  display: flex;
-}/*# sourceMappingURL=stylefooter.css.map */
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  background-color: #fff; /* Optional: add a background color */
+  color: gray;
+}
+
+/*# sourceMappingURL=stylefooter.css.map */
