@@ -44,7 +44,6 @@ $router->mount('/Contacts', function() use ($router) {
     });
 });
 
-$router->run();
 // Middleware //
 $router->before('POST', '/admin/.*', function () {
     if (isset($_SESSION['user'])) {
@@ -63,8 +62,8 @@ $router->mount('/admin', function () use ($router) {
             return (new CompaniesController($db))->postCompanie();
         });
     });
+
+    // ajouter votre code en mode admin ici.
 });
-
-
 
 $router->run();
