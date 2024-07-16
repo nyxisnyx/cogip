@@ -24,7 +24,14 @@ class CompaniesController extends Controller
 
         try {
 
-            $compagniesDatas = $this->database->query('SELECT * FROM companies');
+            $compagniesDatas = $this->database->query(
+                'SELECT companies.*, types.name AS typeName
+                FROM companies
+                JOIN types 
+                ON types.type_id = companies.type_id 
+                ORDER BY name  ASC'
+            );
+
             $datas = Companies::loadData($compagniesDatas);
             $response = [
                 'status' => 202,
@@ -43,6 +50,38 @@ class CompaniesController extends Controller
         }
     }
 
+    public function getCompaniesDashbord($limit)
+    {
+
+        try {
+
+            $params = [
+
+                ':limit' => intval($limit)
+            ];
+
+            $compagniesDatas = $this->database->queryBindParam(
+                'SELECT companies.*, types.name AS typeName
+                FROM companies
+                JOIN types 
+                ON types.type_id = companies.type_id 
+                ORDER BY created_at  DESC 
+                LIMIT :limit',$params
+            );
+
+            $datas = Companies::loadData($compagniesDatas);
+            return $datas;
+        } catch (\Throwable $th) {
+            //throw $th;
+            $response = [
+                'status' => 404,
+                'message' => 'No found',
+            ];
+            echo createJson($response);
+            echo $th;
+        }
+    }
+
     public function getCompanie($id)
     {
 
@@ -53,9 +92,11 @@ class CompaniesController extends Controller
             ];
 
             $datas = $this->database->query(
-                'SELECT * 
+                'SELECT companies.*, types.name AS typeName
                 FROM companies
-                 Where company_id = :id',
+                JOIN types 
+                ON types.type_id = companies.type_id
+                Where company_id = :id',
                 $params
             );
 
@@ -75,7 +116,6 @@ class CompaniesController extends Controller
 
             echo createJson($response);
         } catch (\Throwable $th) {
-            throw $th;
             $response = [
                 'status' => 404,
                 'message' => 'No found Companies',
@@ -93,10 +133,16 @@ class CompaniesController extends Controller
             $companieInsert = $this->database->query(
                 'INSERT INTO companies(
                     name, 
+                    type_id,
+                    country,
+                    tva,
                     created_at, 
                     updated_at) 
                 VALUES (
                     :name,
+                    :type_id,
+                    :country,
+                    :tva,
                     :created_at, 
                     :updated_at)',
                 $params
