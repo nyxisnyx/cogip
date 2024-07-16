@@ -12,15 +12,13 @@ error_reporting(E_ALL);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/assets/css/stylefooter.css">
+    <link rel="stylesheet" href="/assets/css/stylefooter.css">
+    <script src="/public/assets/scripts/footer.js"></script>
     <title>Document</title>
 </head>
 <body>
     
-<footer>
-    <script src="/public/assets/scripts/footer.js"></script>
-    <p class="Copyright">Copyright © 2024 • COGIP Inc.</p>
-</footer>
 
+        
 </body>
 </html>
