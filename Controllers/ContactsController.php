@@ -15,7 +15,7 @@ class ContactsController extends Controller{
         $this->database = $database;
     }
 
-    public function getContact(){
+    public function getContacts(){
 
         try{
 
@@ -30,19 +30,64 @@ class ContactsController extends Controller{
 
     }
 
-    public function setNewContacts(){
+    public function setNewContact(){
+
+        try{
+            // Get JSON as a string
+            $json_str = file_get_contents('php://input');
+            // Get as an object
+            $json_obj = json_decode($json_str);
+    
+            $contactData =$this->database->query("INSERT INTO `contacts`(`company_id`, `phone`, `email`, `created_at`, `updated_at`) 
+            VALUES (
+                    '{$json_obj->company_id}',
+                    '{$json_obj->phone}',
+                    '{$json_obj->email}',
+                    NOW(),
+                    NOW()
+                    )");
+    
+            echo createJson($contactData);
+    
+        } catch(PDOException $e){
+            echo "Error: " . $e->getMessage();
+        }
+    }    
+
+    public function updateContact($id){
+
+        try{
+            // Get JSON as a string
+            $json_str = file_get_contents('php://input');
+            // Get as an object
+            $json_obj = json_decode($json_str);
+    
+            $contactData =$this->database->query(
+                "UPDATE `contacts` 
+                SET 
+                `company_id`='{$json_obj->company_id}',
+                `phone`='{$json_obj->phone}',
+                `email`='{$json_obj->email}',
+                `updated_at`=NOW() 
+                WHERE `contact_id`= '{$id}'"
+            );
+    
+            echo createJson($contactData);
+    
+        } catch(PDOException $e){
+            echo "Error: " . $e->getMessage();
+        }
+    }
+    
+    public function deletContact($id){
         
         try{
-
-            $contactData =$this->database->query("SELECT * FROM `contacts`");
-            echo createJson($contactData);
-
+    
+            $this->database->query("DELETE FROM `contacts` WHERE  `contact_id`= '{$id}'" );
+    
         } catch(PDOException $e){
-
             echo "Error: " . $e->getMessage();
-
         }
     }
-
 }
 

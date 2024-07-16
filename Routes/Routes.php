@@ -35,12 +35,12 @@ $router->mount('/invoices', function() use ($router){
         return (new FacturesController($db))->getInvoices();
     });
 });
-$router->mount('/Contacts', function() use ($router) {
+$router->mount('/contacts', function() use ($router) {
    
     $router->get('/', function() {
 
     $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
-    return (new ContactsController($db))->getContact();
+    return (new ContactsController($db))->getContacts();
     });
 });
 
@@ -64,6 +64,23 @@ $router->mount('/admin', function () use ($router) {
     });
 
     // ajouter votre code en mode admin ici.
+    $router->mount('/contact', function () use ($router) {
+
+        $router->post('/add', function () {
+            $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+            return (new ContactsController($db))->setNewContact();
+        });
+
+        $router->patch('/upd/{id}', function ($id){
+            $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+            return (new ContactsController($db))->updateContact($id);
+        });
+
+        $router->delete('/delete/{id}',function($id){
+            $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+            return (new ContactsController($db))->deletContact($id);
+        });
+    });
 });
 
 $router->run();
