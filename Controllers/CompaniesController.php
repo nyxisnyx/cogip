@@ -50,18 +50,23 @@ class CompaniesController extends Controller
         }
     }
 
-    public function getCompaniesDashbord()
+    public function getCompaniesDashbord($limit)
     {
 
         try {
 
-            $compagniesDatas = $this->database->query(
+            $params = [
+
+                ':limit' => intval($limit)
+            ];
+
+            $compagniesDatas = $this->database->queryBindParam(
                 'SELECT companies.*, types.name AS typeName
                 FROM companies
                 JOIN types 
                 ON types.type_id = companies.type_id 
                 ORDER BY created_at  DESC 
-                LIMIT 5'
+                LIMIT :limit',$params
             );
 
             $datas = Companies::loadData($compagniesDatas);

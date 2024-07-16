@@ -14,10 +14,10 @@ class AdminController{
         $this->database = $database;
     }
 
-    public function index(){
+    public function index($limit){
 
         try {
-            $datasCompanies = (new CompaniesController($this->database))->getCompaniesDashbord();
+            $datasCompanies = (new CompaniesController($this->database))->getCompaniesDashbord($limit);
             
             $response = [
                 'status' => 202,

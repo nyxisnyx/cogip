@@ -38,9 +38,9 @@ $router->before('POST', '/admin/.*', function () {
 
 $router->mount('/admin', function () use ($router) {
 
-    $router->get('/', function () {
+    $router->get('/{limit}', function ($limit) {
         $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
-        return (new AdminController($db))->index();
+        return (new AdminController($db))->index($limit);
     });
 
     $router->mount('/companie', function () use ($router) {
