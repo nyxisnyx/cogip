@@ -9,6 +9,6 @@ function createJson($data)
 
         return $json;
     } catch (\Throwable $th) {
-       echo $th;
+       //echo $th;
     }
 }
