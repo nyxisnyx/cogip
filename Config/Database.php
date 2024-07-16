@@ -48,6 +48,7 @@ class Database
             throw new PDOException("Query execution error: " . $e->getMessage());
         }
     }
+    
     public function queryBindParam(string $statement, ?array $params = []): array
     {
         try {
