@@ -12,3 +12,20 @@ function createJson($data)
        //echo $th;
     }
 }
+
+function securityInput($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+function dates($format){
+
+    $timezone = date_default_timezone_get();
+    date_default_timezone_set($timezone);
+
+    $date = date($format);
+    return $date;
+}

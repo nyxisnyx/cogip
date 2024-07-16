@@ -42,7 +42,6 @@ class CompaniesController extends Controller {
             $dataJson = createJson($response);
             echo $dataJson;
         }
-
     }
 
     public function getCompanie($id){
@@ -79,9 +78,43 @@ class CompaniesController extends Controller {
                 'message' =>'No found Companies',
             ];
 
-            $dataJson = createJson($response);
-            echo $dataJson;
+            echo $dataJson = createJson($response);
         }
+    }
 
+    public function postCompanie(){
+
+        try {
+            $params = Companies::dataBodyInsert();
+            $companieInsert = $this->database->query(
+                'INSERT INTO companies(
+                    name, 
+                    created_at, 
+                    updated_at) 
+                VALUES (
+                    :name,
+                    :created_at, 
+                    :updated_at)',
+                $params
+            );      
+            
+            $response = [
+                'status' => 202,
+                'message' =>'OK',
+                'params' => $params 
+            ];
+
+            echo $dataJson = createJson($response);
+
+        } catch (\Throwable $th) {
+            $response = [
+                'status' => 400,
+                'message' =>'Bad Request',
+            ];
+
+            echo $dataJson = createJson($response);
+
+            echo $th;
+        }
     }
 }
