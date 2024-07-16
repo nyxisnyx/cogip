@@ -32,4 +32,19 @@ class Companies
         }
         return $datas ;
     }
+    public static function dataBodyInsert()
+    {
+
+            $bodydata = [];
+            $bodydata = file_get_contents('php://input');
+            $bodyDatas = json_decode($bodydata, true);
+
+            $params = [
+                ':name' => securityInput($bodyDatas['name']),
+                ':created_at' => dates('Y-m-d h:i:s'),
+                ':updated_at' => dates('Y-m-d h:i:s')
+            ];
+
+            return $params;
+    }
 }
