@@ -20,7 +20,7 @@ class ContactsController extends Controller{
         try{
 
             $contactData =$this->database->query("SELECT * FROM `contacts`");
-            return $this->view("contacts",$contactData);
+            echo createJson($contactData);
 
         } catch(PDOException $e){
 
