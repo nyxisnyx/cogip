@@ -7,27 +7,36 @@ class Companies
 
     public int $id;
     public ?string $name;
+    public ?string $typeName;
+    public ?string $country;
+    public ?string $tva;
     public ?string $created_at;
     public ?string $updated_at;
 
-    public function __construct(int $id, ?string $name, ?string $created_at, ?string $updated_at)
+    public function __construct(int $id, ?string $name, ?string $typeName,?string $country,?string $tva, ?string $created_at, ?string $updated_at)
     {
         $this->id = $id;
         $this->name = $name;
+        $this->typeName = $typeName;
+        $this->country = $country;
+        $this->tva = $tva;
         $this->created_at = $created_at;
         $this->updated_at = $updated_at;
     }
 
-    public static function loadData($postsData)
+    public static function loadData($companiesData)
     {
         $datas = [];
 
-        foreach ($postsData as $post) {
+        foreach ($companiesData as $companie) {
             $datas[] = new self(
-                $post['company_id'],
-                $post['name'],
-                $post['created_at'],
-                $post['updated_at']
+                $companie['company_id'],
+                $companie['name'],
+                $companie['typeName'],
+                $companie['country'],
+                $companie['tva'],
+                $companie['created_at'],
+                $companie['updated_at']
             );
         }
         return $datas;
@@ -41,6 +50,9 @@ class Companies
 
         $params = [
             ':name' => securityInput($bodyDatas['name']),
+            ':type_id' => securityInput(intval($bodyDatas['type_id'])),
+            ':country' => securityInput($bodyDatas['country']),
+            ':tva' => securityInput($bodyDatas['tva']),
             ':created_at' => dates('Y-m-d h:i:s'),
             ':updated_at' => dates('Y-m-d h:i:s')
         ];

@@ -48,4 +48,5 @@ class Database
             throw new PDOException("Query execution error: " . $e->getMessage());
         }
     }
+    
 }
