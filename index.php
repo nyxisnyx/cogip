@@ -1,12 +1,13 @@
 <?php
 
-require_once __DIR__.'/vendor/autoload.php';
-require_once __DIR__.'/Core/Helper.php';
-require_once __DIR__.'/Routes/Routes.php';
+require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/Core/Helper.php';
+require_once __DIR__ . '/Config/config.php';
+require_once __DIR__ . '/Helpers/request.php';
+require_once __DIR__ . '/Routes/Routes.php';
 
-require_once __DIR__.'/Config/config.php';
-require_once __DIR__.'/Helpers/request.php';
 
+<<<<<<< HEAD
 use Bramus\Router\Router;
 use App\Config\Database;
 use App\Controllers\CompaniesController;
@@ -36,3 +37,6 @@ $router->mount('/companies', function() use ($router) {
 
 
 $router->run();
+=======
+
+>>>>>>> backend_dev
