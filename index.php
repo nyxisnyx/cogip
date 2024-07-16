@@ -33,13 +33,6 @@ $router->mount('/companies', function() use ($router) {
 
 });
 
-$router->mount('/Contacts', function() use ($router) {
-   
-    $router->get('/', function() {
 
-    $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
-    return (new ContactsController($db))->getContact();
-    });
-});
 
 $router->run();
