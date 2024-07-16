@@ -30,5 +30,19 @@ class ContactsController extends Controller{
 
     }
 
+    public function setNewContacts(){
+        
+        try{
+
+            $contactData =$this->database->query("SELECT * FROM `contacts`");
+            echo createJson($contactData);
+
+        } catch(PDOException $e){
+
+            echo "Error: " . $e->getMessage();
+
+        }
+    }
+
 }
 
