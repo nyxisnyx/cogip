@@ -2,11 +2,11 @@
 
 namespace App\Controllers;
 
-use App\Config\Database;
-use App\Core\Controller;
+use App\config\Database;
+use App\Controllers\CompaniesController;
+use App\Controllers\ContactsController;
 
-class HomeController extends Controller
-{
+class AdminController{
 
     private Database $database;
 
@@ -14,20 +14,16 @@ class HomeController extends Controller
     {
         $this->database = $database;
     }
-    /*
-    * return view
-    */
-    public function index($limit)    
-    {
+
+    public function index($limit){
         try {
             $datasCompanies = (new CompaniesController($this->database))->getCompaniesDashbord($limit);
             $dataContacts =(new ContactsController($this->database))->getContactsDashbord($limit);
-            
             $response = [
                 'status' => 202,
                 'message' => 'OK',
                 'Companies' => $datasCompanies,
-                'Contacts'=>$dataContacts
+                'Contacts' => $dataContacts
             ];
 
             echo createJson($response);
@@ -41,7 +37,5 @@ class HomeController extends Controller
             ];
             echo createJson($response);
         }
-
-        //return $this->view('welcome',["name" => "Cogip"]);
     }
 }
