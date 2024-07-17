@@ -46,8 +46,8 @@ $router->mount('/contacts', function() use ($router) {
 });
 
 // Middleware //
-$router->before('POST', '/admin/.*', function () {
-    if (isset($_SESSION['user'])) {
+$router->before('GET|POST|PUT|PATCH|DELETE', '/admin/.*', function () {
+    if (!isset($_SESSION['user'])) {
         //header('Location: /login');
         echo 'The user must be logged in to access this page.';
         exit();
