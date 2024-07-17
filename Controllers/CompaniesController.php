@@ -52,7 +52,6 @@ class CompaniesController extends Controller
 
     public function getCompaniesDashbord($limit)
     {
-
         try {
 
             $params = [
@@ -167,7 +166,6 @@ class CompaniesController extends Controller
 
     public function putCompanie($id)
     {
-
         try {
             $companieIsExist = $this->companieIsExist($id);
 

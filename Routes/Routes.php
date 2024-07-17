@@ -10,7 +10,7 @@ use App\Controllers\AdminController;
 
 $router = new Router();
 
-$router->get('/{limit}', function ($limit) {
+$router->get('/dashboard/{limit}', function ($limit) {
     $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
     (new HomeController($db))->index($limit);
 });
@@ -41,8 +41,9 @@ $router->mount('/admin', function () use ($router) {
 
     $router->get('/{limit}', function ($limit) {
         $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
-        return (new AdminController($db))->index($limit);
+        (new HomeController($db))->index($limit);
     });
+
 
     $router->mount('/companie', function () use ($router) {
 

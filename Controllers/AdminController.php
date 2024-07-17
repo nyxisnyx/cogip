@@ -15,9 +15,10 @@ class AdminController{
     }
 
     public function index($limit){
-
         try {
             $datasCompanies = (new CompaniesController($this->database))->getCompaniesDashbord($limit);
+
+            var_dump($datasCompanies);
             
             $response = [
                 'status' => 202,
