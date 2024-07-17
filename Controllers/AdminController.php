@@ -38,7 +38,5 @@ class AdminController{
             ];
             echo createJson($response);
         }
-
-
     }
 }

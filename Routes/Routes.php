@@ -12,8 +12,9 @@ use App\Controllers\AdminController;
 
 $router = new Router();
 
-$router->get('/', function () {
-    (new HomeController)->index();
+$router->get('/{limit}', function ($limit) {
+    $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+    (new HomeController($db))->index($limit);
 });
 
 $router->mount('/companies', function () use ($router) {
