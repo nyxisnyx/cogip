@@ -39,7 +39,5 @@ class HomeController extends Controller
             ];
             echo createJson($response);
         }
-
-        //return $this->view('welcome',["name" => "Cogip"]);
     }
 }
