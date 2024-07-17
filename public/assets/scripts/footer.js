@@ -8,18 +8,15 @@ const Footer = () => {
 
     return (
         <footer>
-    
-    <p class="Copyright">Copyright © 2024 • COGIP Inc.</p>
-<div class="footer2">
-            
+            <p className="Copyright">Copyright © 2024 • COGIP Inc.</p>
+            <div className="footer2">
                 <div className="contact">
-                     <img src="/assets/img/icons/Location.svg" alt="localisation" />Square des Martyrs, 6000 Charleroi 
+                    <img src="/assets/img/icons/Location.svg" alt="localisation" /> Square des Martyrs, 6000 Charleroi 
                 </div>
                 <div className="contact2">
-                    <img src="/assets/img/icons/Icon_contact.svg" alt="contact" />(123) 456-7890
-                    <img src="/assets/img/icons/Fax.svg" alt="fax" />(123) 456-7890
+                    <img src="/assets/img/icons/Icon_contact.svg" alt="contact" /> (123) 456-7890
+                    <img src="/assets/img/icons/Fax.svg" alt="fax" /> (123) 456-7890
                 </div>
-
                 <div className="reseau">
                     <img src="/assets/img/icons/Facebook.svg" alt="Facebook" />
                     <img src="/assets/img/icons/Twitter.svg" alt="Twitter" />
@@ -30,19 +27,16 @@ const Footer = () => {
                     <img src="/assets/img/icons/Pinterest.svg" alt="Pinterest" />
                     <img src="/assets/img/icons/RSS.svg" alt="RSS" />
                 </div>
-                
                 <div className="btn-footer">
-                <button  onClick={() => handleClick('Home')}>Home</button>
-                <button onClick={() => handleClick('Invoices')}>Invoices</button>
-                <button  onClick={() => handleClick('Companies')}>Companies</button>
-                <button  onClick={() => handleClick('Contact')}>Contact</button>
-                <button  onClick={() => handleClick('Privacy Policy')}>Privacy Policy</button>
+                    <button onClick={() => handleClick('Home')}>Home</button>
+                    <button onClick={() => handleClick('Invoices')}>Invoices</button>
+                    <button onClick={() => handleClick('Companies')}>Companies</button>
+                    <button onClick={() => handleClick('Contact')}>Contact</button>
+                    <button onClick={() => handleClick('Privacy Policy')}>Privacy Policy</button>
                 </div>
-             
-            <span className="cogip">COGIP
-            </span>
+                <span className="cogip">COGIP</span>
             </div>
-            </footer>
+        </footer>
     );
 };
 
