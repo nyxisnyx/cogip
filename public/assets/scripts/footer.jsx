@@ -1,6 +1,3 @@
-import React from 'react';
-import './Footer.css'; // Importez le fichier CSS pour les styles du footer.
-
 const Footer = () => {
     const handleClick = (buttonName) => {
         alert(`${buttonName} was clicked!`);
@@ -28,11 +25,11 @@ const Footer = () => {
                     <img src="/assets/img/icons/RSS.svg" alt="RSS" />
                 </div>
                 <div className="btn-footer">
-                    <button onClick={() => handleClick('Home')}>Home</button>
-                    <button onClick={() => handleClick('Invoices')}>Invoices</button>
-                    <button onClick={() => handleClick('Companies')}>Companies</button>
-                    <button onClick={() => handleClick('Contact')}>Contact</button>
-                    <button onClick={() => handleClick('Privacy Policy')}>Privacy Policy</button>
+                    <a onClick={() => handleClick('Home')}>Home</a>
+                    <a onClick={() => handleClick(' Invoices')}>Invoices</a>
+                    <a onClick={() => handleClick('Companies')}>Companies</a>
+                    <a onClick={() => handleClick('Contact')}>Contact</a>
+                    <a onClick={() => handleClick('Privacy Policy')}>Privacy Policy</a>
                 </div>
                 <span className="cogip">COGIP</span>
             </div>
@@ -40,4 +37,7 @@ const Footer = () => {
     );
 };
 
-export default Footer;
+ReactDOM.render(<Footer />, document.getElementById('root'));
+
+
+     
