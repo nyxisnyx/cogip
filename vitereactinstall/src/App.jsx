@@ -1,7 +1,5 @@
-import { useState } from 'react'
+import React, { useState } from 'react';
 import '../../public/assets/css/styles.css'
-
-import React from 'react';
 import Dashboard from '../components/Dashboard';
 
 const App = () => {
