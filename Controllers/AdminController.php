@@ -16,7 +16,6 @@ class AdminController{
     }
 
     public function index($limit){
-
         try {
             $datasCompanies = (new CompaniesController($this->database))->getCompaniesDashbord($limit);
             $dataContacts =(new ContactsController($this->database))->getContactsDashbord($limit);
