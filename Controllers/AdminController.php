@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\config\Database;
 use App\Controllers\CompaniesController;
+use App\Controllers\ContactsController;
 
 class AdminController{
 
@@ -18,11 +19,12 @@ class AdminController{
 
         try {
             $datasCompanies = (new CompaniesController($this->database))->getCompaniesDashbord($limit);
-            
+            $dataContacts =(new ContactsController($this->database))->getContactsDashbord($limit);
             $response = [
                 'status' => 202,
                 'message' => 'OK',
-                'Companies' => $datasCompanies
+                'Companies' => $datasCompanies,
+                'Contacts' => $dataContacts
             ];
 
             echo createJson($response);
