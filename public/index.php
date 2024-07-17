@@ -19,23 +19,24 @@
             return (
                 <footer>
                     <p className="Copyright">Copyright © 2024 • COGIP Inc.</p>
-                    <div className="footer2">
                     <span className="cogip">COGIP</span>
+                    <div className="footer2">
+                    
                         <div className="contact">
-                            <img src="/assets/img/icons/Location.svg" alt="localisation" /> Square des Martyrs, 6000 Charleroi 
+                            <img src="/assets/img/icons/Location.svg" alt="localisation" /> 345 Faulconer Drive, Suite 4 • Charlottesville, CA, 12345
                         </div>
                         <div className="contact2">
-                            <img src="/assets/img/icons/Icon_contact.svg" alt="contact" /> (123) 456-7890
-                            <img src="/assets/img/icons/Fax.svg" alt="fax" /> (123) 456-7890
+                            <img class="img-contact" src="/assets/img/icons/Icon_contact.svg" alt="contact" /><span class="span-contact">(123) 456-7890</span>
+                            <img class="img-contact" src="/assets/img/icons/Fax.svg" alt="fax" /> <span class="span-contact">(123) 456-7890</span>
                         </div>
                         <div className="reseau">
-                            <img class="img-reseau" src="/assets/img/icons/Facebook.svg" alt="Facebook" />
-                            <img class="img-reseau" src="/assets/img/icons/Twitter.svg" alt="Twitter" />
-                            <img class="img-reseau" src="/assets/img/icons/LinkedIn.svg" alt="LinkedIn" />
-                            <img class="img-reseau" src="/assets/img/icons/Youtube.svg" alt="YouTube" />
-                            <img class="img-reseau" src="/assets/img/icons/Instagram.svg" alt="Instagram" />
-                            <img class="img-reseau" src="/assets/img/icons/GooglePlus.svg" alt="Google Plus" />
-                            <img class="img-reseau" src="/assets/img/icons/Pinterest.svg" alt="Pinterest" />
+                            <a href="https://www.facebook.com" target="_blank"><img class="img-reseau" src="/assets/img/icons/Facebook.svg" alt="Facebook" /></a>
+                            <a href="https://www.Twitter.com" target="_blank"><img class="img-reseau" src="/assets/img/icons/Twitter.svg" alt="Twitter" /></a>
+                            <a href="https://www.LinkedIn.com" target="_blank"><img class="img-reseau" src="/assets/img/icons/LinkedIn.svg" alt="LinkedIn" /></a>
+                            <a href="https://www.Youtube.com" target="_blank"><img class="img-reseau" src="/assets/img/icons/Youtube.svg" alt="YouTube" /></a>
+                            <a href="https://www.Instagram.com" target="_blank"><img class="img-reseau" src="/assets/img/icons/Instagram.svg" alt="Instagram" /></a>
+                            <a href="https://www.GooglePlus.com" target="_blank"><img class="img-reseau" src="/assets/img/icons/GooglePlus.svg" alt="Google Plus" /></a>
+                            <a href="https://www.Pinterest.com" target="_blank"><img class="img-reseau" src="/assets/img/icons/Pinterest.svg" alt="Pinterest" /></a>
                             <img class="img-reseau" src="/assets/img/icons/RSS.svg" alt="RSS" />
                         </div>
                         <div className="btn-footer">

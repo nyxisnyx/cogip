@@ -11,6 +11,8 @@ footer {
 }
 
 .btn-footer {
+  margin-top: 100px;
+  bottom: 5cm;
   padding: 10px 20px;
   color: black;
   border: none;
@@ -21,6 +23,7 @@ footer {
 .btn-footer a {
   margin: 10px; /* Pour ajouter de l'espace entre les liens */
   cursor: pointer; /* Pour changer le curseur en pointeur */
+  bottom: 3cm;
 }
 
 .Copyright {
@@ -33,19 +36,19 @@ footer {
 
 .reseau {
   position: fixed;
-  bottom: 3cm;
+  bottom: 2cm;
   left: 18cm;
   display: flex;
   flex-wrap: wrap;
 }
 .reseau .img-reseau {
-  margin: 10px; /* Pour ajouter de l'espace entre les liens */
+  margin: 20px; /* Pour ajouter de l'espace entre les liens */
 }
 
 .cogip {
   border: 4px solid rgb(255, 204, 0);
   position: fixed;
-  bottom: 8cm; /* Fixe à 15 cm du bas */
+  bottom: 4.5cm; /* Fixe à 15 cm du bas */
   left: 10cm; /* Fixe à 10 cm de la gauche */
   font-size: 24px;
   font-weight: bold;
@@ -58,6 +61,7 @@ footer {
   left: 18cm;
   display: flex;
   flex-wrap: wrap;
+  margin-top: 100px;
 }
 
 .contact2 {
@@ -66,6 +70,14 @@ footer {
   left: 18cm;
   display: flex;
   flex-wrap: wrap;
+  margin-top: 150px;
+}
+.contact2 .img-contact {
+  vertical-align: middle; /* Aligner les images avec le texte */
+  margin-right: 8px; /* Ajouter de l'espace à droite des images */
+}
+.contact2 .span-contact {
+  margin-right: 150px; /* Ajouter de l'espace à gauche des numéros de téléphone */
 }
 
 /*# sourceMappingURL=stylefooter.css.map */
