@@ -2,7 +2,7 @@
 
 import React from 'react';
 import './main.css'; // Assurez-vous d'importer votre fichier de styles CSS si nécessaire
-import Footer from './Footer';
+import Footer from './footer.js';
 
 const App = () => {
     return (
