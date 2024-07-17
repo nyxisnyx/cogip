@@ -23,11 +23,20 @@
                     <div className="footer2">
                     
                         <div className="contact">
-                            <img src="/assets/img/icons/Location.svg" alt="localisation" /> 345 Faulconer Drive, Suite 4 • Charlottesville, CA, 12345
+                        <a href="https://www.google.com/maps/search/?api=1&query=345+Faulconer+Drive,+Suite+4,+Charlottesville,+CA,+12345" target="_blank">
+                            <img src="/assets/img/icons/Location.svg" alt="localisation" />345 Faulconer Drive, Suite 4 • Charlottesville, CA, 12345
+                        </a>
                         </div>
+                        
                         <div className="contact2">
-                            <img class="img-contact" src="/assets/img/icons/Icon_contact.svg" alt="contact" /><span class="span-contact">(123) 456-7890</span>
-                            <img class="img-contact" src="/assets/img/icons/Fax.svg" alt="fax" /> <span class="span-contact">(123) 456-7890</span>
+                        <a href="tel:+1234567890">
+                            <img class="img-contact" src="/assets/img/icons/Icon_contact.svg" alt="contact" />
+                            <span class="span-contact">(123) 456-7890</span>
+                        </a>
+                        <a href="fax:+1234567890">
+                            <img class="img-contact" src="/assets/img/icons/Fax.svg" alt="fax" />
+                            <span class="span-contact">(123) 456-7890</span>
+                        </a>
                         </div>
                         <div className="reseau">
                             <a href="https://www.facebook.com" target="_blank"><img class="img-reseau" src="/assets/img/icons/Facebook.svg" alt="Facebook" /></a>
