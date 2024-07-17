@@ -29,19 +29,24 @@ $router->mount('/companies', function () use ($router) {
     });
 });
 
-$router->mount('/invoices', function() use ($router){
+$router->mount('/invoices', function () use ($router) {
 
-    $router->get('/', function(){
+    $router->get('/', function () {
         $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
         return (new FacturesController($db))->getInvoices();
     });
-});
-$router->mount('/contacts', function() use ($router) {
-   
-    $router->get('/', function() {
 
-    $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
-    return (new ContactsController($db))->getContacts();
+    $router->get('/view/{id}', function ($id) {
+        $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+        return (new getInvoice($db))->getInvoice($id);
+    });
+});
+$router->mount('/contacts', function () use ($router) {
+
+    $router->get('/', function () {
+
+        $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+        return (new ContactsController($db))->getContacts();
     });
 });
 
@@ -87,12 +92,12 @@ $router->mount('/admin', function () use ($router) {
             return (new ContactsController($db))->setNewContact();
         });
 
-        $router->patch('/upd/{id}', function ($id){
+        $router->patch('/upd/{id}', function ($id) {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
             return (new ContactsController($db))->updateContact($id);
         });
 
-        $router->delete('/delete/{id}',function($id){
+        $router->delete('/delete/{id}', function ($id) {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
             return (new ContactsController($db))->deletContact($id);
         });
