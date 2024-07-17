@@ -30,6 +30,38 @@ class ContactsController extends Controller{
 
     }
 
+    public function getContactsDashbord($limit)
+    {
+
+        try {
+
+            $params = [
+
+                ':limit' => intval($limit)
+            ];
+
+            $contactsDatas = $this->database->queryBindParam(
+                'SELECT contacts.*, contacts.email AS typeName
+                FROM contacts
+                JOIN companies 
+                ON contacts.company_id = companies.company_id
+                ORDER BY created_at  DESC 
+                LIMIT :limit',$params
+            );
+
+            
+            return $contactsDatas;
+        } catch (\Throwable $th) {
+            //throw $th;
+            $response = [
+                'status' => 404,
+                'message' => 'No found',
+            ];
+            echo createJson($response);
+            echo $th;
+        }
+    }
+
     public function setNewContact(){
 
         try{
