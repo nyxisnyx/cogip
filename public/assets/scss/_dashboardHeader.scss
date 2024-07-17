@@ -4,27 +4,30 @@
 .DBHeaderContainer {
    display: flex;
    flex-direction: row;
-   justify-content: space-between;
+   // justify-content: space-between;
    align-items: flex-end;
    position: relative;
-   z-index: 1;
-   width: 60dvw;
 }
 
 .DBContainer {
    display: flex !important;
    flex-direction: row !important;
    justify-content: space-between !important;
-   justify-items: center;
-   align-items: flex-start;
 }
 
-.rectangle {
+.imageElement {
+   position: absolute;
+   width: 25dvw;
+   //top: 0;
+   right: 3dvw;   
+}
+
+.textElement {
    background-color: #9698d6;
    padding: 4dvw;
-   border-radius: 4dvw;
-   width: 60dvw;
-   height: 10dvw;
-   position: absolute;
+   padding-right: 25dvw;
+   border-radius: 3dvw;
+   color: #fff;
+
 }
 
