@@ -45,6 +45,15 @@ Explain any configuration settings, environment variables, or options users need
 - `POST /products`: Create a new product.
 - `PUT /products/:id`: Update product details.
 
+### Api table :
+|-----------------------------------------------------|
+|   http request  | body requested  |     exemple     |
+| --------------- | --------------- | --------------- |
+| http://localhost:5000/dashboard/:limit   |  \  | http://localhost:5000/dashboard/5   |
+| Row 2, Cell 1   | Row 2, Cell 2   | Row 2, Cell 3   |
+| Row 3, Cell 1   | Row 3, Cell 2   | Row 3, Cell 3   |
+|-----------------------------------------------------|
+
 ## Contributing
 We welcome contributions! If you'd like to contribute, follow these steps:
 1. Fork the repository.
