@@ -65,7 +65,8 @@ class CompaniesController extends Controller
                 JOIN types 
                 ON types.type_id = companies.type_id 
                 ORDER BY created_at  DESC 
-                LIMIT :limit',$params
+                LIMIT :limit',
+                $params
             );
 
             $datas = Companies::loadData($compagniesDatas);
@@ -89,7 +90,7 @@ class CompaniesController extends Controller
             $params = [
                 ':id' => $id
             ];
-            
+
             $datas = $this->database->query(
                 'SELECT companies.*, types.name AS typeName
                 FROM companies
@@ -99,11 +100,27 @@ class CompaniesController extends Controller
                 $params
             );
 
+            $datasConatcts = $this->database->query(
+                'SELECT email 
+                FROM contacts 
+                WHERE company_id= :id',
+                $params
+            );
+
+            $dataInvoices = $this->database->query(
+                'SELECT invoice_id,created_at,updated_at 
+                FROM invoices 
+                WHERE company_id=:id',
+                $params
+            );
+
             if ($datas) {
                 $response = [
                     'status' => 202,
                     'message' => 'OK',
-                    'params' => $datas
+                    'infos' => $datas,
+                    'contatct' => $datasConatcts,
+                    'invoices' => $dataInvoices
                 ];
             } else {
                 $response = [
@@ -111,7 +128,6 @@ class CompaniesController extends Controller
                     'message' => 'No found Companie',
                 ];
             }
-
 
             echo createJson($response);
         } catch (\Throwable $th) {
