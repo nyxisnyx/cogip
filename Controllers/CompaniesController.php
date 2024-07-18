@@ -89,7 +89,7 @@ class CompaniesController extends Controller
             $params = [
                 ':id' => $id
             ];
-
+            
             $datas = $this->database->query(
                 'SELECT companies.*, types.name AS typeName
                 FROM companies

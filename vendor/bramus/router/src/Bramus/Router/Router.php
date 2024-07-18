@@ -371,7 +371,7 @@ class Router
         if (($numHandled == 0) && (isset($this->notFoundCallback['/']))) {
             $this->invoke($this->notFoundCallback['/']);
         } elseif ($numHandled == 0) {
-           header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found'); 
+            header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found'); 
         }
     }
 
