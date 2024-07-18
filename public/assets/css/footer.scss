@@ -4,7 +4,7 @@
 // }
 footer {
     position: fixed; /* Fixe le footer */
-    bottom: 6cm; /* 6 cm du bas */
+    bottom: 10cm; /* 6 cm du bas */
     left: 5cm; /* 5 cm du côté gauche */
     right: 5cm; /* 5 cm du côté droit */
     height: 1px; /* Hauteur de la ligne */
@@ -14,8 +14,7 @@ footer {
 
 
 .btn-footer {
-    margin-top: 100px;
-    bottom: 5cm;
+    margin-top: 300px;
     padding: 10px 20px;
     color: black;
     border: none;
@@ -25,9 +24,10 @@ footer {
     a {
         margin: 10px; /* Pour ajouter de l'espace entre les liens */
         cursor: pointer; /* Pour changer le curseur en pointeur */
-        bottom: 3cm;
+        bottom: 2cm;
     }
 }
+
 
 
 // .btn-footer:hover {
@@ -40,14 +40,15 @@ footer {
     right: 10px;
     padding: 10px;
     color: gray;
+    margin-top: 200px;
 }
 
 
 .reseau {
     // margin-top: 100px;
     position: fixed;
-    bottom: 2cm;
-    left: 18cm;
+    bottom: 5.5cm;
+    left: 29.5cm;
     display: flex;
     flex-wrap: wrap;
     .img-reseau{
@@ -59,7 +60,7 @@ footer {
 .cogip {
     border: 4px solid rgb(255, 204, 0); 
     position: fixed;
-    bottom: 4.5cm; /* Fixe à 15 cm du bas */
+    bottom: 8cm; /* Fixe à 15 cm du bas */
     left: 10cm; /* Fixe à 10 cm de la gauche */
     font-size: 24px;
     font-weight: bold;
@@ -68,16 +69,16 @@ footer {
 .contact {
     
     position: fixed;
-    bottom: 5cm;
-    left: 18cm;
+    bottom: 8cm;
+    left: 30cm;
     display: flex;
     flex-wrap: wrap;
     margin-top: 100px;
 }
 .contact2 {
     position: fixed;
-    bottom: 4cm;
-    left: 18cm;
+    bottom: 7cm;
+    left: 30cm;
     display: flex;
     flex-wrap: wrap;
     margin-top: 150px;
