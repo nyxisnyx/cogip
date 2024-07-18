@@ -160,6 +160,37 @@ class FacturesController extends Controller
             echo "Error: " . $e->getMessage();
         }
 
-
     }
+    public function getInvoicesDashbord($limit)
+    {
+
+        try {
+
+            $params = [
+
+                ':limit' => intval($limit)
+            ];
+
+            $invoicesDatas = $this->database->queryBindParam(
+                'SELECT invoices.*
+                FROM invoices
+                JOIN companies 
+                ON invoices.company_id = companies.company_id
+                ORDER BY created_at  DESC 
+                LIMIT :limit',$params
+            );
+
+            
+            return $invoicesDatas;
+        } catch (\Throwable $th) {
+            //throw $th;
+            $response = [
+                'status' => 404,
+                'message' => 'No found',
+            ];
+            echo createJson($response);
+            echo $th;
+        }
+    }
+
 }
