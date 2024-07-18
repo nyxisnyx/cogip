@@ -46,13 +46,11 @@ Explain any configuration settings, environment variables, or options users need
 - `PUT /products/:id`: Update product details.
 
 ### Api table :
-|-------------------------------------------------------|
 |    Catégorie & explication    |   http request  | body requested  |     exemple     |
 | ----------------------------- | --------------- | --------------- | --------------- |
-|  pour récuper le nb d'info voulu de chaque tableau donc si vous mettez le chiffre 5 a la place de :limite dans la requet http vous aurez 5 companies 5 contactes et 5 factures  | http://localhost:5000/dashboard/:limit   |  \  | http://localhost:5000/dashboard/5   |
+|  Dashboard : si vous mettez le chiffre 5 a la place de :limite dans la requet http vous aurez 5 companies 5 contactes et 5 factures  | http://localhost:5000/dashboard/:limit   |  \  | http://localhost:5000/dashboard/5   |
 | Row 2, Cell 1   | Row 2, Cell 2   | Row 2, Cell 3   | |
 | Row 3, Cell 1   | Row 3, Cell 2   | Row 3, Cell 3   | |
-|-------------------------------------------------------|
 
 ## Contributing
 We welcome contributions! If you'd like to contribute, follow these steps:
