@@ -118,7 +118,7 @@ class CompaniesController extends Controller
                 $response = [
                     'status' => 202,
                     'message' => 'OK',
-                    'info' => $datas,
+                    'infos' => $datas,
                     'contatct' => $datasConatcts,
                     'invoices' => $dataInvoices
                 ];
