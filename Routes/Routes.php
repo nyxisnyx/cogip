@@ -165,7 +165,7 @@ $router->mount('/admin', function () use ($router) {
 
 
 
-    $router->mount('/invoices', function () use ($router) {
+    $router->mount('/invoice', function () use ($router) {
 
         $router->post('/add', function () {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
@@ -176,7 +176,7 @@ $router->mount('/admin', function () use ($router) {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
             return (new FacturesController($db))->patchInvoice($id);
         });
-        
+
         $router->delete('/delete/{id}', function ($id) {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
             return (new FacturesController($db))->deleteInvoice($id);
