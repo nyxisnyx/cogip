@@ -48,9 +48,8 @@ Explain any configuration settings, environment variables, or options users need
 ### Api table :
 |    Catégorie & explication    |   http request  | body requested  |     exemple     |
 | ----------------------------- | --------------- | --------------- | --------------- |
-
+|                                                                                     |
 |  Dashboard : si vous mettez le chiffre 5 a la place de :limite dans la requet http vous aurez 5 companies 5 contactes et 5 factures  | http://localhost:5000/dashboard/:limit <br> http://cogipbecode.vulturi.ro/dashboard/5   |  \  | http://localhost:5000/dashboard/:limit   |
-
 | companies :   | Row 2, Cell 2   | Row 2, Cell 3   | |
 | Row 3, Cell 1   | Row 3, Cell 2   | Row 3, Cell 3   | |
 
