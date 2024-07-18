@@ -54,7 +54,6 @@ Explain any configuration settings, environment variables, or options users need
 | companies : POST | http://localhost:5000/admin/companie/add <br> http://cogipbecode.vulturi.ro/admin/companie/add | {<br>"name": "Varshar(50)",<br>"type_id":INT,<br>"country":"VARSHAR(50)",<br>"tva":"VARSHAR(50)"<br>}   | {<br>"name": "Match Sa",<br>"type_id":1,<br>"country":"Belgique",<br>"tva":"BE8888888888"<br>} | Method POST donc il faut envoyer un ficher json quand<br> vous faite la request voir body requested et exemple pour vous aider. |
 | Companies : PUT   | http://localhost:5000/admin/companie/edit/:id <br> http://cogipbecode.vulturi.ro/admin/companie/edit/:id | {<br>"name": "Varshar(50)",<br>"type_id":INT,<br>"country":"Varshar(50)",<br>"tva":"Varshar(50)"<br>}   | {<br>"name": "Match Sa",<br>"type_id":1,<br>"country":"Belgique",<br>"tva":"BE8888888888"<br>} | Même chose que celui d'au-dessus donc il faut bien envoyer un body/json et ne pas oublier de remplacer : id dans l'URL par l'id de la compagnie ou vous remplacez les infos. |
 | Companies : DELETE  | http://localhost:5000/admin/companie/delete/:id <br> http://cogipbecode.vulturi.ro/admin/companie/delete/:id |  /  |  /  | Requête DELETE donc pas de body mais ne pas oublier de faire remplacer : id par l'id de la compagnie. |
-| - | - | - | - | - |
 | Row 3, Cell 1   | Row 3, Cell 2   | Row 3, Cell 3   | (body request) | (explication here) |
 
 ## Contributing
