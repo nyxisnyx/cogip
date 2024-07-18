@@ -1,13 +1,17 @@
 import React from "react";
+import Statistics from './Statistics';
+import LastInvoices from "./Lastinvoices";
+import LastContacts from "./LastContacts";
+import LastCompanies from "./LastCompanies";
 
 
 const DashboardSections = () => {
     return (
         <div>
-        <section>Statistics</section>
-        <section>Last Contacts</section>
-        <section>Last Invoices</section>
-        <section>Last companies</section>
+        <Statistics />
+        <LastInvoices />
+        <LastContacts />
+        <LastCompanies />
         </div>
 
     );
