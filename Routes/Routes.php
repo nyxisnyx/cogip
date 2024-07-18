@@ -11,6 +11,8 @@ use App\Controllers\LoginController;
 
 $router = new Router();
 
+//var_dump($_SESSION['user']);
+
 $router->get('/dashboard/{limit}', function ($limit) {
     $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
     (new HomeController($db))->index($limit);
@@ -20,14 +22,14 @@ $router->post('/login', function () {
     $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
     (new LoginController($db))->login();
 });
-$router->post('/logout', function () {
+$router->post('/logout/{key}', function ($key) {
     $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
-    (new LoginController($db))->logout();
+    (new LoginController($db))->logout($key);
 });
 
 $router->mount('/companies', function () use ($router) {
 
-    $router->get('/', function () {
+    $router->get('/all/{key}', function () {
         $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
         return (new CompaniesController($db))->getCompanies();
     });

@@ -80,12 +80,12 @@ class LoginController
         }
     }
 
-    public function logout()
+    public function logout($key)
     {
 
         // TODO retier de la session qd il logout 
 
-        session_destroy();
+        unset($_SESSION['user'][$key]);
 
         echo 'session destroy';
     }
