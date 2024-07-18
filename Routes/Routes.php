@@ -63,7 +63,7 @@ $router->mount('/admin', function () use ($router) {
         if (!isset($_SESSION['user'][$key]) ) {
             echo 'The user must be logged in to access this page';
             exit();
-        }elseif(intval($_SESSION['user'][$key]['permissions']) < 2){
+        }elseif(intval($_SESSION['user'][$key]['permissions']) < 3){
             echo 'The user is not allowed.';
             exit(); 
         }
@@ -73,7 +73,7 @@ $router->mount('/admin', function () use ($router) {
 
     $router->mount('/companie', function () use ($router) {
 
-        $router->post('/new/{key}', function () {
+        $router->post('/add/{key}', function () {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
             return (new CompaniesController($db))->postCompanie();
         });
