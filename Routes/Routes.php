@@ -35,8 +35,6 @@ $router->mount('/companies', function () use ($router) {
 
 //Invoices
 
-
-
 $router->mount('/invoices', function () use ($router) {
 
     $router->get('/', function () {
@@ -47,22 +45,6 @@ $router->mount('/invoices', function () use ($router) {
     $router->get('/view/{id}', function ($id) {
         $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
         return (new FacturesController($db))->getInvoice($id);
-    });
-
-    $router->post('/add', function () {
-
-        $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
-        return (new FacturesController($db))->createInvoice();
-    });
-
-    $router->delete('/delete/{id}', function ($id) {
-        $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
-        return (new FacturesController($db))->deleteInvoice($id);
-    });
-
-    $router->patch('/update/{id}', function ($id) {
-        $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
-        return (new FacturesController($db))->patchInvoice($id);
     });
 });
 
@@ -132,6 +114,26 @@ $router->mount('/admin', function () use ($router) {
         $router->delete('/delete/{id}', function ($id) {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
             return (new ContactsController($db))->deletContact($id);
+        });
+    });
+
+
+
+    $router->mount('/invoices', function () use ($router) {
+
+        $router->post('/add', function () {
+            $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+            return (new FacturesController($db))->createInvoice();
+        });
+
+        $router->delete('/delete/{id}', function ($id) {
+            $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+            return (new FacturesController($db))->deleteInvoice($id);
+        });
+
+        $router->patch('/update/{id}', function ($id) {
+            $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+            return (new FacturesController($db))->patchInvoice($id);
         });
     });
 });
