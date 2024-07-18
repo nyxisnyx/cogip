@@ -45,17 +45,22 @@ Explain any configuration settings, environment variables, or options users need
 - `POST /products`: Create a new product.
 - `PUT /products/:id`: Update product details.
 
-### Api table :
-|    Catégorie_&_Méthod    |   http request  | body requested  |     exemple     |     explication     |
+## Api table :
+### Companies URL :
+|    Méthod    |   http request  | body requested  |     exemple     |     explication     |
 | ------------------------ | --------------- | --------------- | --------------- | ------------------- |
 |  Dashboard : GET  | http://localhost:5000/dashboard/:limit <br> http://cogipbecode.vulturi.ro/dashboard/5 |  /  | http://localhost:5000/dashboard/:limit   | renvoie une liste avec la limite imposer <br> si vous remplacer : limite par 5 vous aurez :<br> 5 compagnies, 5 contacts, 5 factures. |
-| Companies : GET   | http://localhost:5000/companies/all <br> http://cogipbecode.vulturi.ro/companies/all |  /  |  /  | ici vous récupérez toutes les compagnies . |
-| Companies : GET   | http://localhost:5000/companies/view/:id <br> http://cogipbecode.vulturi.ro/view/:id |  /  | http://localhost:5000/companies/view/3 | ici vous récupererz la (une seul) compagnie de votre choix en remplacent :id <br> par le id de la compagnie. |
-| Companies : POST | http://localhost:5000/admin/companie/add <br> http://cogipbecode.vulturi.ro/admin/companie/add | {<br>"name": "Varshar(50)",<br>"type_id":INT,<br>"country":"VARSHAR(50)",<br>"tva":"VARSHAR(50)"<br>}   | {<br>"name": "Match Sa",<br>"type_id":1,<br>"country":"Belgique",<br>"tva":"BE8888888888"<br>} | Method POST donc il faut envoyer un ficher json quand<br> vous faite la request voir body requested et exemple pour vous aider. |
-| Companies : PUT   | http://localhost:5000/admin/companie/edit/:id <br> http://cogipbecode.vulturi.ro/admin/companie/edit/:id | {<br>"name": "Varshar(50)",<br>"type_id":INT,<br>"country":"Varshar(50)",<br>"tva":"Varshar(50)"<br>}   | {<br>"name": "Match Sa",<br>"type_id":1,<br>"country":"Belgique",<br>"tva":"BE8888888888"<br>} | Même chose que celui d'au-dessus donc il faut bien envoyer un body/json et ne pas oublier de remplacer : id dans l'URL par l'id de la compagnie ou vous remplacez les infos. |
-| Companies : DELETE  | http://localhost:5000/admin/companie/delete/:id <br> http://cogipbecode.vulturi.ro/admin/companie/delete/:id |  /  |  /  | Requête DELETE donc pas de body mais ne pas oublier de faire remplacer : id par l'id de la compagnie. |
+|   GET   | http://localhost:5000/companies/all <br> http://cogipbecode.vulturi.ro/companies/all |  /  |  /  | ici vous récupérez toutes les compagnies . |
+|   GET   | http://localhost:5000/companies/view/:id <br> http://cogipbecode.vulturi.ro/view/:id |  /  | http://localhost:5000/companies/view/3 | ici vous récupererz la (une seul) compagnie de votre choix en remplacent :id <br> par le id de la compagnie. |
+|   POST  | http://localhost:5000/admin/companie/add <br> http://cogipbecode.vulturi.ro/admin/companie/add | {<br>"name": "Varshar(50)",<br>"type_id":INT,<br>"country":"VARSHAR(50)",<br>"tva":"VARSHAR(50)"<br>}   | {<br>"name": "Match Sa",<br>"type_id":1,<br>"country":"Belgique",<br>"tva":"BE8888888888"<br>} | Method POST donc il faut envoyer un ficher json quand<br> vous faite la request voir body requested et exemple pour vous aider. |
+|   PUT   | http://localhost:5000/admin/companie/edit/:id <br> http://cogipbecode.vulturi.ro/admin/companie/edit/:id | {<br>"name": "Varshar(50)",<br>"type_id":INT,<br>"country":"Varshar(50)",<br>"tva":"Varshar(50)"<br>}   | {<br>"name": "Match Sa",<br>"type_id":1,<br>"country":"Belgique",<br>"tva":"BE8888888888"<br>} | Même chose que celui d'au-dessus donc il faut bien envoyer un body/json et ne pas oublier de remplacer : id dans l'URL par l'id de la compagnie ou vous remplacez les infos. |
+| DELETE  | http://localhost:5000/admin/companie/delete/:id <br> http://cogipbecode.vulturi.ro/admin/companie/delete/:id |  /  |  /  | Requête DELETE donc pas de body mais ne pas oublier de faire remplacer : id par l'id de la compagnie. |
+
+### Contacts URL :
+|    Méthod    |   http request  | body requested  |     exemple     |     explication     |
 | ------------------------ | --------------- | --------------- | --------------- | ------------------- |
-| Row 3, Cell 1   | Row 3, Cell 2   | Row 3, Cell 3   | (body request) | (explication here) |
+|  (method)  |  (http request)  | (body requested)   | (exemple) | (explication here) |
+
 
 ## Contributing
 We welcome contributions! If you'd like to contribute, follow these steps:
