@@ -62,7 +62,7 @@ $router->mount('/invoices', function () use ($router) {
 
 $router->mount('/contacts', function () use ($router) {
 
-    $router->get('/', function () {
+    $router->get('/all/{key}', function () {
 
         $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
         return (new ContactsController($db))->getContacts();
