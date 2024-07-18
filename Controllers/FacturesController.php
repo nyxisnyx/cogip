@@ -20,10 +20,13 @@ class FacturesController extends Controller
         try {
             $datas = $this->database->query("SELECT * FROM invoices");
             echo createJson($datas);
-        } catch (PDOException $e) {
-
-            echo "Error: " . $e->getMessage();
-
+        } catch (\Throwable $th) {
+            $response = [
+                'status' => 400,
+                'message' => 'Bad Request',
+            ];
+            echo createJson($response);
+            echo $th;
         }
     }
 
@@ -68,10 +71,13 @@ class FacturesController extends Controller
         try {
             $datas = $this->database->query("SELECT * FROM invoices WHERE invoice_id =" . $id);
             echo createJson($datas);
-        } catch (PDOException $e) {
-
-            echo "Error: " . $e->getMessage();
-
+        } catch (\Throwable $th) {
+            $response = [
+                'status' => 400,
+                'message' => 'Bad Request',
+            ];
+            echo createJson($response);
+            echo $th;
         }
     }
 
@@ -156,8 +162,13 @@ class FacturesController extends Controller
 
             echo createJson($contactData);
 
-        } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
+        } catch (\Throwable $th) {
+            $response = [
+                'status' => 400,
+                'message' => 'Bad Request',
+            ];
+            echo createJson($response);
+            echo $th;
         }
 
     }
