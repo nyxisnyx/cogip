@@ -17,9 +17,6 @@ class LoginController
 
     public function login()
     {
-        // TODO connection a la db 
-        // TODO on verifie si le username et password correct
-        // TODO si ok start SESSION['user][username]=['role'=$,];
 
         try {
 
@@ -87,8 +84,6 @@ class LoginController
 
     public function logout($key)
     {
-
-        // TODO retier de la session qd il logout 
 
         unset($_SESSION['user'][$key]);
 
