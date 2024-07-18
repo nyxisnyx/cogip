@@ -19,69 +19,147 @@ class FacturesController extends Controller
     {
         try {
             $datas = $this->database->query("SELECT * FROM invoices");
-            return $this->jsonResponse($datas);
-        } catch (\Throwable $th) {
-            return $this->jsonResponse(['error' => $th->getMessage()], 500);
+            echo createJson($datas);
+        } catch (PDOException $e) {
+
+            echo "Error: " . $e->getMessage();
+
         }
     }
 
-    public function postInvoice()
+    public function createInvoice()
     {
+
+        $json_str = file_get_contents('php://input');
+
+        $json_obj = json_decode($json_str);
+
         try {
-            $params = invoices::dataBodyInsert();
-            $datas = $this->database->query('INSERT INTO invoices(company_id,
-             created_at, 
-             updated_at)
-                VALUES (
-                    :company_id,
-                    :created_at,
-                    :updated_at)',
-                $params
+            $datas = $this->database->query(
+                "INSERT INTO 
+                `invoices`( `company_id`, 
+                `created_at`, 
+                `updated_at`)
+
+                 VALUES (
+                 {$json_obj->company_id},
+                 NOW(),
+                 NOW()
+                 )"
             );
             $response = [
                 'status' => 202,
                 'message' => 'OK',
-                'params' => $params
+                'params' => $datas
             ];
             echo createJson($response);
-
         } catch (\Throwable $th) {
             $response = [
                 'status' => 400,
                 'message' => 'Bad Request',
             ];
             echo createJson($response);
+            echo $th;
         }
-
     }
 
     public function getInvoice($id)
     {
+        try {
+            $datas = $this->database->query("SELECT * FROM invoices WHERE invoice_id =" . $id);
+            echo createJson($datas);
+        } catch (PDOException $e) {
+
+            echo "Error: " . $e->getMessage();
+
+        }
+    }
+
+    public function deleteInvoice($id)
+    {
 
         try {
-            $params = [':id' => $id];
-            $datas = $this->database->query("SELECT * FROM invoices WHERE");
-            if ($datas) {
+
+            $invoiceIsExist = $this->invoiceIsExist($id);
+
+            if ($invoiceIsExist) {
+                $params = [
+                    ':id' => securityInput(intval($id))
+                ];
+
+                $deleteInvoice = $this->database->query(
+                    'DELETE 
+                    FROM invoices
+                    WHERE invoice_id = :id',
+                    $params
+                );
+
                 $response = [
                     'status' => 202,
                     'message' => 'OK',
-                    'params' => $datas
+                    'params' => $params
                 ];
+
+                echo createJson($response);
             } else {
                 $response = [
                     'status' => 404,
-                    'message' => 'No found Companie',
+                    'message' => 'Invoice no Found',
                 ];
+                echo createJson($response);
             }
-            echo createJson($response);
         } catch (\Throwable $th) {
             $response = [
-                'status' => 404,
-                'message' => 'No found Companies',
+                'status' => 400,
+                'message' => 'Bad Request',
             ];
-
             echo createJson($response);
+            echo $th;
         }
+    }
+
+
+    public function invoiceIsExist($id)
+    {
+
+        $params = [
+            ':id' => intval($id)
+        ];
+
+        $datas = $this->database->query(
+            'SELECT * 
+            FROM invoices
+             Where invoice_id = :id',
+            $params
+        );
+
+        return $datas;
+
+    }
+
+    public function patchInvoice($id)
+    {
+
+        try {
+
+            $json_str = file_get_contents('php://input');
+
+            $json_obj = json_decode($json_str);
+
+            $contactData = $this->database->query(
+                "UPDATE `invoices` 
+                    SET 
+                    `company_id`='{$json_obj->company_id}',
+                    `updated_at`=NOW() 
+                    WHERE `invoice_id`= '{$id}'"
+            );
+
+            echo createJson($contactData);
+
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+
 
     }
 }

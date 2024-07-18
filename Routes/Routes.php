@@ -17,6 +17,9 @@ $router->get('/dashboard/{limit}', function ($limit) {
     (new HomeController($db))->index($limit);
 });
 
+// Companies
+
+
 $router->mount('/companies', function () use ($router) {
 
     $router->get('/', function () {
@@ -30,6 +33,10 @@ $router->mount('/companies', function () use ($router) {
     });
 });
 
+//Invoices
+
+
+
 $router->mount('/invoices', function () use ($router) {
 
     $router->get('/', function () {
@@ -39,9 +46,29 @@ $router->mount('/invoices', function () use ($router) {
 
     $router->get('/view/{id}', function ($id) {
         $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
-        return (new getInvoice($db))->getInvoice($id);
+        return (new FacturesController($db))->getInvoice($id);
+    });
+
+    $router->post('/add', function () {
+
+        $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+        return (new FacturesController($db))->createInvoice();
+    });
+
+    $router->delete('/delete/{id}', function ($id) {
+        $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+        return (new FacturesController($db))->deleteInvoice($id);
+    });
+
+    $router->patch('/update/{id}', function ($id) {
+        $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+        return (new FacturesController($db))->patchInvoice($id);
     });
 });
+
+//Contacts
+
+
 $router->mount('/contacts', function () use ($router) {
 
     $router->get('/', function () {
@@ -59,6 +86,9 @@ $router->before('GET|POST|PUT|PATCH|DELETE', '/admin/.*', function () {
         exit();
     }
 });
+
+//Admin
+
 
 $router->mount('/admin', function () use ($router) {
 
