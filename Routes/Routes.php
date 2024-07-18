@@ -31,7 +31,7 @@ $router->post('/logout/{key}', function ($key) {
 
 $router->mount('/companies', function () use ($router) {
 
-    $router->get('/all/{key}', function () {
+    $router->get('/all', function () {
         $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
         return (new CompaniesController($db))->getCompanies();
     });
@@ -46,7 +46,7 @@ $router->mount('/companies', function () use ($router) {
 
 $router->mount('/invoices', function () use ($router) {
 
-    $router->get('/all/{key}', function () {
+    $router->get('/all', function () {
         $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
         return (new FacturesController($db))->getInvoices();
     });
