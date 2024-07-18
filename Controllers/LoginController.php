@@ -35,15 +35,14 @@ class LoginController
                 JOIN roles 
                     ON users.role_id = roles.role_id 
                 JOIN role_permissions 
-                    ON roles.role_id = role_permissions.permission_id 
+                    ON roles.role_id = role_permissions.role_id
                 WHERE users.user = :userName',
                 $params
             );
 
-
             if ($userIsExist) {
 
-                if ($dataBody['password'] === $userIsExist[0]['password_hash']) {
+                if (password_verify($dataBody['password'], $userIsExist[0]['password_hash'])) {
 
                     $key = generateApiKey();
 
@@ -54,19 +53,25 @@ class LoginController
 
 
                     $response = [
-                        'status' => 200,
-                        'message' => 'Connection successful',
-                        'first_name'=>$userIsExist[0]['first_name'],
-                        'last_name'=>$userIsExist[0]['last_name'],
-                        'key' => $key,
-
+                        'status' => 201,
+                        'message' => 'Successful Login ',
+                        'first_name' => $userIsExist[0]['first_name'],
+                        'last_name' => $userIsExist[0]['last_name'],
+                        'key' => $key
+                    ];
+                    echo createJson($response);
+                } else {
+                    $response = [
+                        'status' => 401,
+                        'message' => 'Unauthorized',
                     ];
                     echo createJson($response);
                 }
             } else {
+
                 $response = [
-                    'status' => 404,
-                    'message' => 'Connection Failed',
+                    'status' => 401,
+                    'message' => 'Unauthorized',
                 ];
                 echo createJson($response);
             }
@@ -87,6 +92,10 @@ class LoginController
 
         unset($_SESSION['user'][$key]);
 
-        echo 'session destroy';
+        $response = [
+            'status' => 200,
+            'message' => 'Successful Logout'
+        ];
+        echo createJson($response);
     }
 }

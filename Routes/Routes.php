@@ -11,8 +11,6 @@ use App\Controllers\LoginController;
 
 $router = new Router();
 
-//var_dump($_SESSION['user']);
-
 $router->get('/dashboard/{limit}', function ($limit) {
     $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
     (new HomeController($db))->index($limit);
@@ -43,10 +41,18 @@ $router->mount('/companies', function () use ($router) {
 // Middleware //
 $router->before('GET|POST|PUT|PATCH|DELETE', '/admin/.*/{key}', function ($key) {
     if (!isset($_SESSION['user'][$key]) ) {
-        echo 'The user must be logged in to access this page';
+        $response = [
+            'status' => 401,
+            'message' => 'Unauthorized',
+        ];
+        echo createJson($response);
         exit();
-    }elseif(intval($_SESSION['user'][$key]['permissions']) < 2){
-        echo 'The user is not allowed.';
+    }elseif(intval($_SESSION['user'][$key]['permissions']) <1){
+        $response = [
+            'status' => 403,
+            'message' => 'Forbidden',
+        ];
+        echo createJson($response);
         exit(); 
     }
 });
@@ -61,10 +67,18 @@ $router->mount('/admin', function () use ($router) {
     // Middleware //
     $router->before('DELETE', '/companie/.*/{key}', function ($key) {
         if (!isset($_SESSION['user'][$key]) ) {
-            echo 'The user must be logged in to access this page';
+            $response = [
+                'status' => 401,
+                'message' => 'Unauthorized',
+            ];
+            echo createJson($response);
             exit();
-        }elseif(intval($_SESSION['user'][$key]['permissions']) < 3){
-            echo 'The user is not allowed.';
+        }elseif(intval($_SESSION['user'][$key]['permissions']) <= 2){
+            $response = [
+                'status' => 403,
+                'message' => 'Forbidden',
+            ];
+            echo createJson($response);
             exit(); 
         }
     });
