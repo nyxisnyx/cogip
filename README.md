@@ -61,6 +61,10 @@ Explain any configuration settings, environment variables, or options users need
 | ------------------------ | --------------- | --------------- | --------------- | ------------------- |
 |  (method)  |  (http request)  | (body requested)   | (exemple) | (explication here) |
 
+### Invoices URL :
+|    Méthod    |   http request  | body requested  |     exemple     |     explication     |
+| ------------------------ | --------------- | --------------- | --------------- | ------------------- |
+|  (method)  |  (http request)  | (body requested)   | (exemple) | (explication here) |
 
 ## Contributing
 We welcome contributions! If you'd like to contribute, follow these steps:
