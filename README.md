@@ -1,21 +1,15 @@
 # My Awesome Project Documentation
 
 ## Introduction
-Welcome to my awesome project! This documentation provides an overview of the project, its components, and how to use it.
+Welcome to our awesome project! This documentation provides an overview of the project, its components, and how to use it.
 
 ## Table of Contents
-- Installation
 - Usage
 - Configuration
 - API Endpoints
+- Common Errors
 - Contributing
 - License
-
-## Installation
-To get started, follow these steps:
-1. Clone the repository: `git clone https://github.com/yourusername/awesome-project.git`
-2. Install dependencies: `npm install`
-3. Run the project: `npm start`
 
 ## Usage
 Describe how users can use your project. Include examples, screenshots, or code snippets.
@@ -75,6 +69,14 @@ Explain any configuration settings, environment variables, or options users need
 |   POST  | http://localhost:5000/admin/invoice/add <br> http://cogipbecode.vulturi.ro/admin/invoice/add | {<br>"compagny_id" : INT <br>} | {<br>"compagny_id" : INT <br>} | Method POST donc il faut envoyer un ficher json quand<br> vous faite la request voir body requested et exemple pour vous aider. |
 |  PATCH  | http://localhost:5000/admin/invoice/edit/:id <br> http://cogipbecode.vulturi.ro/admin/invoice/edit/:id | {<br>"compagny_id" : INT <br>}  | {<br>"compagny_id" : INT <br>} | Même chose que celui d'au-dessus donc il faut bien envoyer un body/json et ne pas oublier de remplacer :id dans l'URL par l'id de la facture ou vous remplacez les infos. |
 | DELETE  | http://localhost:5000/admin/invoice/delete/:id <br> http://cogipbecode.vulturi.ro/admin/invoice/delete/:id |  /  |  /  | Requête DELETE donc pas de body mais ne pas oublier de faire remplacer :id par l'id de la facture. |
+
+### Common Errors
+
+| Status Code               | Description                                                           | Response                                                          |
+|---------------------------|-----------------------------------------------------------------------|-------------------------------------------------------------------|
+| 400 Bad Request           | The server could not understand the request due to invalid syntax.    | `json { "status": "error", "message": "Bad Request" }`            |
+| 404 Not Found             | The server can not find the requested resource.                       | `json { "status": "error", "message": "Not Found" }`              |
+| 500 Internal Server Error | The server has encountered a situation it doesn't know how to handle. | `json { "status": "error", "message": "Internal Server Error" }`  |
 
 ## Contributing
 We welcome contributions! If you'd like to contribute, follow these steps:
