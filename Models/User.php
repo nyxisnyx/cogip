@@ -15,7 +15,7 @@ class User{
         $this->email = $email;
         $this->password = $password;
         $this->role = $role;
-
+        //Dylan est le meilleur
     }
 
     public function getAll(){
@@ -47,7 +47,7 @@ class User{
     public function logout(){
         
         // TODO retier de la session qd il logout 
-
+        // Dylan est le meilleur
     }
 
 
