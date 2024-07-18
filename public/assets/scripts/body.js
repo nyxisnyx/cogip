@@ -19,6 +19,7 @@ const Body = () => {
                 <h2>Last companies</h2>
                 {/* contenu sql */}
             </div>
+            <h1>WORK BETTER IN YOUR COMPANY</h1>
         </div>
         
 
