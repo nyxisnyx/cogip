@@ -47,7 +47,7 @@ Explain any configuration settings, environment variables, or options users need
 
 ### Api table :
 |    Catégorie_&_Méthod    |   http request  | body requested  |     exemple     |     explication     |
-| ------------------------ | --------------- | --------------- | --------------- |
+| ------------------------ | --------------- | --------------- | --------------- | ------------------- |
 |  Dashboard : GET  | http://localhost:5000/dashboard/:limit <br> http://cogipbecode.vulturi.ro/dashboard/5 |  /  | http://localhost:5000/dashboard/:limit   | renvoie une liste avec la limite imposer <br> si vous remplacer : limite par 5 vous aurez :<br> 5 compagnies, 5 contacts, 5 factures. |
 | companies : GET   | http://localhost:5000/companies/all <br> http://cogipbecode.vulturi.ro/companies/all |  /  |  /  | ici vous récupérez toutes les compagnies il faut être login pour pouvoir les fetch. |
 | Companies : GET   | http://localhost:5000/companies/view/:id <br> http://cogipbecode.vulturi.ro/view/:id |  /  | http://localhost:5000/companies/view/3 | ici vous récupererz la (une seul) compagnie de votre choix en remplacent :id <br> par le id de la compagnie. |
