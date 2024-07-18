@@ -35,28 +35,6 @@ class User
     }
 
 
-<<<<<<< HEAD
-    public function register(){
-
-    }
-
-    public function login(){
-
-        // TODO connection a la db 
-        // TODO on verifie si le username et password correct
-        // TODO si ok start SESSION['user][username]=['role'=$,];
-        
-    }
-
-    public function logout(){
-        
-        // TODO retier de la session qd il logout 
-        // Dylan est le meilleur
-    }
-
-
-}
-=======
     public function register()
     {
     }
@@ -77,4 +55,3 @@ class User
     }
     
 }
->>>>>>> ludovic
