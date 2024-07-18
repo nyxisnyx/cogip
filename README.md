@@ -1,13 +1,56 @@
-# How to start?
+# My Awesome Project Documentation
 
-1. Install the dependances
+## Introduction
+Welcome to my awesome project! This documentation provides an overview of the project, its components, and how to use it.
 
-```terminal
-composer install
-```
+## Table of Contents
+- Installation
+- Usage
+- Configuration
+- API Endpoints
+- Contributing
+- License
 
-2. Launch the project
+## Installation
+To get started, follow these steps:
+1. Clone the repository: `git clone https://github.com/yourusername/awesome-project.git`
+2. Install dependencies: `npm install`
+3. Run the project: `npm start`
 
-```terminal
-php -S localhost:8000 -t public 
-```
+## Usage
+Describe how users can use your project. Include examples, screenshots, or code snippets.
+
+## Configuration
+Explain any configuration settings, environment variables, or options users need to set up.
+
+## API Endpoints
+### User API
+- `GET /users`: Get a list of users.
+- `POST /users`: Create a new user.
+- `GET /users/:id`: Get user details by ID.
+- ...
+
+### Companies API
+- `GET /products`: Get a list of products.
+- `POST /products`: Create a new product.
+- `PUT /products/:id`: Update product details.
+
+### Contacts API
+- `GET /products`: Get a list of products.
+- `POST /products`: Create a new product.
+- `PUT /products/:id`: Update product details.
+
+### Invoices API
+- `GET /products`: Get a list of products.
+- `POST /products`: Create a new product.
+- `PUT /products/:id`: Update product details.
+
+## Contributing
+We welcome contributions! If you'd like to contribute, follow these steps:
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature/my-awesome-feature`
+3. Make your changes.
+4. Submit a pull request.
+
+## License
+This project is licensed under the MIT License. See LICENSE for details.
