@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\config\Database;
 use App\Core\Controller;
 use App\Models\Companies;
+use App\Controllers\ContactsController;
 
 
 class CompaniesController extends Controller
@@ -12,10 +13,12 @@ class CompaniesController extends Controller
 
 
     private Database $database;
+    protected $contactsController;
 
     public function __construct(Database $database)
     {
         $this->database = $database;
+        $this->contactsController = new ContactsController($database);
     }
 
 
@@ -100,12 +103,8 @@ class CompaniesController extends Controller
                 $params
             );
 
-            $datasConatcts = $this->database->query(
-                'SELECT email 
-                FROM contacts 
-                WHERE company_id= :id',
-                $params
-            );
+            $datasContact = $this->contactsController;
+            $datasContacts=$datasContact->getCompany_companyId($id);
 
             $dataInvoices = $this->database->query(
                 'SELECT invoices.invoice_id,invoices.created_at,invoices.updated_at ,companies.name 
@@ -121,7 +120,7 @@ class CompaniesController extends Controller
                     'status' => 202,
                     'message' => 'OK',
                     'infos' => $datas,
-                    'contatct' => $datasConatcts,
+                    'contatct' => $datasContacts,
                     'invoices' => $dataInvoices
                 ];
             } else {

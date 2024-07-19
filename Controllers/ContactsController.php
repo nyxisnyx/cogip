@@ -44,6 +44,20 @@ class ContactsController extends Controller{
         }
 
     }
+    public function getCompany_companyId($id){
+
+        try{
+
+            $contactData =$this->database->query("SELECT contacts.*,companies.name FROM contacts JOIN companies ON contacts.company_id = companies.company_id  WHERE  companies.company_id= '{$id}'");
+            return $contactData;
+
+        } catch(PDOException $e){
+
+            echo "Error: " . $e->getMessage();
+
+        }
+
+    }
 
     public function getContactsDashbord($limit)
     {
