@@ -6,7 +6,8 @@ const LastCompanies = ({ user }) => {
     useEffect(() => {
         const fetchCompanies = async () => {
             try {
-                const response = await fetch(`/api/companies`); 
+                const apiKey = "api";
+                const response = await fetch(`http://cogipbecode.vulturi.ro/admin/${apiKey}/5`); 
                 if (!response.ok) {
                   throw new Error("Network response was not ok");
                 }

@@ -5,6 +5,8 @@ const LastContacts = ({ user }) => {
 
     useEffect(() => {
         const fetchContacts = async () => {
+            const apiKey = "api";
+            const response = await fetch(`http://cogipbecode.vulturi.ro/admin/${apiKey}/5`); 
             try {
                 const response = await fetch(`/api/contacts`); 
                 if (!response.ok) {

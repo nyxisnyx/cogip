@@ -11,14 +11,15 @@ import React, { useState, useEffect } from "react";
                 try {
                   const [invoicesResponse, contactsResponse, companiesResponse] =
                     await Promise.all([
-                      fetch(`/api/invoices`).then((response) => response.json()),
-                      fetch(`/api/contacts`).then((response) => response.json()),
-                      fetch(`/api/companies`).then((response) => response.json()),
+                      fetch(`http://cogipbecode.vulturi.ro/invoices/all`).then((response) => response.json()),
+                      fetch(`http://cogipbecode.vulturi.ro/contacts/all`).then((response) => response.json()),
+                      fetch(`http://cogipbecode.vulturi.ro/companies/all`).then((response) => response.json()),
                     ]);
     
-                    setInvoicesCount(invoicesResponse.data.length);  // Або використовуйте invoicesResponse.data.count, якщо відповіді надають кількість
-                    setContactsCount(contactsResponse.data.length);
-                    setCompaniesCount(companiesResponse.data.length);
+                    setInvoicesCount(invoicesResponse.length);  
+                    console.log(companiesResponse);
+                    setContactsCount(contactsResponse.length);
+                    setCompaniesCount(companiesResponse.params.length);
                 } catch (error) {
                     console.error("Error fetching data:", error);
                 }

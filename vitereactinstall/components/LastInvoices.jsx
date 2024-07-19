@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-//import axios from "axios";
+
 
 const LastInvoices = ({ user }) => {
     const [invoices, setInvoices] = useState([]);
@@ -7,7 +7,8 @@ const LastInvoices = ({ user }) => {
     useEffect(() => {
         const fetchInvoices = async () => {
             try {
-                const response = await fetch(`/api/invoices`); 
+                const apiKey = "api";
+                const response = await fetch(`http://cogipbecode.vulturi.ro/admin/${apiKey}/5`); 
                 if (!response.ok) {
                   throw new Error("Network response was not ok");
                 }
