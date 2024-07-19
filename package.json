@@ -146,5 +146,10 @@
     "presets": [
       "react-app"
     ]
-  }
+  },
+  "description": "- **Type of challenge:** consolidation - **Repository:** Cogip_Project - **Duration:** 10 days - **Deadline:** 26/07/2024 - **Team Challenge:** 6",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

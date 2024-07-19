@@ -14,13 +14,49 @@
     <div class="dark-mode-toggle" id="darkModeToggle">
         <img src="assets/img/icons/sun-moon.svg" alt="Toggle Dark Mode" id="modeIcon">
     </div>
+</body>
+</html>
 
-     <!-- Inclure React et ReactDOM -->
+     <!-- Inclure React et ReactDOM
     <script src="https://unpkg.com/react/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+ -->
 
-    <!-- Votre code JSX pour le footer--> 
+
+
+
+<!-- react pour le body -->
+ <!-- <script>
+    const Body = () => {
+    const handleClick = (buttonName) => {
+        alert(`${buttonName} was clicked!`);
+    };
+
+    return (
+        <div> {/* Utilisez <div> au lieu de <body> */}
+            <img className="home_footer" src="/assets/img/home_footer.png" alt="home footer" />
+            <img className="home_lamp" src="/assets/img/home_lamp.png" alt="home lamp" />
+            <img className="show-company" src="/assets/img/show-company.png" alt="show company" />
+            <div>
+                <h2>Last invoices</h2>
+                {/* contenu sql */}
+                <h2>Last contacts</h2>
+                {/* contenu sql */}
+                <h2>Last companies</h2>
+                {/* contenu sql */}
+            </div>
+            <h1>WORK BETTER IN YOUR COMPANY</h1>
+        </div>
+        
+
+    );
+};
+
+ </script>
+
+
+     Votre code JSX pour le footer 
     <script type="text/babel">
         const Footer = () => {
             const handleClick = (buttonName) => {
@@ -72,4 +108,4 @@
         ReactDOM.render(<Footer />, document.getElementById('root'));
     </script>
 </body>
-</html>
+</html> -->
