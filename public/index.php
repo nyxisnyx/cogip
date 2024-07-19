@@ -13,18 +13,24 @@
     <div id="root"></div>
     <div class="dark-mode-toggle" id="darkModeToggle">
         <img src="assets/img/icons/sun-moon.svg" alt="Toggle Dark Mode" id="modeIcon">
+        <?php include ("scripts/footer.jsx")?>
+         <!-- Inclure React et ReactDOM-->
+    <script src="https://unpkg.com/react/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script> 
+ 
     </div>
 </body>
 </html>
 
      <!-- Inclure React et ReactDOM-->
-    <script src="https://unpkg.com/react/umd/react.production.min.js"></script>
+    <!-- <script src="https://unpkg.com/react/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script> -->
  
 
 <!-- react pour le body -->
- <script>
+ <!-- <script>
     const Body = () => {
     const handleClick = (buttonName) => {
         alert(`${buttonName} was clicked!`);
@@ -103,6 +109,6 @@
         };
 
         ReactDOM.render(<Footer />, document.getElementById('root'));
-    </script>
+    </script> -->
 </body>
 </html>

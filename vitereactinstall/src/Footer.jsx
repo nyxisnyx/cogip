@@ -1,5 +1,6 @@
 import React from 'react';
-import './Footer.css';
+import '/home/stacy/cogip/public/assets/css/footer.css';
+
 
 const Footer = () => {
     const handleClick = (buttonName) => {
@@ -12,7 +13,7 @@ const Footer = () => {
             <div className="footer2">
                 <div className="contact">
                     <a href="https://www.google.com/maps/search/?api=1&query=345+Faulconer+Drive,+Suite+4,+Charlottesville,+CA,+12345" target="_blank" rel="noopener noreferrer">
-                        <img src="/assets/img/icons/Location.svg" alt="localisation" />345 Faulconer Drive, Suite 4 • Charlottesville, CA, 12345
+                        <img src="/assets/img/icons/Location.svg" alt="localisation"/>345 Faulconer Drive, Suite 4 • Charlottesville, CA, 12345
                     </a>
                 </div>
                 <div className="contact2">
