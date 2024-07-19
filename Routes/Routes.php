@@ -9,6 +9,7 @@ use App\Config\Database;
 use App\Controllers\CompaniesController;
 use App\Controllers\ContactsController;
 use App\Controllers\AdminController;
+use App\Controllers\LoginController;
 
 $router = new Router();
 
@@ -19,10 +20,18 @@ $router->get('/dashboard/{limit}', function ($limit) {
 
 // Companies
 
+$router->post('/login', function () {
+    $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+    (new LoginController($db))->login();
+});
+$router->post('/logout/{key}', function ($key) {
+    $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+    (new LoginController($db))->logout($key);
+});
 
 $router->mount('/companies', function () use ($router) {
 
-    $router->get('/', function () {
+    $router->get('/all', function () {
         $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
         return (new CompaniesController($db))->getCompanies();
     });
@@ -35,11 +44,9 @@ $router->mount('/companies', function () use ($router) {
 
 //Invoices
 
-
-
 $router->mount('/invoices', function () use ($router) {
 
-    $router->get('/', function () {
+    $router->get('/all', function () {
         $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
         return (new FacturesController($db))->getInvoices();
     });
@@ -48,22 +55,6 @@ $router->mount('/invoices', function () use ($router) {
         $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
         return (new FacturesController($db))->getInvoice($id);
     });
-
-    $router->post('/add', function () {
-
-        $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
-        return (new FacturesController($db))->createInvoice();
-    });
-
-    $router->delete('/delete/{id}', function ($id) {
-        $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
-        return (new FacturesController($db))->deleteInvoice($id);
-    });
-
-    $router->patch('/update/{id}', function ($id) {
-        $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
-        return (new FacturesController($db))->patchInvoice($id);
-    });
 });
 
 //Contacts
@@ -71,19 +62,34 @@ $router->mount('/invoices', function () use ($router) {
 
 $router->mount('/contacts', function () use ($router) {
 
-    $router->get('/', function () {
+    $router->get('/all', function () {
 
         $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
         return (new ContactsController($db))->getContacts();
     });
+    $router->get('/view/{id}', function ($id) {
+
+        $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+        return (new ContactsController($db))->getContact($id);
+    });
 });
 
 // Middleware //
-$router->before('GET|POST|PUT|PATCH|DELETE', '/admin/.*', function () {
-    if (isset($_SESSION['user'])) {
-        //header('Location: /login');
-        echo 'The user must be logged in to access this page.';
+$router->before('GET|POST|PUT|PATCH|DELETE', '/admin/.*/{key}', function ($key) {
+    if (!isset($_SESSION['user'][$key]) ) {
+        $response = [
+            'status' => 401,
+            'message' => 'Unauthorized',
+        ];
+        echo createJson($response);
         exit();
+    }elseif(intval($_SESSION['user'][$key]['permissions']) <1){
+        $response = [
+            'status' => 403,
+            'message' => 'Forbidden',
+        ];
+        echo createJson($response);
+        exit(); 
     }
 });
 
@@ -97,10 +103,30 @@ $router->mount('/admin', function () use ($router) {
         (new AdminController($db))->index($limit);
     });
 
+    // Middleware //
+    $router->before('DELETE', '/companie/.*/{key}', function ($key) {
+        if (!isset($_SESSION['user'][$key]) ) {
+            $response = [
+                'status' => 401,
+                'message' => 'Unauthorized',
+            ];
+            echo createJson($response);
+            exit();
+        }elseif(intval($_SESSION['user'][$key]['permissions']) <= 2){
+            $response = [
+                'status' => 403,
+                'message' => 'Forbidden',
+            ];
+            echo createJson($response);
+            exit(); 
+        }
+    });
+
+
 
     $router->mount('/companie', function () use ($router) {
 
-        $router->post('/add', function () {
+        $router->post('/add/{key}', function () {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
             return (new CompaniesController($db))->postCompanie();
         });
@@ -109,6 +135,8 @@ $router->mount('/admin', function () use ($router) {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
             return (new CompaniesController($db))->putCompanie($id);
         });
+
+
 
         $router->delete('/delete/{id}', function ($id) {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
@@ -119,12 +147,12 @@ $router->mount('/admin', function () use ($router) {
     // ajouter votre code en mode admin ici.
     $router->mount('/contact', function () use ($router) {
 
-        $router->post('/add', function () {
+        $router->post('/add/{key}', function () {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
             return (new ContactsController($db))->setNewContact();
         });
 
-        $router->patch('/upd/{id}', function ($id) {
+        $router->patch('/edit/{id}', function ($id) {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
             return (new ContactsController($db))->updateContact($id);
         });
@@ -133,6 +161,27 @@ $router->mount('/admin', function () use ($router) {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
             return (new ContactsController($db))->deletContact($id);
         });
+    });
+
+
+
+    $router->mount('/invoice', function () use ($router) {
+
+        $router->post('/add', function () {
+            $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+            return (new FacturesController($db))->createInvoice();
+        });
+        
+        $router->patch('/edit/{id}', function ($id) {
+            $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+            return (new FacturesController($db))->patchInvoice($id);
+        });
+
+        $router->delete('/delete/{id}', function ($id) {
+            $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+            return (new FacturesController($db))->deleteInvoice($id);
+        });
+
     });
 });
 

@@ -30,6 +30,21 @@ class ContactsController extends Controller{
 
     }
 
+    public function getContact($id){
+
+        try{
+
+            $contactData =$this->database->query("SELECT * FROM `contacts` WHERE  `contact_id`= '{$id}'");
+            echo createJson($contactData);
+
+        } catch(PDOException $e){
+
+            echo "Error: " . $e->getMessage();
+
+        }
+
+    }
+
     public function getContactsDashbord($limit)
     {
 
@@ -41,7 +56,7 @@ class ContactsController extends Controller{
             ];
 
             $contactsDatas = $this->database->queryBindParam(
-                'SELECT contacts.*, contacts.email AS typeName
+                'SELECT contacts.*, contacts.email
                 FROM contacts
                 JOIN companies 
                 ON contacts.company_id = companies.company_id
@@ -70,9 +85,10 @@ class ContactsController extends Controller{
             // Get as an object
             $json_obj = json_decode($json_str);
     
-            $contactData =$this->database->query("INSERT INTO `contacts`(`company_id`, `phone`, `email`, `created_at`, `updated_at`) 
+            $contactData =$this->database->query("INSERT INTO `contacts`(`company_id`,'name', `phone`, `email`, `created_at`, `updated_at`) 
             VALUES (
                     '{$json_obj->company_id}',
+                    '{$json_obj->name}',
                     '{$json_obj->phone}',
                     '{$json_obj->email}',
                     NOW(),
@@ -98,6 +114,7 @@ class ContactsController extends Controller{
                 "UPDATE `contacts` 
                 SET 
                 `company_id`='{$json_obj->company_id}',
+                'name'='{$json_obj->name}',
                 `phone`='{$json_obj->phone}',
                 `email`='{$json_obj->email}',
                 `updated_at`=NOW() 

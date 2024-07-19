@@ -20,10 +20,13 @@ class FacturesController extends Controller
         try {
             $datas = $this->database->query("SELECT * FROM invoices");
             echo createJson($datas);
-        } catch (PDOException $e) {
-
-            echo "Error: " . $e->getMessage();
-
+        } catch (\Throwable $th) {
+            $response = [
+                'status' => 400,
+                'message' => 'Bad Request',
+            ];
+            echo createJson($response);
+            echo $th;
         }
     }
 
@@ -68,10 +71,13 @@ class FacturesController extends Controller
         try {
             $datas = $this->database->query("SELECT * FROM invoices WHERE invoice_id =" . $id);
             echo createJson($datas);
-        } catch (PDOException $e) {
-
-            echo "Error: " . $e->getMessage();
-
+        } catch (\Throwable $th) {
+            $response = [
+                'status' => 400,
+                'message' => 'Bad Request',
+            ];
+            echo createJson($response);
+            echo $th;
         }
     }
 
@@ -156,10 +162,46 @@ class FacturesController extends Controller
 
             echo createJson($contactData);
 
-        } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
+        } catch (\Throwable $th) {
+            $response = [
+                'status' => 400,
+                'message' => 'Bad Request',
+            ];
+            echo createJson($response);
+            echo $th;
         }
 
-
     }
+    public function getInvoicesDashbord($limit)
+    {
+
+        try {
+
+            $params = [
+
+                ':limit' => intval($limit)
+            ];
+
+            $invoicesDatas = $this->database->queryBindParam(
+                'SELECT invoices.*
+                FROM invoices
+                JOIN companies 
+                ON invoices.company_id = companies.company_id
+                ORDER BY created_at  DESC 
+                LIMIT :limit',$params
+            );
+
+            
+            return $invoicesDatas;
+        } catch (\Throwable $th) {
+            //throw $th;
+            $response = [
+                'status' => 404,
+                'message' => 'No found',
+            ];
+            echo createJson($response);
+            echo $th;
+        }
+    }
+
 }

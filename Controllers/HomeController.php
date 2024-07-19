@@ -22,12 +22,14 @@ class HomeController extends Controller
         try {
             $datasCompanies = (new CompaniesController($this->database))->getCompaniesDashbord($limit);
             $dataContacts =(new ContactsController($this->database))->getContactsDashbord($limit);
+            $invoicesDatas =(new FacturesController($this->database))->getInvoicesDashbord($limit);
             
             $response = [
                 'status' => 202,
                 'message' => 'OK',
                 'Companies' => $datasCompanies,
-                'Contacts'=>$dataContacts
+                'Contacts'=>$dataContacts,
+                'Invoices'=> $invoicesDatas
             ];
 
             echo createJson($response);
@@ -41,7 +43,5 @@ class HomeController extends Controller
             ];
             echo createJson($response);
         }
-
-        //return $this->view('welcome',["name" => "Cogip"]);
     }
 }
