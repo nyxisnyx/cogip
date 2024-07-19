@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../public/assets/css/styles.css';
+import './assets/css/styles.css';
 import Dashboard from '../components/Dashboard';
 
 const App = () => {
