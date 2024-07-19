@@ -39,7 +39,7 @@ $router->mount('/companies', function () use ($router) {
 });
 
 // Middleware //
-$router->before('GET|POST|PUT|PATCH|DELETE', '/admin/.*/{key}', function ($key) {
+$router->before('GET|POST|PUT|PATCH|DELETE', '/admin/{key}/.*', function ($key) {
     if (!isset($_SESSION['user'][$key]) ) {
         $response = [
             'status' => 401,
@@ -57,15 +57,15 @@ $router->before('GET|POST|PUT|PATCH|DELETE', '/admin/.*/{key}', function ($key) 
     }
 });
 
-$router->mount('/admin', function () use ($router) {
+$router->mount('/admin/{key}', function () use ($router) {
 
-    $router->get('/{limit}', function ($limit) {
+    $router->get('/{limit}', function ($key,$limit) {
         $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
         (new AdminController($db))->index($limit);
     });
 
     // Middleware //
-    $router->before('DELETE', '/companie/.*/{key}', function ($key) {
+    $router->before('DELETE', '/companie/.*', function ($key) {
         if (!isset($_SESSION['user'][$key]) ) {
             $response = [
                 'status' => 401,
@@ -87,19 +87,19 @@ $router->mount('/admin', function () use ($router) {
 
     $router->mount('/companie', function () use ($router) {
 
-        $router->post('/add/{key}', function () {
+        $router->post('/add', function () {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
             return (new CompaniesController($db))->postCompanie();
         });
 
-        $router->put('/edit/{id}', function ($id) {
+        $router->put('/edit/{id}', function ($key,$id) {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
             return (new CompaniesController($db))->putCompanie($id);
         });
 
 
 
-        $router->delete('/delete/{id}', function ($id) {
+        $router->delete('/delete/{id}', function ($key,$id) {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
             return (new CompaniesController($db))->deleteCompanie($id);
         });
