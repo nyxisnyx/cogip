@@ -1,4 +1,4 @@
-# My Awesome Project Documentation
+# Cogip API Documentation
 
 ## Introduction
 Welcome to our awesome project! This documentation provides an overview of the project, its components, and how to use it.
@@ -8,11 +8,11 @@ Welcome to our awesome project! This documentation provides an overview of the p
 - Configuration
 - API Endpoints
 - Common Errors
-- Contributing
+- Contributor
 - License
 
 ## Usage
-Describe how users can use your project. Include examples, screenshots, or code snippets.
+Use the http request bellow and don't forget to add a body/json to it if needed.
 
 ## Configuration
 Explain any configuration settings, environment variables, or options users need to set up.
@@ -78,12 +78,10 @@ Explain any configuration settings, environment variables, or options users need
 | 404 Not Found             | The server can not find the requested resource.                       | `json { "status": "error", "message": "Not Found" }`              |
 | 500 Internal Server Error | The server has encountered a situation it doesn't know how to handle. | `json { "status": "error", "message": "Internal Server Error" }`  |
 
-## Contributing
-We welcome contributions! If you'd like to contribute, follow these steps:
-1. Fork the repository.
-2. Create a new branch: `git checkout -b feature/my-awesome-feature`
-3. Make your changes.
-4. Submit a pull request.
+## Contributor
+- Ludovic /Github : https://github.com/ludoviclacroix82
+- Adrien.C /Github : https://github.com/AdCa09
+- Iliess /Github : https://github.com/Iliess-A
 
 ## License
-This project is licensed under the MIT License. See LICENSE for details.
+No license project devloped to improve our backend skills.
