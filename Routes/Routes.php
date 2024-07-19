@@ -147,12 +147,12 @@ $router->mount('/admin/{key}', function () use ($router) {
     // ajouter votre code en mode admin ici.
     $router->mount('/contact', function () use ($router) {
 
-        $router->post('/add/{key}', function () {
+        $router->post('/add', function () {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
             return (new ContactsController($db))->setNewContact();
         });
 
-        $router->patch('/edit/{id}', function ($id) {
+        $router->patch('/edit/{id}', function ($key,$id) {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
             return (new ContactsController($db))->updateContact($id);
         });
@@ -172,7 +172,7 @@ $router->mount('/admin/{key}', function () use ($router) {
             return (new FacturesController($db))->createInvoice();
         });
         
-        $router->patch('/edit/{id}', function ($id) {
+        $router->patch('/edit/{id}', function ($key,$id) {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
             return (new FacturesController($db))->patchInvoice($id);
         });
