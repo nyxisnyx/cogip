@@ -123,6 +123,14 @@ $router->mount('/admin/{key}', function () use ($router) {
     });
 
 
+    $router->mount('/user', function () use ($router) {
+
+        $router->post('/add', function () {
+            $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+            return (new AdminController($db))->createUser();
+        });
+    });
+
 
     $router->mount('/companie', function () use ($router) {
 
