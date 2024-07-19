@@ -183,15 +183,16 @@ class FacturesController extends Controller
             ];
 
             $invoicesDatas = $this->database->queryBindParam(
-                'SELECT invoices.*
+                'SELECT invoices.*, campanies.name
                 FROM invoices
                 JOIN companies 
                 ON invoices.company_id = companies.company_id
                 ORDER BY created_at  DESC 
-                LIMIT :limit',$params
+                LIMIT :limit',
+                $params
             );
 
-            
+
             return $invoicesDatas;
         } catch (\Throwable $th) {
             //throw $th;
