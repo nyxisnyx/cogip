@@ -62,10 +62,15 @@ $router->mount('/invoices', function () use ($router) {
 
 $router->mount('/contacts', function () use ($router) {
 
-    $router->get('/', function () {
+    $router->get('/all', function () {
 
         $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
         return (new ContactsController($db))->getContacts();
+    });
+    $router->get('/view/{id}', function ($id) {
+
+        $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+        return (new ContactsController($db))->getContact($id);
     });
 });
 
@@ -142,12 +147,12 @@ $router->mount('/admin/{key}', function () use ($router) {
     // ajouter votre code en mode admin ici.
     $router->mount('/contact', function () use ($router) {
 
-        $router->post('/add', function () {
+        $router->post('/add/{key}', function () {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
             return (new ContactsController($db))->setNewContact();
         });
 
-        $router->patch('/upd/{id}', function ($key,$id) {
+        $router->patch('/edit/{id}', function ($id) {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
             return (new ContactsController($db))->updateContact($id);
         });
@@ -160,22 +165,23 @@ $router->mount('/admin/{key}', function () use ($router) {
 
 
 
-    $router->mount('/invoices', function () use ($router) {
+    $router->mount('/invoice', function () use ($router) {
 
         $router->post('/add', function ($key) {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
             return (new FacturesController($db))->createInvoice();
         });
-
-        $router->delete('/delete/{id}', function ($key,$id) {
-            $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
-            return (new FacturesController($db))->deleteInvoice($id);
-        });
-
-        $router->patch('/update/{id}', function ($key,$id) {
+        
+        $router->patch('/edit/{id}', function ($id) {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
             return (new FacturesController($db))->patchInvoice($id);
         });
+
+        $router->delete('/delete/{id}', function ($id) {
+            $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+            return (new FacturesController($db))->patchInvoice($id);
+        });
+
     });
 });
 
