@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/assets/css/footer.css">
     <link rel="stylesheet" href="/assets/css/darkmode.css">
     <script src="/assets/scripts/darkmode.js" defer></script>
+    <script src="/assets/scripts/index.js" defer></script>
     <title>React Footer with PHP</title>
 </head>
 <body>
@@ -14,12 +15,12 @@
         <img src="assets/img/icons/sun-moon.svg" alt="Toggle Dark Mode" id="modeIcon">
     </div>
 
-    <!-- Inclure React et ReactDOM -->
+     <!-- Inclure React et ReactDOM -->
     <script src="https://unpkg.com/react/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
 
-    <!-- Votre code JSX pour le footer -->
+    <!-- Votre code JSX pour le footer--> 
     <script type="text/babel">
         const Footer = () => {
             const handleClick = (buttonName) => {
