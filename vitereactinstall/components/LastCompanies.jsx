@@ -12,7 +12,7 @@ const LastCompanies = ({ user }) => {
                   throw new Error("Network response was not ok");
                 }
                 const data = await response.json();
-                setCompanies(data);
+                setCompanies(data.Companies);
               } catch (error) {
                 console.error("Error fetching companies:", error);
               }

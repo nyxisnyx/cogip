@@ -13,7 +13,9 @@ const LastInvoices = ({ user }) => {
                   throw new Error("Network response was not ok");
                 }
                 const data = await response.json();
-                setInvoices(data);
+                setInvoices(data.Invoices);
+
+                console.log(data);
               } catch (error) {
                 console.error("Error fetching invoices:", error);
               }
@@ -34,10 +36,10 @@ const LastInvoices = ({ user }) => {
                 </thead>
                 <tbody>
                     {invoices.map(invoice => (
-                        <tr key={invoice.id}>
-                            <td>{invoice.number}</td>
-                            <td>{invoice.date}</td>
-                            <td>{invoice.company}</td>
+                        <tr key={invoice.invoice_id}>
+                            <td>{invoice.invoice_id}</td>
+                            <td>{invoice.created_at}</td>
+                            <td>{invoice.name}</td>
                         </tr>
                     ))}
                 </tbody>

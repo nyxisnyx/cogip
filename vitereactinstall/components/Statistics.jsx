@@ -17,7 +17,6 @@ import React, { useState, useEffect } from "react";
                     ]);
     
                     setInvoicesCount(invoicesResponse.length);  
-                    console.log(companiesResponse);
                     setContactsCount(contactsResponse.length);
                     setCompaniesCount(companiesResponse.params.length);
                 } catch (error) {

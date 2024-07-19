@@ -5,15 +5,16 @@ const LastContacts = ({ user }) => {
 
     useEffect(() => {
         const fetchContacts = async () => {
-            const apiKey = "api";
-            const response = await fetch(`http://cogipbecode.vulturi.ro/admin/${apiKey}/5`); 
             try {
-                const response = await fetch(`/api/contacts`); 
+                const apiKey = "api";
+                const response = await fetch(`http://cogipbecode.vulturi.ro/admin/${apiKey}/5`); 
+                
                 if (!response.ok) {
                   throw new Error("Network response was not ok");
                 }
                 const data = await response.json();
-                setContacts(data);
+                setContacts(data.Contacts);
+                console.log(data.Contacts);
               } catch (error) {
                 console.error("Error fetching contacts:", error);
               }
@@ -34,10 +35,10 @@ const LastContacts = ({ user }) => {
                 </thead>
                 <tbody>
                     {contacts.map(contact => (
-                        <tr key={contact.id}>
-                            <td>{contact.number}</td>
-                            <td>{contact.date}</td>
-                            <td>{contact.company}</td>
+                        <tr key={contact.contact_id}>
+                            <td>{contact.name}</td>
+                            <td>{contact.phone}</td>
+                            <td>{contact.email}</td>
                         </tr>
                     ))}
                 </tbody>
