@@ -108,9 +108,11 @@ class CompaniesController extends Controller
             );
 
             $dataInvoices = $this->database->query(
-                'SELECT invoice_id,created_at,updated_at 
+                'SELECT invoices.invoice_id,invoices.created_at,invoices.updated_at ,companies.name 
                 FROM invoices 
-                WHERE company_id=:id',
+                JOIN companies 
+                ON invoices.company_id = companies.company_id
+                 WHERE invoices.company_id=:id',
                 $params
             );
 
