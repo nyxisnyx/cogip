@@ -11,7 +11,7 @@ class User
     private string $password;
     private int  $role;
 
-    public function __construct(string $username,  string $password, ?string $email =null, ?int $role=null, ?string $firstname=null, ?string $lastname=null)
+    public function __construct(string $username,  string $password, int $role=1, ?string $email ='', ?string $firstname='', ?string $lastname='')
     {
 
         $this->username = $username;
@@ -50,7 +50,7 @@ class User
                     '{$this->firstname}',
                     '{$this->lastname}',
                     '{$this->email}',
-                    '{$this->password}',
+                    '{$this->hashpassword($this->password)}',
                     '{$this->role}',
                     NOW(),
                     NOW()
@@ -83,6 +83,13 @@ class User
         ];
 
         return $params;
+    }
+
+    private function hashpassword($pwd){
+
+        $hash = password_hash($pwd, PASSWORD_DEFAULT);
+        return $hash;
+
     }
     
 }
