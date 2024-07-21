@@ -33,7 +33,8 @@ const LastInvoices = ({ user }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {invoices.map(invoice => (
+                    {invoices &&
+                    invoices?.map(invoice => (
                         <tr key={invoice.id}>
                             <td>{invoice.number}</td>
                             <td>{invoice.date}</td>
