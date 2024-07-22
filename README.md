@@ -18,16 +18,16 @@ Use the http request bellow and don't forget to add a body/json to it if needed.
 Explain any configuration settings, environment variables, or options users need to set up.
 
 ## API Endpoints
-### User API
+### User/Login API
 - `GET /users`: Get a list of users.
 - `POST /users`: Create a new user.
 - `GET /users/:id`: Get user details by ID.
-- ...
+- `POST/DELETE /users/`: to LogIn/logout
 
 ### Companies API
-- `GET /products`: Get a list of products.
-- `POST /products`: Create a new product.
-- `PUT /products/:id`: Update product details.
+- `GET /companies`: Get a list of products.
+- `POST /companies`: Create a new product.
+- `PUT /companies/:id`: Update product details.
 
 ### Contacts API
 - `GET /products`: Get a list of products.
