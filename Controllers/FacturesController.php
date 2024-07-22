@@ -37,15 +37,26 @@ class FacturesController extends Controller
 
         $json_obj = json_decode($json_str);
 
+        $company_id_form_invoice = securityInput($json_obj->company_id) ;
+        $price_form_invoice = securityInput($json_obj->price) ;
+        $company_name_form_invoice = securityInput($json_obj->company_name);
+           
+
         try {
             $datas = $this->database->query(
                 "INSERT INTO 
-                `invoices`( `company_id`, 
+                `invoices`( `company_id`,
+                `price`,
+                `company_name` 
                 `created_at`, 
                 `updated_at`)
 
+            
+
                  VALUES (
-                 {$json_obj->company_id},
+                 {$company_id_form_invoice},
+                 {$price_form_invoice},
+                 {$company_name_form_invoice},
                  NOW(),
                  NOW()
                  )"
