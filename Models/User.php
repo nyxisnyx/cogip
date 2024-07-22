@@ -14,11 +14,11 @@ class User
     public function __construct(string $username,  string $password, int $role=1, ?string $email ='', ?string $firstname='', ?string $lastname='')
     {
 
-        $this->username = $username;
-        $this->firstname = $firstname;
-        $this->lastname = $lastname;
-        $this->email = $email;
-        $this->password = $password;
+        $this->username = securityInput($username);
+        $this->firstname = securityInput($firstname);
+        $this->lastname = securityInput($lastname);
+        $this->email = securityInput($email);
+        $this->password = securityInput($password);
         $this->role = $role;
     }
 
