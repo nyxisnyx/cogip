@@ -98,13 +98,18 @@ class ContactsController extends Controller{
             $json_str = file_get_contents('php://input');
             // Get as an object
             $json_obj = json_decode($json_str);
+
+            $company_id_form = securityInput($json_obj->company_id) ;
+            $name_form = securityInput($json_obj->name) ;
+            $phone_form = securityInput($json_obj->phone);
+            $email_form = securityInput($json_obj->email);
     
             $contactData =$this->database->query("INSERT INTO `contacts`(`company_id`,'name', `phone`, `email`, `created_at`, `updated_at`) 
             VALUES (
-                    '{$json_obj->company_id}',
-                    '{$json_obj->name}',
-                    '{$json_obj->phone}',
-                    '{$json_obj->email}',
+                    '{$company_id_form}',
+                    '{$name_form}',
+                    '{$phone_form}',
+                    '{$email_form}',
                     NOW(),
                     NOW()
                     )");
