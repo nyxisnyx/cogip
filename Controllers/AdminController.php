@@ -60,4 +60,29 @@ class AdminController {
         $newUser->register($this->database);
 
     }
+
+    public function getAllUsers(){
+
+        try{
+
+            $contactData =$this->database->query(
+                "SELECT users.user,users.email,users.first_name,users.last_name,roles.name 
+                FROM users
+                JOIN roles 
+                    ON users.role_id = roles.role_id 
+                JOIN role_permissions 
+                    ON roles.role_id = role_permissions.role_id
+                ");
+            echo createJson($contactData);
+
+        } catch (\Throwable $th) {
+            //throw $th;
+            $response = [
+                'status' => 404,
+                'message' => 'No found',
+            ];
+            echo createJson($response);
+            echo $th;
+        }
+    }
 }

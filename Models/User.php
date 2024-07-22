@@ -23,7 +23,7 @@ class User
         
     }
 
-    public function getAll()
+    public function getUserInfo()
     {
 
         $datainJson = json_encode(

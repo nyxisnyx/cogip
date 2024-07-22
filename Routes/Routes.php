@@ -116,10 +116,12 @@ $router->before('DELETE', '/admin/{key}/.*', function ($key) {
 
 $router->mount('/admin/{key}', function () use ($router) {
 
-    $router->get('/{limit}', function ($key, $limit) {
+    $router->get('/all/{limit}', function ($key, $limit) {
         $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
         (new AdminController($db))->index($limit);
     });
+
+    
 
 
     $router->mount('/user', function () use ($router) {
@@ -127,6 +129,10 @@ $router->mount('/admin/{key}', function () use ($router) {
         $router->post('/add', function () {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
             return (new AdminController($db))->createUser();
+        });
+        $router->get('/view',function () {
+            $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+            return (new AdminController($db))->getAllUsers();
         });
     });
 
