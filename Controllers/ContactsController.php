@@ -120,7 +120,7 @@ class ContactsController extends Controller{
             echo "Error: " . $e->getMessage();
         }
     }    
-
+    
     public function updateContact($id){
 
         try{
