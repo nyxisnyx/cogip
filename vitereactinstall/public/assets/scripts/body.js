@@ -21,8 +21,6 @@ const Body = () => {
             </div>
             <h1>WORK BETTER IN YOUR COMPANY</h1>
         </div>
-        
-
     );
 };
 
