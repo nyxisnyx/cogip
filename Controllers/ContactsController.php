@@ -120,29 +120,7 @@ class ContactsController extends Controller{
             echo "Error: " . $e->getMessage();
         }
     }    
-
-    public function setNewInvoice(){
-        try{
-
-            $json_str = file_get_contents('php://input');
-            
-            $json_obj = json_decode($json_str);
-
-            $company_id_form_invoice = securityInput($json_obj->company_id);
-
-            $contactDataInvoice =$this->database->query("INSERT INTO `contacts`(`company_id`,`created_at`, `updated_at`) 
-            VALUES (
-                    '{$company_id_form_invoice}',
-                    NOW(),
-                    NOW()
-                    )");
-
-                    echo createJson($contactDataInvoice);
-        }catch(PDOException $e){
-            echo "Error: " . $e->getMessage();
-        }
-    }
-
+    
     public function updateContact($id){
 
         try{
