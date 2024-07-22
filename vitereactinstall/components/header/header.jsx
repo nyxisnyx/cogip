@@ -23,8 +23,16 @@ export const Header = () => {
         }
     }, [window.location])
 
+    const loginPopover = document.getElementById("loginPopover");
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "h") {
+            popover.showPopover();
+        }
+    });
+
     return (
-        <header className={style.outline}>
+        <header className={style.publicHeader}>
             {/* navbar here */}
             <nav>
                 <h1>Cogip</h1>
@@ -37,8 +45,23 @@ export const Header = () => {
                 </menu>
 
                 <div>
-                <button>Sign Up</button>
-                <button>Log In</button>
+                {/* <button>Sign Up</button>  */}
+                {/* redirection */}
+                <button popovertarget="loginPopover">Log In</button>
+                <div popover="auto" id="loginPopover" className={style.loginPopover}>
+                
+                    <h3>Log In</h3>
+                    <form>
+                        <label for="email">Email address:</label>
+                        <input type="text" id="email" autocomplete="on" name="email"></input>
+
+                        <label for="password">Password:</label>
+                        <input id="password" type="password" autocomplete="on" name="password"></input>
+
+                        <button class="submitLog" type="submit">Login</button>
+                    </form>
+                </div>
+                {/* popover */}
                 </div>
             </nav>
 

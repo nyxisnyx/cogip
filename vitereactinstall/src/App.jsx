@@ -6,7 +6,7 @@ import { TestPage } from '../components/TestPage';
 const App = () => {
     return (
         <div className="App">
-            <Dashboard />
+            <TestPage />
         </div>
     );
 };
