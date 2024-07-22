@@ -20,6 +20,7 @@ class User
         $this->email = securityInput($email);
         $this->password = securityInput($password);
         $this->role = $role;
+        
     }
 
     public function getAll()

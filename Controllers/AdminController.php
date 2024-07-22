@@ -47,8 +47,16 @@ class AdminController {
         $json_str = file_get_contents('php://input');
             // Get as an object
         $json_obj = json_decode($json_str);
+
+        $username = isset($json_obj->username) ? $json_obj->username : null;
+        $password = isset($json_obj->password) ? $json_obj->password : null;
+        $email = isset($json_obj->email) ? securityInput($json_obj->email) : '';
+        $firstname = isset($json_obj->firstname) ? securityInput($json_obj->firstname) : '';
+        $lastname = isset($json_obj->lastname) ? securityInput($json_obj->lastname) : '';
+        $role = isset($json_obj->role) ? securityInput($json_obj->role) : 1;
+        
             
-        $newUser = new User($json_obj->username,$json_obj->password);
+        $newUser = new User($username,$password,$role,$email,$firstname,$lastname);
         $newUser->register($this->database);
 
     }

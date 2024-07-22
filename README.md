@@ -30,14 +30,14 @@ Explain any configuration settings, environment variables, or options users need
 - `PUT /companies/:id`: Update product details.
 
 ### Contacts API
-- `GET /products`: Get a list of products.
-- `POST /products`: Create a new product.
-- `PUT /products/:id`: Update product details.
+- `GET /contacts`: Get a list of products.
+- `POST /contacts`: Create a new product.
+- `PUT /contacts/:id`: Update product details.
 
 ### Invoices API
-- `GET /products`: Get a list of products.
-- `POST /products`: Create a new product.
-- `PUT /products/:id`: Update product details.
+- `GET /invoices`: Get a list of products.
+- `POST /invoices`: Create a new product.
+- `PUT /invoices/:id`: Update product details.
 
 ## Api table :
 ### Companies URL :
@@ -69,6 +69,12 @@ Explain any configuration settings, environment variables, or options users need
 |   POST  | http://localhost:5000/admin/invoice/add <br> http://cogipbecode.vulturi.ro/admin/invoice/add | {<br>"compagny_id" : INT <br>} | {<br>"compagny_id" : INT <br>} | Method POST donc il faut envoyer un ficher json quand<br> vous faite la request voir body requested et exemple pour vous aider. |
 |  PATCH  | http://localhost:5000/admin/invoice/edit/:id <br> http://cogipbecode.vulturi.ro/admin/invoice/edit/:id | {<br>"compagny_id" : INT <br>}  | {<br>"compagny_id" : INT <br>} | Même chose que celui d'au-dessus donc il faut bien envoyer un body/json et ne pas oublier de remplacer :id dans l'URL par l'id de la facture ou vous remplacez les infos. |
 | DELETE  | http://localhost:5000/admin/invoice/delete/:id <br> http://cogipbecode.vulturi.ro/admin/invoice/delete/:id |  /  |  /  | Requête DELETE donc pas de body mais ne pas oublier de faire remplacer :id par l'id de la facture. |
+
+
+### User/login/logout URL :
+|    Méthod    |   http request  | body requested  |     exemple     |     explication     |
+| --------------- | --------------- | --------------- | --------------- | ------------------- |
+|   (methode)     |    (http request)    |   (body requested)  |    (exemple)    |   (explication)    |
 
 ### Common Errors
 
