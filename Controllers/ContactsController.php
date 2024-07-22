@@ -128,14 +128,20 @@ class ContactsController extends Controller{
             $json_str = file_get_contents('php://input');
             // Get as an object
             $json_obj = json_decode($json_str);
+
+            
+            $company_id_form = securityInput($json_obj->company_id);
+            $name_form = securityInput($json_obj->name);
+            $phone_form = securityInput($json_obj->phone);
+            $email_form = securityInput($json_obj->email);
     
             $contactData =$this->database->query(
                 "UPDATE `contacts` 
                 SET 
-                `company_id`='{$json_obj->company_id}',
-                'name'='{$json_obj->name}',
-                `phone`='{$json_obj->phone}',
-                `email`='{$json_obj->email}',
+                `company_id`='{$company_id_form}',
+                'name'='{$name_form}',
+                `phone`='{$phone_form}',
+                `email`='{$email_form}',
                 `updated_at`=NOW() 
                 WHERE `contact_id`= '{$id}'"
             );
