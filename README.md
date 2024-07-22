@@ -19,6 +19,7 @@ Explain any configuration settings, environment variables, or options users need
 
 ## API Endpoints
 ### User/Login API
+* NB : seul les admins de niveaux 3 pourrons enregitsrer de nouvaux USER !!!
 - `GET /users`: Get a list of users.
 - `POST /users`: Create a new user.
 - `GET /users/:id`: Get user details by ID.
@@ -74,7 +75,9 @@ Explain any configuration settings, environment variables, or options users need
 ### User/login/logout URL :
 |    Méthod    |   http request  | body requested  |     exemple     |     explication     |
 | --------------- | --------------- | --------------- | --------------- | ------------------- |
-|   (methode)     |    (http request)    |   (body requested)  |    (exemple)    |   (explication)    |
+|    POST    |    http://localhost:5000/admin/api/user/add    |   {<br>"username":"Varshar(20)",<br>"password":"Varshar(20)",<br>"firstname":Varshar(20)",<br>"lastname":"Varshar(20)",<br>"email":"varshar(50)",<br>"role":INT<br>}   |    {<br>"username":"iliess",<br>"password":"password123",<br>"firstname":"iliess",<br>"lastname":"abdelmadjid",<br>"email":"iliess@email.com",<br>"role":3<br>}    |   Pour cette requète vous n'êtes pas obliger d'envoyer un body avec toute les infos,<br> les seul infos importante sont le "username" et "password".<br> NB : respectez l'orthographe des mots entre guillemet "role" = "role" != "Role".   |
+|   POST     |    http://localhost:5000/login    |   {<br>"user":"Varshar(20)",<br>"password":"Varshar(20)"<br>}  |    {<br>"user":"iliess",<br>"password":"password123"<br>}    |   Ici, lorsque vous vous connectez (logIn), si le nom d’utilisateur (username) et le mot de passe (password) sont corrects, vous recevrez en retour un jeton (token). Vous devrez ajouter ce dernier à votre URL. Ce jeton servira à déterminer votre niveau d’administration et si vous avez les droits d’exécuter telle ou telle action.    |
+<!-- |   (methode)     |    (http request)    |   (body requested)  |    (exemple)    |   (explication)    | -->
 
 ### Common Errors
 
