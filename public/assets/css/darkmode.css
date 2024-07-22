@@ -1,0 +1,18 @@
+@charset "UTF-8";
+body {
+  background-color: #ffffff; /* Couleur de fond par défaut (clair) */
+  color: #000000; /* Couleur du texte par défaut (clair) */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transition fluide */
+}
+
+.dark-mode {
+  background-color: #1f1f1f; /* Couleur de fond en mode sombre */
+  color: #ffffff; /* Couleur du texte en mode sombre */
+}
+
+.toggle-dark-mode {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}/*# sourceMappingURL=darkmode.css.map */

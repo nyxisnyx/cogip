@@ -287,6 +287,10 @@ class PrettyPageHandler extends Handler
         $vars["tables"] = array_merge($extraTables, $vars["tables"]);
 
         $plainTextHandler = new PlainTextHandler();
+<<<<<<< HEAD
+=======
+        $plainTextHandler->setRun($this->getRun());
+>>>>>>> frontdev
         $plainTextHandler->setException($this->getException());
         $plainTextHandler->setInspector($this->getInspector());
         $vars["preface"] = "<!--\n\n\n" .  $this->templateHelper->escape($plainTextHandler->generateResponse()) . "\n\n\n\n\n\n\n\n\n\n\n-->";
@@ -304,7 +308,11 @@ class PrettyPageHandler extends Handler
      */
     protected function getExceptionFrames()
     {
+<<<<<<< HEAD
         $frames = $this->getInspector()->getFrames();
+=======
+        $frames = $this->getInspector()->getFrames($this->getRun()->getFrameFilters());
+>>>>>>> frontdev
 
         if ($this->getApplicationPaths()) {
             foreach ($frames as $frame) {
@@ -353,7 +361,10 @@ class PrettyPageHandler extends Handler
      * will be flattened with `print_r`.
      *
      * @param string $label
+<<<<<<< HEAD
      * @param array  $data
+=======
+>>>>>>> frontdev
      *
      * @return static
      */
@@ -383,7 +394,11 @@ class PrettyPageHandler extends Handler
             throw new InvalidArgumentException('Expecting callback argument to be callable');
         }
 
+<<<<<<< HEAD
         $this->extraTables[$label] = function (\Whoops\Exception\Inspector $inspector = null) use ($callback) {
+=======
+        $this->extraTables[$label] = function (\Whoops\Inspector\InspectorInterface $inspector = null) use ($callback) {
+>>>>>>> frontdev
             try {
                 $result = call_user_func($callback, $inspector);
 
@@ -755,11 +770,17 @@ class PrettyPageHandler extends Handler
     /**
      * Set the application paths.
      *
+<<<<<<< HEAD
      * @param array $applicationPaths
      *
      * @return void
      */
     public function setApplicationPaths($applicationPaths)
+=======
+     * @return void
+     */
+    public function setApplicationPaths(array $applicationPaths)
+>>>>>>> frontdev
     {
         $this->applicationPaths = $applicationPaths;
     }
