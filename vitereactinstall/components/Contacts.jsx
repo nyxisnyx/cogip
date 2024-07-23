@@ -1,10 +1,13 @@
 import React from 'react';
+import NewContact from './NewContact';
+import DashboardHeader from "./DashboardHeader";
 
 const Contacts = () => {
     return (
         <div>
-            <h1>Contacts Component</h1>
-            {/* Ваш код для відображення контактів */}
+        <DashboardHeader />
+        <NewContact />
+        <button type="button" className="AddButton">Add Contact</button>
         </div>
     );
 };

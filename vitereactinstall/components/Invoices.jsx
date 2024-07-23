@@ -1,5 +1,6 @@
 import React from "react";
-import InvoiceList from './InvoiceList';
+// import InvoiceList from './InvoiceList';
+import NewInvoice from "./NewInvoice";
 import DashboardHeader from "./DashboardHeader";
 //import DashboardMenu from './DashboardMenu';
 
@@ -7,10 +8,9 @@ import DashboardHeader from "./DashboardHeader";
 const Invoices = () => {
     return (
         <div>
-        {/* <DashboardMenu /> */}
         <DashboardHeader />
-        <InvoiceList />
-        {/* <button className="AddButton">Add Invoice</button> */}
+        <NewInvoice />
+        <button type="button" className="AddButton">Add Invoice</button>
         </div>
     );
 };

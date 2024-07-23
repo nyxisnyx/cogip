@@ -1,10 +1,13 @@
 import React from 'react';
+import NewCompany from './NewCompany';
+import DashboardHeader from "./DashboardHeader";
 
 const Companies = () => {
     return (
         <div>
-            <h1>Companies Component</h1>
-            {/* Ваш код для відображення компаній */}
+        <DashboardHeader />
+        <NewCompany />
+        <button type="button" className="AddButton">Add Company</button>
         </div>
     );
 };
