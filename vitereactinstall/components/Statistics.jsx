@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-//import axios from "axios";
 
     const Statistics = ({user}) => {
         const [invoicesCount, setInvoicesCount] = useState(0);
@@ -11,9 +10,9 @@ import React, { useState, useEffect } from "react";
                 try {
                   const [invoicesResponse, contactsResponse, companiesResponse] =
                     await Promise.all([
-                      fetch(`http://cogipbecode.vulturi.ro/invoices/all`).then((response) => response.json()),
-                      fetch(`http://cogipbecode.vulturi.ro/contacts/all`).then((response) => response.json()),
-                      fetch(`http://cogipbecode.vulturi.ro/companies/all`).then((response) => response.json()),
+                      fetch(`http://becodecogip.rbarkersw.com/invoices/all`).then((response) => response.json()),
+                      fetch(`http://becodecogip.rbarkersw.com/contacts/all`).then((response) => response.json()),
+                      fetch(`http://becodecogip.rbarkersw.com/companies/all`).then((response) => response.json()),
                     ]);
     
                     setInvoicesCount(invoicesResponse.length);  

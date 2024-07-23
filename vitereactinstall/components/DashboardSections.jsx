@@ -8,10 +8,10 @@ import LastCompanies from "./LastCompanies";
 const DashboardSections = () => {
     return (
         <div>
-        <Statistics />
+        {/* <Statistics />
         <LastInvoices />
         <LastContacts />
-        <LastCompanies />
+        <LastCompanies /> */}
         </div>
 
     );

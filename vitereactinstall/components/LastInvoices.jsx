@@ -8,7 +8,7 @@ const LastInvoices = ({ user }) => {
         const fetchInvoices = async () => {
             try {
                 const apiKey = "api";
-                const response = await fetch(`http://cogipbecode.vulturi.ro/admin/${apiKey}/5`); 
+                const response = await fetch(`http://becodecogip.rbarkersw.com/admin/${apiKey}/all/5`); 
                 if (!response.ok) {
                   throw new Error("Network response was not ok");
                 }
