@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
+import classNames from "classnames"
 import style from "./style.module.css"
+import { LoginPopover } from "./loginpopover/loginpopover"
 
 export const Header = () => {
     const [links, setLinks] = useState([{name:'Home', active:true}, {name:'Invoices', active:false}, {name:'Companies', active:false}, {name:'Contacts', active:false}]);
@@ -8,37 +10,51 @@ export const Header = () => {
 
     useEffect(() => {
         const copyLinks = links.map((link) => {
+            if (link.name === 'Home' && (window.location.pathname === "/" || window.location.pathname === "")) {
+                return {name:link.name, active:true};
+            }
             if (window.location.pathname.includes(link.name.toLowerCase())) {
                 return {name:link.name, active:true};
             }
             return {name:link.name, active:false};
         });
         
-        setLinks(copyLinks)
+        setLinks(copyLinks);
 
-        if (window.location.pathname === "/" || window.location.pathname === "/home") {
+        if (window.location.pathname === "/" || window.location.pathname === "/home" || window.location.pathname === "") {
             setIsHomePage(true);
         } else {
             setIsHomePage(false);
         }
     }, [window.location])
 
+    const loginPopover = document.getElementById("loginPopover");
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "h") {
+            popover.showPopover();
+        }
+    });
+
     return (
-        <header className={style.outline}>
+        <header className={style.publicHeader}>
             {/* navbar here */}
-            <nav>
+            <nav className={classNames(!isHomePage?style.extraPadding:null)}>
                 <h1>Cogip</h1>
                 <menu>
                     {
                         links.map((link) => {
-                            return (<li className={link.active ? style.active : null}> <a href={`${link.name.toLowerCase()}`}>{link.name}</a></li>)
+                            return (<li key={link.name} className={link.active ? style.active : null}> <a href={`${link.name.toLowerCase()}`}>{link.name}</a></li>)
                         })
                     }
                 </menu>
 
                 <div>
-                <button>Sign Up</button>
-                <button>Log In</button>
+                    {/* <button>Sign Up</button>  */}
+                    {/* redirection */}
+                    
+                    <LoginPopover />
+                {/* popover */}
                 </div>
             </nav>
 

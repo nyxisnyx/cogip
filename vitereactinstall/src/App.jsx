@@ -7,8 +7,7 @@ import Client from'/Clients';
 const App = () => {
     return (
         <div className="App">
-            <Footer />
-            <Client />
+            <TestPage />
         </div>
     );
 };

@@ -1,4 +1,4 @@
-header {
+.publicHeader {
     background-color: #f9de4e;
     margin:0px;
     padding-inline: 120px;
@@ -14,8 +14,8 @@ nav {
     
 }
 
-.outline {
-    outline:solid red 1px;
+.extraPadding {
+    padding-bottom:150px;
 }
 
 h1 {
