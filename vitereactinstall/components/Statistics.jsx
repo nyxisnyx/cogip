@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from "react";
+// import { getApiUrl } from "../src/utils";
 
     const Statistics = ({user}) => {
         const [invoicesCount, setInvoicesCount] = useState(0);
         const [contactsCount, setContactsCount] = useState(0);
-        const [companiesCount, setCompaniesCount] = useState(0);
+        const [companiesCount, setCompaniesCount] = useState(0);        
 
         useEffect(() => {
+            // const apiUrl = getApiUrl();
+            const apiUrl = "http://becodecogip.rbarkersw.com/";
             const fetchData = async () => {
                 try {
                   const [invoicesResponse, contactsResponse, companiesResponse] =
                     await Promise.all([
-                      fetch(`http://becodecogip.rbarkersw.com/invoices/all`).then((response) => response.json()),
-                      fetch(`http://becodecogip.rbarkersw.com/contacts/all`).then((response) => response.json()),
-                      fetch(`http://becodecogip.rbarkersw.com/companies/all`).then((response) => response.json()),
+                      fetch(`${apiUrl}invoices/all`).then((response) => response.json()),
+                      fetch(`${apiUrl}contacts/all`).then((response) => response.json()),
+                      fetch(`${apiUrl}companies/all`).then((response) => response.json()),
                     ]);
-    
+
                     setInvoicesCount(invoicesResponse.length);  
                     setContactsCount(contactsResponse.length);
                     setCompaniesCount(companiesResponse.params.length);

@@ -4,12 +4,12 @@ import Dashboard from '../components/Dashboard';
 import Contacts from '../components/Contacts';
 import Companies from '../components/Companies';
 import Invoices from '../components/Invoices';
-
+import DashboardMenu from '../components/DashboardMenu';
 
 const App = () => {
     //The initial state value is set to 'dashboard'
     const [view, setView] = useState('dashboard');
-
+    
     //the function returns the appropriate component based on the value of the 'view' state
    
     const renderView = () => {
@@ -29,7 +29,11 @@ const App = () => {
 
     return (
         <>
-       {renderView()}
+         <div className="DBContainer">
+            <DashboardMenu setView={setView} />
+            {renderView()}
+         </div>
+       
         </>
     ); 
        

@@ -1,7 +1,7 @@
 import React from 'react';
-//import '../../public/assets/css/dashboardMenu.css';
 
-const DashboardMenu = () => {
+const DashboardMenu = ({ setView }) => {
+
     return (
         <div className='DBNav'>
             <div className='DBUser'>

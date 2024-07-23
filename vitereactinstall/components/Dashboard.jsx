@@ -6,8 +6,8 @@ import DashboardMenu from './DashboardMenu';
 
 const Dashboard = () => {
     return (
-        <div className="DBContainer">
-        <DashboardMenu />
+        <div>
+        {/* <DashboardMenu /> */}
         <DashboardMain />
         </div>
     );
