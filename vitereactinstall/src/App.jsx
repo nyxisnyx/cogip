@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import '../../public/assets/css/styles.css'
-import Footer from '/Footer';
-import Client from'/Clients';
+import '../../public/assets/css/styles.css';
+import Footer from './Footer';
+import Client from'./Client';
 
 
 const App = () => {

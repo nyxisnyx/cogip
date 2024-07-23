@@ -12,8 +12,17 @@ const contacts = [
 function ClientList() {
   return (
     <div className="Clients">
+      <h1>PIED PIPPER</h1>
+      <p>Name :{Contact.name}
+        TVA: {Tva}
+        Country:{Contry}
+        type:{Type}
+      </p>                      
       <header className="Clients-header">
-        <h1>Contact List</h1>
+        <h2>Contact people</h2>
+        
+        <img></img>
+        <img src='/contact1.png'></img>
         <table>
           <thead>
             <tr>

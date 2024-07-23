@@ -12,6 +12,8 @@
 
 import React from 'react';
 import './App.css';
+import '/home/stacy/cogip/public/assets/css/footer.css';
+import '/public/assets/css/styles.css';
 
 function App() {
   const contacts = [
@@ -29,11 +31,12 @@ function App() {
 
   return (
     <div className="Clients">
+      <h1 className='AllContacts'>All contacts</h1>
+      
       <header className="Clients-header">
-        <h1>Contact List</h1>
-        <table>
+      <table>
           <thead>
-            <tr>
+            <tr className='TableauTitle'>
               <th>Name</th>
               <th>Phone</th>
               <th>Email</th>
