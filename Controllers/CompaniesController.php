@@ -22,24 +22,56 @@ class CompaniesController extends Controller
     }
 
 
-    public function getCompanies()
+    public function getCompaniesCount(){
+        $companies = $this->database->query(
+            'SELECT company_id 
+            FROM companies 
+            WHERE 1
+        ');
+
+        return count($companies);
+    }
+
+    public function getCompanies($limit,$page)
     {
 
         try {
+            $comapniesCount = $this->getCompaniesCount();
+            $nbrPage = securityInput(intval(ceil($comapniesCount/ intval($limit))));
+            $page = securityInput(intval($page));
 
-            $compagniesDatas = $this->database->query(
+            //calc le Offset
+            if($page<=0)
+                 $offset = 0;
+            else if($page <= $nbrPage)
+                $offset = (intval($page)-1)*intval($limit);
+            else if($page > $nbrPage)
+                $offset = (intval($nbrPage)-1)*intval($limit);
+            
+            $params = [
+                ':limit' => intval($limit),
+                ':offset' => intval($offset)
+            ];
+
+            $compagniesDatas = $this->database->queryBindParam(
                 'SELECT companies.*, types.name AS typeName
                 FROM companies
                 JOIN types 
-                ON types.type_id = companies.type_id 
-                ORDER BY name  ASC'
+                ON types.type_id = companies.type_id                 
+                ORDER BY name  ASC
+                LIMIT :limit  OFFSET :offset',
+                $params
             );
+
+
 
             $datas = Companies::loadData($compagniesDatas);
             $response = [
                 'status' => 202,
                 'message' => 'OK',
-                'params' => $datas
+                'page' => intval($page),
+                'pages' =>  intval($nbrPage),
+                'params' => $datas                
             ];
 
             echo createJson($response);
@@ -50,6 +82,7 @@ class CompaniesController extends Controller
                 'message' => 'No found',
             ];
             echo createJson($response);
+            echo $th;
         }
     }
 

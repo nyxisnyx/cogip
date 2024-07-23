@@ -54,7 +54,8 @@ class LoginController
                         'message' => 'Successful Login ',
                         'first_name' => $userIsExist[0]['first_name'],
                         'last_name' => $userIsExist[0]['last_name'],
-                        'key' => $key
+                        'key' => $key,
+                        'permission' => intval( $userIsExist[0]['permission_id'])
                     ];
                     echo createJson($response);
                 } else {
