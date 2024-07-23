@@ -18,7 +18,12 @@ class FacturesController extends Controller
     public function getInvoices()
     {
         try {
-            $datas = $this->database->query("SELECT * FROM invoices");
+            $datas = $this->database->query(
+                "SELECT invoices.*,companies.name as company_name 
+                FROM invoices 
+                JOIN companies 
+                ON invoices.company_id = companies.company_id;");
+                
             echo createJson($datas);
         } catch (\Throwable $th) {
             $response = [
