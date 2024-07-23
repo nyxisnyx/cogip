@@ -27,9 +27,9 @@ $router->post('/logout/{key}', function ($key) {
 
 $router->mount('/companies', function () use ($router) {
 
-    $router->get('/all', function () {
+    $router->get('/all/{limit}/{page}', function ($limit,$page) {
         $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
-        return (new CompaniesController($db))->getCompanies();
+        return (new CompaniesController($db))->getCompanies($limit,$page);
     });
 
     $router->get('/view/{id}', function ($id) {
@@ -77,7 +77,7 @@ $router->before('DELETE', '/admin/{key}/.*', function ($key) {
 
 $router->mount('/admin/{key}', function () use ($router) {
 
-    $router->get('/{limit}', function ($key, $limit) {
+    $router->get('/all/{limit}', function ($key, $limit) {
         $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
         (new AdminController($db))->index($limit);
     });
