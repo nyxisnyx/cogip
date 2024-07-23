@@ -1,7 +1,6 @@
 import React from 'react';
 import '/home/stacy/cogip/public/assets/css/footer.css';
 
-
 const Footer = () => {
     const handleClick = (buttonName) => {
         alert(`${buttonName} was clicked!`);

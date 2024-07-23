@@ -80,4 +80,67 @@ footer {
   margin-right: 150px; /* Ajouter de l'espace à gauche des numéros de téléphone */
 }
 
-/*# sourceMappingURL=footer.css.map */
+
+@media (max-width: 768px) {
+  footer, .cogip, .contact, .contact2, .reseau {
+    left: 5%;
+    right: 5%;
+    transform: none;
+    bottom: auto;
+  }
+  .cogip, .contact, .contact2 {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .btn-footer {
+    margin-top: 2rem;
+    font-size: 12px;
+  }
+  .Copyright {
+    bottom: 5px;
+    right: 5px;
+  }
+  .reseau {
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .contact, .contact2 {
+    bottom: 5%;
+  }
+  .contact2 {
+    bottom: 4%;
+  }
+}
+@media (max-width: 480px) {
+  footer, .cogip, .contact, .contact2, .reseau {
+    left: 2%;
+    right: 2%;
+    bottom: auto;
+    top: auto;
+  }
+  .cogip, .contact, .contact2 {
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+  }
+  .btn-footer {
+    font-size: 10px;
+    padding: 8px 16px;
+  }
+  .Copyright {
+    bottom: 2px;
+    right: 2px;
+  }
+  .reseau {
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .contact, .contact2 {
+    bottom: 2%;
+  }
+  .contact2 {
+    bottom: 1%;
+  }
+}/*# sourceMappingURL=footer.css.map */
