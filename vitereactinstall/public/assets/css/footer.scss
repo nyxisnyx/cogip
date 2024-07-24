@@ -1,20 +1,14 @@
-/* App.css */
-
-/* General styles for layout and footer */
-body {
-    background-color: #0056b3;
-}
 
 footer {
-    position: static; /* Fixed footer */
-    bottom: 0; /* Stick to the bottom of the viewport */
+    position: relative; /* Relative positioning for flexibility */
     left: 5cm; /* 5 cm from the left */
     right: 5cm; /* 5 cm from the right */
     height: 1px; /* Line height */
     background-color: rgb(255, 204, 0); /* Line color */
     box-sizing: border-box; /* Include borders in dimensions */
-}
-
+    z-index: 4;
+    
+/* Styles for buttons, copyright, and other footer elements */
 .btn-footer {
     margin-top: 300px;
     padding: 10px 20px;
@@ -23,6 +17,8 @@ footer {
     border-radius: 4px;
     font-size: 14px;
     cursor: pointer; /* Change cursor to pointer */  
+}
+
 }
 
 .btn-footer a {

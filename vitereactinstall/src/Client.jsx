@@ -1,19 +1,7 @@
-
-// Peter Gregory          555-4567          peter.gregory@raviga.com          Raviga                  25/09/2020
-// Cameron How          555-8765          cam.how@mutiny.net                  Mutiny                  25/09/2020
-// Gavin Belson            555-6354          gavin@hooli.com                          Hooli                     25/09/2020
-// Jian Yang                  555-8765         jian.yan@phoque.off                    Phoque Off           25/09/2020
-// Bertram Gilfoyle      555-5434         gilfoy@piedpiper.com                  Pied Pipper           25/09/2020
-// Peter Gregory          555-4567          peter.gregory@raviga.com          Raviga                  25/09/2020
-// Cameron How          555-8765          cam.how@mutiny.net                  Mutiny                  25/09/2020
-// Gavin Belson            555-6354          gavin@hooli.com                          Hooli                     25/09/2020
-// Jian Yang                  555-8765         jian.yan@phoque.off                    Phoque Off           25/09/2020
-// Bertram Gilfoyle      555-5434         gilfoy@piedpiper.com                  Pied Pipper           25/09/2020
-
 import React from 'react';
 import './App.css';
-import '/home/stacy/cogip/public/assets/css/footer.css';
 import '/public/assets/css/styles.css';
+import '/public/assets/css/footer.css';
 
 function App() {
   const contacts = [
@@ -31,10 +19,12 @@ function App() {
 
   return (
     <div className="Clients">
-      <h1 className='AllContacts'>All contacts</h1>
+      <div className='BarreAllContact'>
+        <h1 className='AllContacts'>All contacts</h1>
+      </div>
       
-      <header className="Clients-header">
-      <table>
+      <div className="Clients-header">
+        <table>
           <thead>
             <tr className='TableauTitle'>
               <th>Name</th>
@@ -56,7 +46,11 @@ function App() {
             ))}
           </tbody>
         </table>
-      </header>
+      </div>
+
+      <footer>
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+      </footer>
     </div>
   );
 }

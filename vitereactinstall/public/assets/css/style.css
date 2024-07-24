@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(163, 1, 1);
 }
 
 table {
@@ -31,6 +31,11 @@ th {
   background-color: #4CAF50;
   color: white;
 }
-.TableauTitle{
+
+.TableauTitle {
   background-color: yellow;
 }
+
+.AllContacts {
+  font-size: 500px;
+}/*# sourceMappingURL=style.css.map */
