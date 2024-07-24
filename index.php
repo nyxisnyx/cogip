@@ -14,3 +14,5 @@ require_once __DIR__ . '/Helpers/request.php';
 require_once __DIR__ . '/Routes/Routes.php';
 
 
+// supression des Session param => minutes
+//sessionTimeOut(240);
