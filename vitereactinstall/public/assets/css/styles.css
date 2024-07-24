@@ -112,8 +112,8 @@ table tbody tr:last-of-type {
 
 .BarreAllContact {
     background-color: rgb(255, 204, 0); /* Line color */
-    width: 7cm; /* Set width to 5 cm */
-    margin-left: 10px;
+    width: 10cm; 
+    margin-left: 5px;
 }
 
 footer {

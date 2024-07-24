@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import '/public/assets/css/styles.css';
 import '/public/assets/css/footer.css';
+import Footer from './Footer'; // Assurez-vous d'importer le composant Footer
 
 function App() {
   const contacts = [
@@ -48,9 +49,7 @@ function App() {
         </table>
       </div>
 
-      <footer>
-        <p>&copy; 2024 Your Company. All rights reserved.</p>
-      </footer>
+      <Footer /> {/* Ajout du composant Footer ici */}
     </div>
   );
 }
