@@ -43,10 +43,9 @@ function generateApiKey($length = 32)
     return bin2hex(random_bytes($length / 2));
 }
 
-function sessionTime(int $deadline)
+function sessionTimeOut(int $deadline)
 {
 
-    var_dump($_SESSION);
     $currentDateTimeStamp = timesTamp();
     $currentDate = new DateTime();
     $currentDate->setTimestamp($currentDateTimeStamp );
@@ -61,10 +60,8 @@ function sessionTime(int $deadline)
         $interval = $sessionDate->diff($currentDate);
 
         $minutes = $interval->h * 60 + $interval->i;
-        echo $minutes;
 
         if (intval($minutes) >= intval($deadline))
             unset($_SESSION['user'][$key]);
-
     }
 }
