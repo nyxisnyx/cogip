@@ -39,7 +39,7 @@ const InvoiceList = () => {
                         <tr key={invoice.invoice_id}>
                             <td>{invoice.invoice_id}</td>
                             <td>{invoice.created_at}</td>
-                            <td>{invoice.name}</td>
+                            <td>{invoice.company_name}</td>
                         </tr>
                     ))}
                 </tbody>

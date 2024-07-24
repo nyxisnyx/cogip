@@ -7,7 +7,6 @@ import DashboardMenu from './DashboardMenu';
 const Dashboard = () => {
     return (
         <div>
-        {/* <DashboardMenu /> */}
         <DashboardMain />
         </div>
     );
