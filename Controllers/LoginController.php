@@ -46,6 +46,7 @@ class LoginController
                     $_SESSION['user'][$key] = [
                         'roles' => $userIsExist[0]['name'],
                         'permissions' => $userIsExist[0]['permission_id'],
+                        'date'=> timesTamp()
                     ];
 
 
