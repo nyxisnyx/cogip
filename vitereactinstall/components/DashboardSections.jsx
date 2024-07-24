@@ -7,7 +7,7 @@ import LastCompanies from "./LastCompanies";
 
 const DashboardSections = () => {
     return (
-        <div>
+        <div className="sections">
         <Statistics />
         <LastInvoices />
         <LastContacts />

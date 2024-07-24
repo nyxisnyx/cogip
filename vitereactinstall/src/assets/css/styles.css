@@ -1,9 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
-.stats {
+td {
+  padding-right: 1dvw;
+}
+
+.stats, .LastInvoices, .LastContacts, .LastCompanies {
   background-color: #fff;
-  border-radius: 3dvw;
-  width: 25dvw;
+  border-radius: 1dvw;
+  width: 30dvw;
   padding: 1dvw;
+}
+
+.stats {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.sections {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .stat-container {
@@ -17,6 +32,14 @@
 .stat-item {
   background-color: #9698D6;
   color: #fff;
+  width: 7dvw;
+  height: 7dvw;
+  border-radius: 50%;
+}
+.stat-item p {
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 400;
 }
 
 .DBHeaderContainer {
@@ -24,6 +47,7 @@
   flex-direction: row;
   align-items: flex-end;
   position: relative;
+  margin-bottom: 2dvw;
 }
 
 .DBContainer {
@@ -34,15 +58,14 @@
 
 .imageElement {
   position: absolute;
-  width: 25dvw;
-  right: 3dvw;
+  right: 70px;
 }
 
 .textElement {
   background-color: #9698d6;
-  padding: 4dvw;
-  padding-right: 25dvw;
-  border-radius: 3dvw;
+  padding: 3dvw;
+  padding-right: 35dvw;
+  border-radius: 1dvw;
   color: #fff;
 }
 
@@ -67,7 +90,7 @@ body {
 
 .userImage {
   border-radius: 50%;
-  width: 12dvw;
+  width: 8dvw;
 }
 
 .DBNav {
@@ -76,14 +99,18 @@ body {
   justify-content: space-between;
   min-height: 100dvh;
   background-color: #fff;
-  width: 20dvw;
-  padding: 4dvw;
+  width: 10dvw;
+  padding: 3dvw;
   margin-right: 4dvw;
 }
 
 .DBNavButton {
   background-color: transparent;
   border: none;
+}
+
+.DBNavButton:hover {
+  color: #9698D6;
 }
 
 .imgMenu {

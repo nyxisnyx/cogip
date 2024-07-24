@@ -31,9 +31,9 @@ import React, { useState, useEffect } from "react";
             <div className="stats">
                 <h3>Statistics</h3>
                 <div className="stat-container">
-                <div className="stat-item">{invoicesCount} invoices</div>
-                <div className="stat-item">{contactsCount} contacts</div>
-                <div className="stat-item">{companiesCount} companies</div>
+                <div className="stat-item"><p>{invoicesCount}</p><p>invoices</p></div>
+                <div className="stat-item"><p>{contactsCount}</p><p>contacts</p></div>
+                <div className="stat-item"><p>{companiesCount}</p><p>companies</p></div>
             </div>
             </div>
            

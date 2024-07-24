@@ -1,8 +1,22 @@
-.stats {
+td {
+    padding-right: 1dvw;
+}
+
+.stats, .LastInvoices, .LastContacts, .LastCompanies {
     background-color: #fff;
-    border-radius: 3dvw;
-    width: 25dvw;
+    border-radius: 1dvw;
+    width: 30dvw;
     padding: 1dvw;
+}
+
+.stats {
+    height: fit-content;
+}
+
+.sections {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .stat-container {
@@ -16,4 +30,13 @@
 .stat-item {
     background-color: #9698D6;
     color: #fff;
+    width: 7dvw;
+    height: 7dvw;
+    border-radius: 50%;
+    
+    & p {
+        text-align: center;
+    font-size: 0.7rem;
+    font-weight: 400;
+    }
 }

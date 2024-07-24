@@ -4,9 +4,10 @@
 .DBHeaderContainer {
    display: flex;
    flex-direction: row;
-   // justify-content: space-between;
+   //justify-content: space-between;
    align-items: flex-end;
    position: relative;
+   margin-bottom: 2dvw;
 }
 
 .DBContainer {
@@ -17,16 +18,18 @@
 
 .imageElement {
    position: absolute;
-   width: 25dvw;
+   //width: 25dvw;
    //top: 0;
-   right: 3dvw;   
+   right: 70px;
+   //height: 150px;
+
 }
 
 .textElement {
    background-color: #9698d6;
-   padding: 4dvw;
-   padding-right: 25dvw;
-   border-radius: 3dvw;
+   padding: 3dvw;
+   padding-right: 35dvw;
+   border-radius: 1dvw;
    color: #fff;
 
 }

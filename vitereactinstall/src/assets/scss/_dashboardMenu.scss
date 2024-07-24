@@ -5,7 +5,7 @@ body {
     font-family: Inter;
     font-weight: 200;
 }
-    
+
 
 .DBUser {
     display: flex;
@@ -14,6 +14,7 @@ body {
     justify-content: center;
     justify-content: space-around;
     border-bottom: 1px solid #E0E0E0;
+
     &h3 {
         font-weight: 600;
         text-wrap: wrap;
@@ -22,7 +23,7 @@ body {
 
 .userImage {
     border-radius: 50%;
-    width: 12dvw;
+    width: 8dvw;
 }
 
 .DBNav {
@@ -31,40 +32,45 @@ body {
     justify-content: space-between;
     min-height: 100dvh;
     background-color: #fff;
-    width: 20dvw;
-    padding: 4dvw;
+    width: 10dvw;
+    padding: 3dvw;
     margin-right: 4dvw;
 }
 
 .DBNavButton {
-        background-color: transparent;
-        border: none;
-    }
- 
-    .imgMenu {
-        width: 20px;
-    }
+    background-color: transparent;
+    border: none;
+}
 
-    .DBNavElement {
-        display: flex;
-        flex-direction: row;
-        // justify-content: space-between;
-        align-items: center;
-    }
+.DBNavButton:hover {
+    color: #9698D6;
+}
 
-    .DBLogout {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        border-top: 1px solid #E0E0E0;
-        padding-top: 4dvw;
-        & .DBNavButton {
-            color: #9698D6;
-            font-weight: 250;
-        }
-    }
+.imgMenu {
+    width: 20px;
+}
 
-    .userImageLogout {
-        border-radius: 50%;
-        width: 6dvw;
+.DBNavElement {
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-between;
+    align-items: center;
+}
+
+.DBLogout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 1px solid #E0E0E0;
+    padding-top: 4dvw;
+
+    & .DBNavButton {
+        color: #9698D6;
+        font-weight: 250;
     }
+}
+
+.userImageLogout {
+    border-radius: 50%;
+    width: 6dvw;
+}
