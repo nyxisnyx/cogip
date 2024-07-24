@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import DashboardHeader from "./DashboardHeader";
 
 const NewInvoice = () => {
     const [inputs, setInputs] = useState({});
@@ -17,7 +18,10 @@ const NewInvoice = () => {
     
     return (
         <div>
-          <form className="newElement" onSubmit={ handleSubmit }>
+            <>
+            <DashboardHeader />
+            
+        <form className="newElement" onSubmit={ handleSubmit }>
             <h3>New invoice</h3>
             <input 
             type="text"
@@ -43,6 +47,8 @@ const NewInvoice = () => {
             <button type="submit">Save</button>
 
           </form>
+        </>
+          
         </div>
     )
 }

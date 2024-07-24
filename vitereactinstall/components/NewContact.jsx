@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import DashboardHeader from "./DashboardHeader";
 
 const NewContact = () => {
     const [inputs, setInputs] = useState({});
@@ -17,6 +18,8 @@ const NewContact = () => {
     
     return (
         <div>
+             <>
+            <DashboardHeader />
           <form className="newElement" onSubmit={ handleSubmit }>
             <h3>New Contact</h3>
             <input 
@@ -54,16 +57,11 @@ const NewContact = () => {
             value = {inputs.phone || ""}
             onChange={ handleChange }
             />
-            <input 
-            type="text"
-            placeholder="Company name"
-            name = "name"
-            value = {inputs.name || ""}
-            onChange={ handleChange }
-            />
+            
             <button type="submit">Save</button>
 
           </form>
+          </>
         </div>
     )
 }

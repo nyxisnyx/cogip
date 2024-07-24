@@ -12,7 +12,7 @@ const DashboardHeader = ({user}) => {
                 </div>
                 <div className='textElement'>
                     <h3>Welcome back {user}!</h3>
-                    <p>You can here add an invoice, a company
+                    <p className='dashboard-para'>You can here add an invoice, a company
                     and some contacts</p>
                 </div>
             </div>

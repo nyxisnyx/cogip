@@ -1,16 +1,14 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './assets/css/styles.css';
 import DashboardPage from '../components/DashboardPage';
 
-
 const App = () => {
-   
     return (
-         <div>
-            <DashboardPage />          
-         </div>
-    ); 
-       
+        <Router>
+            <DashboardPage />
+        </Router>
+    );
 };
 
 export default App;

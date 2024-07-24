@@ -1,13 +1,33 @@
 import React from 'react';
-import NewContact from './NewContact';
+import { Link } from 'react-router-dom';
+import ContactList from './ContactList';
 import DashboardHeader from "./DashboardHeader";
 
 const Contacts = () => {
     return (
         <div>
         <DashboardHeader />
-        <NewContact />
-        <button type="button" className="AddButton">Add Contact</button>
+
+        <Link to="/contacts/new">
+                <button 
+                    type="button" 
+                    className="AddButton"
+                >
+                    Add Contact
+                </button>
+            </Link>
+
+            <ContactList />
+            
+            <Link to="/contacts/new">
+                <button 
+                    type="button" 
+                    className="AddButton"
+                >
+                    Add Contact
+                </button>
+            </Link>
+        
         </div>
     );
 };

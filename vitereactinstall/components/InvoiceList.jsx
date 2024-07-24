@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-//import '../../public/assets/css/invoiceList.css';
 
 const InvoiceList = () => {
     const [invoices, setInvoices] = useState([]);
@@ -25,7 +24,7 @@ const InvoiceList = () => {
 
     return (
         <div className="invoices">
-            <h3>Last Invoices</h3>
+            <h3>Invoices</h3>
             <table>
                 <thead>
                     <tr>

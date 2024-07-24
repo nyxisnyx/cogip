@@ -1,13 +1,14 @@
 import React from "react";
-import DashboardMain from './DashboardMain';
-import DashboardMenu from './DashboardMenu';
+import DashboardSections from './DashboardSections';
+import DashboardHeader from "./DashboardHeader";
 
 //import '../../public/assets/css/dashboard.css';
 
 const Dashboard = () => {
     return (
         <div>
-        <DashboardMain />
+         <DashboardHeader />
+        <DashboardSections />
         </div>
     );
 };
