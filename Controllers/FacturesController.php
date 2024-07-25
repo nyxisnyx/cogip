@@ -195,7 +195,7 @@ class FacturesController extends Controller
             ];
 
             $invoicesDatas = $this->database->queryBindParam(
-                'SELECT invoices.*, campanies.name
+                'SELECT invoices.*, companies.name
                 FROM invoices
                 JOIN companies 
                 ON invoices.company_id = companies.company_id
