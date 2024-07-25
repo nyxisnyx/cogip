@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `cogcog9_cogip`
+-- Base de données : `cogip`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `companies`
+-- Structure de la table `companies` 
 --
 
 CREATE TABLE `companies` (
@@ -35,7 +35,7 @@ CREATE TABLE `companies` (
   `tva` varchar(50) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci TABLESPACE `cogcog9_cogip`;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ;
 
 -- --------------------------------------------------------
 
@@ -52,7 +52,7 @@ CREATE TABLE `contacts` (
   `email` varchar(50) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci TABLESPACE `cogcog9_cogip`;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ;
 
 -- --------------------------------------------------------
 
@@ -66,7 +66,7 @@ CREATE TABLE `invoices` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `price` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci TABLESPACE `cogcog9_cogip`;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ;
 
 -- --------------------------------------------------------
 
@@ -79,7 +79,7 @@ CREATE TABLE `permissions` (
   `name` varchar(50) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci TABLESPACE `cogcog9_cogip`;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ;
 
 -- --------------------------------------------------------
 
@@ -92,7 +92,7 @@ CREATE TABLE `roles` (
   `name` varchar(50) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci TABLESPACE `cogcog9_cogip`;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ;
 
 -- --------------------------------------------------------
 
@@ -103,7 +103,7 @@ CREATE TABLE `roles` (
 CREATE TABLE `role_permissions` (
   `role_id` int NOT NULL,
   `permission_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci TABLESPACE `cogcog9_cogip`;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ;
 
 -- --------------------------------------------------------
 
@@ -116,7 +116,7 @@ CREATE TABLE `types` (
   `name` varchar(50) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci TABLESPACE `cogcog9_cogip`;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ;
 
 -- --------------------------------------------------------
 
@@ -134,7 +134,7 @@ CREATE TABLE `users` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `role_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci TABLESPACE `cogcog9_cogip`;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ;
 
 --
 -- Index pour les tables déchargées
