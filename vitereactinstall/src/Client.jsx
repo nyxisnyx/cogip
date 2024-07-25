@@ -49,7 +49,10 @@ function App() {
         </table>
       </div>
 
-      <Footer /> {/* Ajout du composant Footer ici */}
+      <Footer /> 
+      
+      {/* Ajout du composant Footer ici */}
+      
     </div>
   );
 }
