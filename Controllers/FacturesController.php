@@ -32,34 +32,28 @@ class FacturesController extends Controller
 
     public function createInvoice()
     {
-
         $json_str = file_get_contents('php://input');
-
         $json_obj = json_decode($json_str);
-
-        $someDate = new \DateTime();
-        $interval = new \DateInterval('P30D');
-        $someDate->add($interval);
-        $due_date = $someDate->format('Y-m-d');
 
         try {
             $datas = $this->database->query(
-                "INSERT INTO 
-                `invoices`( `company_id`, 
+                "INSERT INTO `invoices` (
+                `company_id`, 
                 `created_at`, 
-                `updated_at`,
-                `price`,
+                `updated_at`, 
+                `price`, 
                 `due_date`
-                )
-
-                 VALUES (
-                 {$json_obj->company_id},
-                 NOW(),
-                 NOW(),
-                 {$json_obj->price},
-                 '{$due_date}'
-                 )"
+            ) 
+            SELECT 
+                {$json_obj->company_id}, 
+                NOW(), 
+                NOW(), 
+                {$json_obj->price}, 
+                DATE_ADD(NOW(), INTERVAL companies.payment_deadline DAY) 
+            FROM companies 
+            WHERE companies.company_id = {$json_obj->company_id}"
             );
+
             $response = [
                 'status' => 202,
                 'message' => 'OK',
@@ -150,7 +144,6 @@ class FacturesController extends Controller
         );
 
         return $datas;
-
     }
 
     public function patchInvoice($id)
@@ -173,7 +166,6 @@ class FacturesController extends Controller
             );
 
             echo createJson($contactData);
-
         } catch (\Throwable $th) {
             $response = [
                 'status' => 400,
@@ -182,7 +174,6 @@ class FacturesController extends Controller
             echo createJson($response);
             echo $th;
         }
-
     }
     public function getInvoicesDashbord($limit)
     {
@@ -216,5 +207,4 @@ class FacturesController extends Controller
             echo $th;
         }
     }
-
 }
