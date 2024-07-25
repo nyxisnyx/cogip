@@ -7,11 +7,11 @@ const Contact = () => {
   return (
     <div className="contact-page">
       <div className="contact-info">
-        <h1 className="contact-title">Bertram Gilfoyle</h1>
+        <h1 className="contact-title">Peter Gregory</h1>
         <div className="contact-details">
-          <p><strong>Contact:</strong> Bertram Gilfoyle</p>
-          <p><strong>Phone:</strong> 555-5434</p>
-          <p><strong>Mail:</strong> gilfoy@piedpipper.com</p>
+          <p><strong>Contact:</strong> Peter Gregory</p>
+          <p><strong>Phone:</strong> 555-4567</p>
+          <p><strong>Mail:</strong> peter.gregory@raviga.com</p>
           <p><strong>Company:</strong> Pied Pipper</p>
         </div>
       </div>
