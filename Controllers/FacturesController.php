@@ -18,12 +18,7 @@ class FacturesController extends Controller
     public function getInvoices()
     {
         try {
-            $datas = $this->database->query(
-                "SELECT invoices.*,companies.name as company_name 
-                FROM invoices 
-                JOIN companies 
-                ON invoices.company_id = companies.company_id;");
-                
+            $datas = $this->database->query("SELECT invoices.*,companies.name as company_name FROM invoices JOIN companies ON invoices.company_id = companies.company_id;");
             echo createJson($datas);
         } catch (\Throwable $th) {
             $response = [
@@ -42,28 +37,27 @@ class FacturesController extends Controller
 
         $json_obj = json_decode($json_str);
 
-        $company_id_form_invoice = securityInput($json_obj->company_id) ;
-        $price_form_invoice = securityInput($json_obj->price) ;
-        $company_name_form_invoice = securityInput($json_obj->company_name);
-           
+        $someDate = new \DateTime();
+        $interval = new \DateInterval('P30D');
+        $someDate->add($interval);
+        $due_date = $someDate->format('Y-m-d');
 
         try {
             $datas = $this->database->query(
                 "INSERT INTO 
-                `invoices`( `company_id`,
-                `price`,
-                `company_name` 
+                `invoices`( `company_id`, 
                 `created_at`, 
-                `updated_at`)
-
-            
+                `updated_at`,
+                `price`,
+                `due_date`
+                )
 
                  VALUES (
-                 {$company_id_form_invoice},
-                 {$price_form_invoice},
-                 {$company_name_form_invoice},
+                 {$json_obj->company_id},
                  NOW(),
-                 NOW()
+                 NOW(),
+                 {$json_obj->price},
+                 '{$due_date}'
                  )"
             );
             $response = [
@@ -172,7 +166,9 @@ class FacturesController extends Controller
                 "UPDATE `invoices` 
                     SET 
                     `company_id`='{$json_obj->company_id}',
-                    `updated_at`=NOW() 
+                    `updated_at`=NOW(),
+                    `price`= '{$json_obj->price}',
+                    `due_date`='{$json_obj->due_date}'
                     WHERE `invoice_id`= '{$id}'"
             );
 
@@ -199,7 +195,7 @@ class FacturesController extends Controller
             ];
 
             $invoicesDatas = $this->database->queryBindParam(
-                'SELECT invoices.*, companies.name
+                'SELECT invoices.*, campanies.name
                 FROM invoices
                 JOIN companies 
                 ON invoices.company_id = companies.company_id
