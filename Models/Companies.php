@@ -54,7 +54,8 @@ class Companies
             ':country' => securityInput($bodyDatas['country']),
             ':tva' => securityInput($bodyDatas['tva']),
             ':created_at' => dates('Y-m-d h:i:s'),
-            ':updated_at' => dates('Y-m-d h:i:s')
+            ':updated_at' => dates('Y-m-d h:i:s'),
+            ':payment_deadline'=>securityInput($bodyDatas['payment_deadline'])
         ];
 
         return $params;

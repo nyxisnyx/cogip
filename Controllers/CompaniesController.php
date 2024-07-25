@@ -187,14 +187,16 @@ class CompaniesController extends Controller
                     country,
                     tva,
                     created_at, 
-                    updated_at) 
+                    updated_at,
+                    payment_deadline) 
                 VALUES (
                     :name,
                     :type_id,
                     :country,
                     :tva,
                     :created_at, 
-                    :updated_at)',
+                    :updated_at,
+                    :payment_deadline)',
                 $params
             );
 
