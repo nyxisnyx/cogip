@@ -21,6 +21,14 @@ export const LoginPopover = () => {
             } else if (actualResponse.status === 201) {
                 console.log("Authorized");
                 // Navigation goes here => window.location.href = 'url goes here'
+                
+                // console.log(actualResponse);
+                const data = {loggedInKey: actualResponse.key, loggedInMessage: actualResponse.message, loggedInFirstName: actualResponse.first_name, loggedInLastName: actualResponse.last_name, loggedInPermission: actualResponse.permission};
+                const stringData = JSON.stringify(data);
+                sessionStorage.setItem("sessionStorage", stringData);
+                
+
+                // When I need the data, I'm gonna get a string, to turn it back into JSON it's JSON.parse(value)
             };
         } catch (error) {
             console.log(error);
