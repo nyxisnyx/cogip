@@ -19,7 +19,10 @@ class ContactsController extends Controller{
 
         try{
 
-            $contactData =$this->database->query("SELECT * FROM `contacts`");
+            $contactData =$this->database->query(
+                "SELECT contacts.*,companies.name FROM contacts
+                JOIN companies ON contacts.company_id = companies.company_id
+            ");
             echo createJson($contactData);
 
         } catch(PDOException $e){
@@ -70,7 +73,7 @@ class ContactsController extends Controller{
             ];
 
             $contactsDatas = $this->database->queryBindParam(
-                'SELECT contacts.*, contacts.email
+                'SELECT contacts.*, contacts.email, companies.name
                 FROM contacts
                 JOIN companies 
                 ON contacts.company_id = companies.company_id
