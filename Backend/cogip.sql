@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : mysql
--- Généré le : lun. 15 juil. 2024 à 10:23
--- Version du serveur : 8.0.38
--- Version de PHP : 8.2.8
+-- Hôte : 10.123.0.211:3306
+-- Généré le : jeu. 25 juil. 2024 à 10:10
+-- Version du serveur : 8.0.25
+-- Version de PHP : 8.2.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `cogip`
+-- Base de données : `cogcog9_cogip`
 --
 
 -- --------------------------------------------------------
@@ -30,18 +30,12 @@ SET time_zone = "+00:00";
 CREATE TABLE `companies` (
   `company_id` int NOT NULL,
   `name` varchar(50) DEFAULT NULL,
+  `type_id` int NOT NULL,
+  `country` varchar(50) NOT NULL,
+  `tva` varchar(50) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Déchargement des données de la table `companies`
---
-
-INSERT INTO `companies` (`company_id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Company A', '2024-07-15 10:12:11', '2024-07-15 10:12:11'),
-(2, 'Company B', '2024-07-15 10:12:11', '2024-07-15 10:12:11'),
-(3, 'Company C', '2024-07-15 10:12:11', '2024-07-15 10:12:11');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci TABLESPACE `cogcog9_cogip`;
 
 -- --------------------------------------------------------
 
@@ -51,21 +45,14 @@ INSERT INTO `companies` (`company_id`, `name`, `created_at`, `updated_at`) VALUE
 
 CREATE TABLE `contacts` (
   `contact_id` int NOT NULL,
-  `user_id` int DEFAULT NULL,
-  `phone` varchar(10) DEFAULT NULL,
+  `name` varchar(20) NOT NULL,
+  `company_id` int DEFAULT NULL,
+  `phone` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `image` varchar(255) NOT NULL,
   `email` varchar(50) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Déchargement des données de la table `contacts`
---
-
-INSERT INTO `contacts` (`contact_id`, `user_id`, `phone`, `email`, `created_at`, `updated_at`) VALUES
-(1, 1, '1234567890', 'contact1@example.com', '2024-07-15 10:22:40', '2024-07-15 10:22:40'),
-(2, 2, '2345678901', 'contact2@example.com', '2024-07-15 10:22:40', '2024-07-15 10:22:40'),
-(3, 3, '3456789012', 'contact3@example.com', '2024-07-15 10:22:40', '2024-07-15 10:22:40');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci TABLESPACE `cogcog9_cogip`;
 
 -- --------------------------------------------------------
 
@@ -77,17 +64,9 @@ CREATE TABLE `invoices` (
   `invoice_id` int NOT NULL,
   `company_id` int DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Déchargement des données de la table `invoices`
---
-
-INSERT INTO `invoices` (`invoice_id`, `company_id`, `created_at`, `updated_at`) VALUES
-(1, 1, '2024-07-15 10:22:40', '2024-07-15 10:22:40'),
-(2, 2, '2024-07-15 10:22:40', '2024-07-15 10:22:40'),
-(3, 3, '2024-07-15 10:22:40', '2024-07-15 10:22:40');
+  `updated_at` datetime DEFAULT NULL,
+  `price` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci TABLESPACE `cogcog9_cogip`;
 
 -- --------------------------------------------------------
 
@@ -100,16 +79,7 @@ CREATE TABLE `permissions` (
   `name` varchar(50) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Déchargement des données de la table `permissions`
---
-
-INSERT INTO `permissions` (`permission_id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Read', '2024-07-15 10:13:31', '2024-07-15 10:13:31'),
-(2, 'Write', '2024-07-15 10:13:31', '2024-07-15 10:13:31'),
-(3, 'Delete', '2024-07-15 10:13:31', '2024-07-15 10:13:31');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci TABLESPACE `cogcog9_cogip`;
 
 -- --------------------------------------------------------
 
@@ -122,16 +92,7 @@ CREATE TABLE `roles` (
   `name` varchar(50) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Déchargement des données de la table `roles`
---
-
-INSERT INTO `roles` (`role_id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', '2024-07-15 10:13:31', '2024-07-15 10:13:31'),
-(2, 'Editor', '2024-07-15 10:13:31', '2024-07-15 10:13:31'),
-(3, 'Viewer', '2024-07-15 10:13:31', '2024-07-15 10:13:31');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci TABLESPACE `cogcog9_cogip`;
 
 -- --------------------------------------------------------
 
@@ -142,16 +103,7 @@ INSERT INTO `roles` (`role_id`, `name`, `created_at`, `updated_at`) VALUES
 CREATE TABLE `role_permissions` (
   `role_id` int NOT NULL,
   `permission_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Déchargement des données de la table `role_permissions`
---
-
-INSERT INTO `role_permissions` (`role_id`, `permission_id`) VALUES
-(1, 1),
-(2, 2),
-(3, 3);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci TABLESPACE `cogcog9_cogip`;
 
 -- --------------------------------------------------------
 
@@ -164,16 +116,7 @@ CREATE TABLE `types` (
   `name` varchar(50) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Déchargement des données de la table `types`
---
-
-INSERT INTO `types` (`type_id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Type A', '2024-07-15 10:22:40', '2024-07-15 10:22:40'),
-(2, 'Type B', '2024-07-15 10:22:40', '2024-07-15 10:22:40'),
-(3, 'Type C', '2024-07-15 10:22:40', '2024-07-15 10:22:40');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci TABLESPACE `cogcog9_cogip`;
 
 -- --------------------------------------------------------
 
@@ -183,20 +126,15 @@ INSERT INTO `types` (`type_id`, `name`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE `users` (
   `user_id` int NOT NULL,
+  `user` varchar(50) NOT NULL,
+  `first_name` varchar(50) NOT NULL,
+  `last_name` varchar(50) NOT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `password_hash` varchar(50) DEFAULT NULL,
+  `password_hash` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Déchargement des données de la table `users`
---
-
-INSERT INTO `users` (`user_id`, `email`, `password_hash`, `created_at`, `updated_at`) VALUES
-(1, 'user1@example.com', 'password1', '2024-07-15 10:13:31', '2024-07-15 10:13:31'),
-(2, 'user2@example.com', 'password2', '2024-07-15 10:13:31', '2024-07-15 10:13:31'),
-(3, 'user3@example.com', 'password3', '2024-07-15 10:13:31', '2024-07-15 10:13:31');
+  `updated_at` datetime DEFAULT NULL,
+  `role_id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci TABLESPACE `cogcog9_cogip`;
 
 --
 -- Index pour les tables déchargées
@@ -213,7 +151,7 @@ ALTER TABLE `companies`
 --
 ALTER TABLE `contacts`
   ADD PRIMARY KEY (`contact_id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `user_id` (`company_id`);
 
 --
 -- Index pour la table `invoices`
@@ -254,20 +192,36 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- Contraintes pour les tables déchargées
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- Contraintes pour la table `contacts`
+-- AUTO_INCREMENT pour la table `companies`
+--
+ALTER TABLE `companies`
+  MODIFY `company_id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `contacts`
 --
 ALTER TABLE `contacts`
-  ADD CONSTRAINT `contacts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+  MODIFY `contact_id` int NOT NULL AUTO_INCREMENT;
 
 --
--- Contraintes pour la table `invoices`
+-- AUTO_INCREMENT pour la table `invoices`
 --
 ALTER TABLE `invoices`
-  ADD CONSTRAINT `invoices_ibfk_1` FOREIGN KEY (`company_id`) REFERENCES `companies` (`company_id`);
+  MODIFY `invoice_id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- Contraintes pour les tables déchargées
+--
 
 --
 -- Contraintes pour la table `role_permissions`
