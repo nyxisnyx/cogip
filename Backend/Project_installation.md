@@ -29,7 +29,7 @@ git clone git@github.com:username/repo.git
 cd nom-du-repertoire
 ```
 
-## Étape 1 : Installation des dépendances via Composer
+## Étape 2 : Installation des dépendances via Composer
 
  - Assurez-vous que Composer est installé :
 Vérifiez l'installation de Composer avec :
@@ -46,7 +46,7 @@ Assurez-vous d'être dans le répertoire contenant le fichier composer.json (gé
 composer install
 ```
 
-## Étape 2 : Lancer le serveur avec Docker Compose
+## Étape 3 : Lancer le serveur avec Docker Compose
 
 - Assurez-vous que Docker et Docker Compose sont installés :
 Vérifiez leur installation avec :
