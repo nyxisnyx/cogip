@@ -1,0 +1,59 @@
+/* src/App.css */
+.App {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.header {
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  color: #000;
+}
+
+.company-info p {
+  margin: 5px 0;
+}
+
+.contact-people {
+  margin-top: 20px;
+}
+
+.contacts {
+  display: flex;
+  gap: 20px;
+}
+
+.contact {
+  text-align: center;
+}
+
+.contact-image {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.last-invoices {
+  margin-top: 20px;
+}
+
+.invoices-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.invoices-table th, .invoices-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.invoices-table th {
+  background-color: #f8f8f8;
+  text-align: left;
+}/*# sourceMappingURL=App.css.map */

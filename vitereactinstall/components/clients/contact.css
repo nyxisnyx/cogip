@@ -1,0 +1,45 @@
+/* src/Contact.css */
+.contact-page {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-title {
+  font-size: 24px;
+  color: #000;
+  margin: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.contact-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  height: 5px;
+  width: 50px;
+  background-color: #ffd700;
+}
+
+.contact-details p {
+  margin: 5px 0;
+}
+
+.contact-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-image {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}/*# sourceMappingURL=contact.css.map */
