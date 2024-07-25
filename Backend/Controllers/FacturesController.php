@@ -18,12 +18,7 @@ class FacturesController extends Controller
     public function getInvoices()
     {
         try {
-            $datas = $this->database->query(
-                "SELECT invoices.*,companies.name as company_name 
-                FROM invoices 
-                JOIN companies 
-                ON invoices.company_id = companies.company_id;");
-                
+            $datas = $this->database->query("SELECT invoices.*,companies.name as company_name FROM invoices JOIN companies ON invoices.company_id = companies.company_id;");
             echo createJson($datas);
         } catch (\Throwable $th) {
             $response = [
@@ -37,35 +32,28 @@ class FacturesController extends Controller
 
     public function createInvoice()
     {
-
         $json_str = file_get_contents('php://input');
-
         $json_obj = json_decode($json_str);
-
-        $company_id_form_invoice = securityInput($json_obj->company_id) ;
-        $price_form_invoice = securityInput($json_obj->price) ;
-        $company_name_form_invoice = securityInput($json_obj->company_name);
-           
 
         try {
             $datas = $this->database->query(
-                "INSERT INTO 
-                `invoices`( `company_id`,
-                `price`,
-                `company_name` 
+                "INSERT INTO `invoices` (
+                `company_id`, 
                 `created_at`, 
-                `updated_at`)
-
-            
-
-                 VALUES (
-                 {$company_id_form_invoice},
-                 {$price_form_invoice},
-                 {$company_name_form_invoice},
-                 NOW(),
-                 NOW()
-                 )"
+                `updated_at`, 
+                `price`, 
+                `due_date`
+            ) 
+            SELECT 
+                {$json_obj->company_id}, 
+                NOW(), 
+                NOW(), 
+                {$json_obj->price}, 
+                DATE_ADD(NOW(), INTERVAL companies.payment_deadline DAY) 
+            FROM companies 
+            WHERE companies.company_id = {$json_obj->company_id}"
             );
+
             $response = [
                 'status' => 202,
                 'message' => 'OK',
@@ -156,7 +144,6 @@ class FacturesController extends Controller
         );
 
         return $datas;
-
     }
 
     public function patchInvoice($id)
@@ -172,12 +159,13 @@ class FacturesController extends Controller
                 "UPDATE `invoices` 
                     SET 
                     `company_id`='{$json_obj->company_id}',
-                    `updated_at`=NOW() 
+                    `updated_at`=NOW(),
+                    `price`= '{$json_obj->price}',
+                    `due_date`='{$json_obj->due_date}'
                     WHERE `invoice_id`= '{$id}'"
             );
 
             echo createJson($contactData);
-
         } catch (\Throwable $th) {
             $response = [
                 'status' => 400,
@@ -186,7 +174,6 @@ class FacturesController extends Controller
             echo createJson($response);
             echo $th;
         }
-
     }
     public function getInvoicesDashbord($limit)
     {
@@ -220,5 +207,4 @@ class FacturesController extends Controller
             echo $th;
         }
     }
-
 }
