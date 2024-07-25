@@ -20,7 +20,7 @@ class ContactsController extends Controller{
         try{
 
             $contactData =$this->database->query(
-                "SELECT contacts.*,companies.name FROM contacts
+                "SELECT contacts.*,companies.name AS company_name FROM contacts 
                 JOIN companies ON contacts.company_id = companies.company_id
             ");
             echo createJson($contactData);
@@ -73,7 +73,7 @@ class ContactsController extends Controller{
             ];
 
             $contactsDatas = $this->database->queryBindParam(
-                'SELECT contacts.*, contacts.email, companies.name
+                'SELECT contacts.*, contacts.email, companies.name AS company_name
                 FROM contacts
                 JOIN companies 
                 ON contacts.company_id = companies.company_id
