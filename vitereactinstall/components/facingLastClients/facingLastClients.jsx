@@ -8,7 +8,7 @@ export const FacingLastClients = () => {
     useEffect(() => {
         const dataFetching = async () => {
             try {
-                const response = await fetch('http://becodecogip.rbarkersw.com/contacts/all');
+                const response = await fetch('http://becodecogip2.rbarkersw.com/contacts/all');
                 const data = await response.json();
                 console.log(data);
                 data.sort((a, b) => {

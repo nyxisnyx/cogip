@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../public/assets/css/styles.css'
 import Dashboard from '../components/Dashboard';
-import { TestPage } from '../components/TestPage';
+import { PublicPages } from '../components/PublicPages';
 
 const App = () => {
+    const [pathname, setPathname] = useState("")
+
+    useEffect(() => {
+        setPathname(window.location.pathname)
+    }, [window.location]);
+
     return (
         <div className="App">
-            <TestPage />
+            <PublicPages />
+            {/* <Dashboard /> */}
         </div>
     );
 };
