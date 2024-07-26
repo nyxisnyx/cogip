@@ -1,25 +1,28 @@
 import React from 'react';
-import '../../public/assets/css/styles.css';
-// import '../clients/Contact-List.css';
-import Footer from '../src/Footer';
-// import Clients from'../src/Client';
-// import ContactDetail from '../src/clients/ContactDetail';
+import '../../public/assets/css/styles.css'; // Assurez-vous que ce chemin est correct
+// import ShowContactCameron from './clients/ShowContactCameron'; // Assurez-vous que ce chemin est correct
 
-// import ContactDetail from '../clients/ContactDetail';
-import AllCompagnies from './clients/AllCompagnies';
+// import ShowContactBertram from './clients/ShowContactBertram';
 
-// import ShowContact from '../clients/ShowContact';
+// import ShowContactPeterGregory from './clients/ShowContactPeterGregory';
+
+
+import ShowContactJianYang from './clients/ShowContactJianYang';
+import Footer from '../src/Footer'; // Assurez-vous que ce chemin est correct
+
 
 const App = () => {
   return (
     <div className="App">
-      {/* // <Clients /> */}
-      {/* <ContactDetail /> */}
-      <AllCompagnies />
-      {/* <ShowContact />  */}
+      {/* <ShowContactCameron /> */}
+      {/* <ShowContactBertram /> */}
+       {/* <ShowContactPeterGregory /> */}
+      <ShowContactJianYang />
+     
       <Footer />
     </div>
   );
 };
 
 export default App;
+
