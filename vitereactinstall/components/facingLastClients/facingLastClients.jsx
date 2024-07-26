@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react"
 import style from "./style.module.css"
 
-export const FacingLastInvoices = () => {
+export const FacingLastClients = () => {
     const [loadingContent, setLoadingContent] = useState(true);
     const [dataList, setDataList] = useState([]);
 
     useEffect(() => {
         const dataFetching = async () => {
             try {
-                const response = await fetch('http://becodecogip.rbarkersw.com/invoices/all');
+                const response = await fetch('http://becodecogip.rbarkersw.com/contacts/all');
                 const data = await response.json();
+                console.log(data);
                 data.sort((a, b) => {
                     return new Date(b.created_at) - new Date(a.created_at);
                 });
-
+                
                 const finalData = data.slice(0,5);
                 setDataList(finalData);
 
@@ -29,23 +30,25 @@ export const FacingLastInvoices = () => {
 
     return (
             <div className={style.companiesContainer}>
-                <h2>Last Invoices</h2>
+                <h2>Last Clients</h2>
                 {dataList.length > 0 && <table>
                     <thead>
                         <tr>
-                            <th className={style.headName}>Invoice ID</th>
-                            <th className={style.headTVA}>Due date</th>
-                            <th className={style.headCountry}>Company</th>
-                            <th className={style.headType}>Created at</th>
+                            <th className={style.headName}>Name</th>
+                            <th className={style.headTVA}>Phone</th>
+                            <th className={style.headCountry}>Mail</th>
+                            <th className={style.headType}>Company</th>
+                            <th className={style.headCreated}>Created At</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {dataList.map((invoice) => {
-                            return (<tr key={invoice.invoice_id}>
-                                <td>{invoice.invoice_id}</td>
-                                <td>{invoice.due_date}</td>
-                                <td>{invoice.company_name}</td>
-                                <td>{invoice.created_at}</td>
+                        {dataList.map((client) => {
+                            return (<tr key={client.name}>
+                                <td>{client.name}</td>
+                                <td>{client.phone}</td>
+                                <td>{client.email}</td>
+                                <td>{client.company_name}</td>
+                                <td>{client.created_at}</td>
                             </tr>)
                         })}
                     </tbody>

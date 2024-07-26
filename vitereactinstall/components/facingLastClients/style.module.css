@@ -56,9 +56,13 @@ td {
 }
 
 .headCountry {
-    width:15%;
+    width:25%;
 }
 
 .headType {
+    width:10%;
+}
+
+.headCreated {
     width:auto;
 }
