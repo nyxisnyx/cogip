@@ -178,6 +178,7 @@ class CompaniesController extends Controller
     {
 
         try {
+            $responseParams = [];
             $params = Companies::dataBodyInsert();
             $companieInsert = $this->database->query(
                 'INSERT INTO companies(
@@ -198,11 +199,17 @@ class CompaniesController extends Controller
                     :payment_deadline)',
                 $params
             );
+            
+            foreach ($params as $key => $value) {
+                $key = str_replace(':','',$key);  
+                $responseParams[$key] = $value;                
+            }
+
 
             $response = [
                 'status' => 202,
                 'message' => 'OK',
-                'params' => $params
+                'params' => $responseParams
             ];
 
             echo createJson($response);
@@ -219,6 +226,7 @@ class CompaniesController extends Controller
     public function putCompanie($id)
     {
         try {
+            $responseParams = [];
             $companieIsExist = $this->companieIsExist($id);
 
             if ($companieIsExist) {
@@ -230,10 +238,16 @@ class CompaniesController extends Controller
                     $params['paramsBody']
                 );
 
+                foreach ($params['paramsBody'] as $key => $value) {
+                    $key = str_replace(':','',$key);  
+                    $responseParams[$key] = $value;                
+                }
+
                 $response = [
                     'status' => 202,
                     'message' => 'OK',
-                    'params' => $params['paramsBody']
+                    'params' => $responseParams
+
                 ];
 
                 echo createJson($response);
