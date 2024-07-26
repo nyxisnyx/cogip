@@ -28,8 +28,6 @@ export const Header = () => {
         }
     }, [window.location])
 
-    const loginPopover = document.getElementById("loginPopover");
-
     document.addEventListener("keydown", (event) => {
         if (event.key === "h") {
             popover.showPopover();

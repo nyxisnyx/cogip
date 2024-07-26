@@ -43,7 +43,7 @@ export const FacingLastClients = () => {
                     </thead>
                     <tbody>
                         {dataList.map((client) => {
-                            return (<tr key={client.name}>
+                            return (<tr key={client.contact_id}>
                                 <td>{client.name}</td>
                                 <td>{client.phone}</td>
                                 <td>{client.email}</td>

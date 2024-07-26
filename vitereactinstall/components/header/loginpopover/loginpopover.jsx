@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./style.module.css"
 
 export const LoginPopover = () => {
     const [displayError, setDisplayError] = useState(false);
+    const [loggedIn, setLoggedIn] = useState(false);
+
     // Create handle submit function
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -14,7 +16,7 @@ export const LoginPopover = () => {
             "password" : e.target[1].value
         };
         try {
-            const response = await fetch('http://becodecogip.rbarkersw.com/login', {method:'POST', body:JSON.stringify(body)});
+            const response = await fetch('http://becodecogip2.rbarkersw.com/login', {method:'POST', body:JSON.stringify(body)});
             const actualResponse = await response.json();
             if (actualResponse.status === 401) {
                 setDisplayError(true)
@@ -27,6 +29,7 @@ export const LoginPopover = () => {
                 const stringData = JSON.stringify(data);
                 sessionStorage.setItem("sessionStorage", stringData);
                 
+                setLoggedIn(true);
 
                 // When I need the data, I'm gonna get a string, to turn it back into JSON it's JSON.parse(value)
             };
@@ -35,9 +38,17 @@ export const LoginPopover = () => {
         };
     };
 
+    useEffect(() => {
+        const existingStorage = sessionStorage.getItem("sessionStorage");
+        if(existingStorage) {
+            setLoggedIn(true);
+        }
+    });
+
     return (
         <>
-            <button popovertarget="loginPopover">Log In</button>
+            {loggedIn && <button><a href="/dashboard">Dashboard</a></button>}
+            {!loggedIn && <button popovertarget="loginPopover">Log In</button>}
             <div popover="auto" id="loginPopover" className={style.loginPopover}>
                     
                 <h3>Log In</h3>

@@ -12,8 +12,8 @@ const App = () => {
 
     return (
         <div className="App">
-            <PublicPages />
-            {/* <Dashboard /> */}
+            {!pathname.includes("dashboard") && <PublicPages />}
+            {pathname.includes("dashboard") && <Dashboard />}
         </div>
     );
 };

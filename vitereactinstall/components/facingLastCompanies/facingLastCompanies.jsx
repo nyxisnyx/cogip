@@ -43,7 +43,7 @@ export const FacingLastCompanies = () => {
                     </thead>
                     <tbody>
                         {dataList.map((company) => {
-                            return (<tr key={company.name}>
+                            return (<tr key={company.id}>
                                 <td>{company.name}</td>
                                 <td>{company.tva}</td>
                                 <td>{company.country}</td>
