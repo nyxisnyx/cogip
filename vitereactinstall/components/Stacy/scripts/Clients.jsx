@@ -1,8 +1,10 @@
 import React from 'react';
+
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ClientList from './ClientList';
 import ClientDetail from './ClientDetail';
-import './App.css';
+import App from './Clients'
+// import App from '/vitereactinstall/components/Clients/App.css';
 
 function App() {
   return (

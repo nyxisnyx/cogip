@@ -1,4 +1,5 @@
 /* src/Contact.css */
+
 .contact-page {
   display: flex;
   align-items: center;
@@ -18,7 +19,7 @@
 }
 
 .contact-title::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   bottom: -5px;
@@ -42,4 +43,4 @@
   border-radius: 50%;
   width: 150px;
   height: 150px;
-}/*# sourceMappingURL=contact.css.map */
+}

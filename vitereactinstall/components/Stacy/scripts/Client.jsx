@@ -23,7 +23,6 @@ function App() {
       <div className='BarreAllContact'>
         <h1 className='AllContacts'>All contacts</h1>
       </div>
-      <a href="/contactDetail.jsx">test</a>
       <div className="Clients-header">
         <table>
           <thead>

@@ -1,8 +1,7 @@
 // src/Contact.js
 
 import React from 'react';
-import '/public/assets/css/contact.css';
-
+import '../css/contact.css';
 const Contact = () => {
   return (
     <div className="contact-page">
@@ -16,8 +15,8 @@ const Contact = () => {
         </div>
       </div>
       <div className="contact-image-container">
-        <img src="bertram-gilfoyle.jpg" alt="Bertram Gilfoyle" className="contact-image" />
-      </div>
+      <img src="assets/img/contact2.png" alt="Bertram Gilfoyle" className="contact-image" />
+     </div>
     </div>
   );
 };

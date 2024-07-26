@@ -40,7 +40,7 @@ const ShowContactCameron = () => {
         </div>
       </div>
       <div className="contact-image-container">
-        <img src="bertram-gilfoyle.jpg" alt="Bertram Gilfoyle" className="contact-image" />
+      <img src="assets/img/contact1.png" alt="Cameron How" className="contact-image" />
       </div>
     </div>
   );
