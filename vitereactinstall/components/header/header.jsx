@@ -60,8 +60,8 @@ export const Header = () => {
 
             {/* hero goes here */}
             {isHomePage && <div className={style.hero}>
-                <p>MANAGE YOUR CUSTOMERS AND INVOICES EASILY</p>
-                <img src="/home_header.png" alt="" />
+                <p className={style.manage}>MANAGE YOUR CUSTOMERS AND INVOICES EASILY</p>
+                <img className={style.heroImg} src="/home_header.png" alt="" />
             </div>}
 
             {/* shape goes here */}
