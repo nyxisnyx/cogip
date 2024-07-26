@@ -8,7 +8,7 @@ import React, { useState, useEffect } from "react";
 
         useEffect(() => {
             // const apiUrl = getApiUrl();
-            const apiUrl = "http://becodecogip.rbarkersw.com/";
+            const apiUrl = "http://becodecogip2.rbarkersw.com/";
             const fetchData = async () => {
                 try {
                   const [invoicesResponse, contactsResponse, companiesResponse] =

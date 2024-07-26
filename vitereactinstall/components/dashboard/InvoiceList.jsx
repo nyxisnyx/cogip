@@ -7,7 +7,8 @@ const InvoiceList = () => {
         const fetchInvoices = async () => {
             try {
                 //const apiKey = "api";
-                const response = await fetch(`http://becodecogip.rbarkersw.com/invoices/all`); 
+                const apiUrl = "http://becodecogip2.rbarkersw.com/";
+                const response = await fetch(`${apiUrl}invoices/all`); 
                 if (!response.ok) {
                   throw new Error("Network response was not ok");
                 }
