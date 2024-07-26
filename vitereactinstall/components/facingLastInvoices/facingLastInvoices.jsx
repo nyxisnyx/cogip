@@ -8,7 +8,7 @@ export const FacingLastInvoices = () => {
     useEffect(() => {
         const dataFetching = async () => {
             try {
-                const response = await fetch('http://becodecogip2.rbarkersw.com/invoices/all');
+                const response = await fetch('http://becodecogip2.sysadminhell.com/invoices/all');
                 const data = await response.json();
                 data.sort((a, b) => {
                     return new Date(b.created_at) - new Date(a.created_at);

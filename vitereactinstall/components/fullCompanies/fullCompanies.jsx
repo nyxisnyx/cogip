@@ -10,7 +10,7 @@ export const FullCompanies = () => {
     useEffect(() => {
         const dataFetching = async () => {
             try {
-                const response = await fetch(`http://becodecogip2.rbarkersw.com/companies/all/10/${pagination}`);
+                const response = await fetch(`http://becodecogip2.sysadminhell.com/companies/all/10/${pagination}`);
                 const data = await response.json();
                 data.params.sort((a, b) => {
                     return new Date(b.created_at) - new Date(a.created_at);

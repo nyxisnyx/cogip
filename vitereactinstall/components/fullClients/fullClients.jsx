@@ -5,21 +5,25 @@ export const FullClients = () => {
     const [loadingContent, setLoadingContent] = useState(true);
     const [dataList, setDataList] = useState([]);
     const [pagination, setPagination] = useState(1);
+    const [maxPages, setMaxPages] = useState(1);
 
     useEffect(() => {
         const dataFetching = async () => {
             try {
-                const response = await fetch('http://becodecogip2.rbarkersw.com/contacts/all');
+                const response = await fetch('http://becodecogip2.sysadminhell.com/contacts/all');
                 const data = await response.json();
-                console.log(data);
                 data.sort((a, b) => {
                     return new Date(b.created_at) - new Date(a.created_at);
                 });
                 
                 setDataList(data);
 
+                const pages = Math.floor(data.length / 10);
+                const remainer = data.length%10;
+                remainer > 0 ? setMaxPages(pages + 1) : setMaxPages(pages);
+
                 setLoadingContent(false);
-            
+
             } catch (error) {
                 
             };
@@ -29,11 +33,11 @@ export const FullClients = () => {
     }, []);
 
     const handleIncrease = () => {
-        setPagination(pagination + 1);
+        setPagination(pagination + 1 > maxPages? maxPages : pagination + 1);
     };
 
     const handleDecrease = () => {
-        setPagination(pagination - 1);
+        setPagination(pagination - 1 <= 0 ? 1 : pagination - 1);
     };
 
     return (
