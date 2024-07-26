@@ -7,21 +7,23 @@ class Companies
 
     public int $id;
     public ?string $name;
-    public ?string $typeName;
+    public ?string $type_id;
     public ?string $country;
     public ?string $tva;
     public ?string $created_at;
     public ?string $updated_at;
+    public ?string $payment_deadline;
 
-    public function __construct(int $id, ?string $name, ?string $typeName,?string $country,?string $tva, ?string $created_at, ?string $updated_at)
+    public function __construct(int $id, ?string $name, ?string $type_id,?string $country,?string $tva, ?string $created_at, ?string $updated_at,?string $payment_deadline)
     {
         $this->id = $id;
         $this->name = $name;
-        $this->typeName = $typeName;
+        $this->type_id = $type_id;
         $this->country = $country;
         $this->tva = $tva;
         $this->created_at = $created_at;
         $this->updated_at = $updated_at;
+        $this->payment_deadline = $payment_deadline;
     }
 
     public static function loadData($companiesData)
@@ -32,11 +34,12 @@ class Companies
             $datas[] = new self(
                 $companie['company_id'],
                 $companie['name'],
-                $companie['typeName'],
+                $companie['type_id'],
                 $companie['country'],
                 $companie['tva'],
                 $companie['created_at'],
-                $companie['updated_at']
+                $companie['updated_at'],
+                $companie['payment_deadline'],
             );
         }
         return $datas;

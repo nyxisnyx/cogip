@@ -326,4 +326,32 @@ class CompaniesController extends Controller
 
         return $datas;
     }
+
+   
+    public function getCompaniesFormSelect()
+    {
+
+        try {
+
+            $compagniesDatas = $this->database->query(
+                'SELECT company_id,name FROM companies WHERE 1 ORDER BY name ASC'                
+            );
+
+            $response = [
+                'status' => 202,
+                'message' => 'OK',
+                'datas' => $compagniesDatas                
+            ];
+
+            echo createJson($response);
+        } catch (\Throwable $th) {
+            //throw $th;
+            $response = [
+                'status' => 404,
+                'message' => 'No found',
+            ];
+            echo createJson($response);
+            echo $th;
+        }
+    }
 }
