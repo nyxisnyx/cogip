@@ -27,7 +27,7 @@ export const PublicPages = () => {
             </>}
 
         {pathname.includes("invoices") && <FullInvoices />}
-        {pathname.includes("clients") && <FullClients />}
+        {pathname.includes("contacts") && <FullClients />}
         {pathname.includes("companies") && <FullCompanies />}
         </>
     )
