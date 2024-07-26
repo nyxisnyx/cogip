@@ -8,14 +8,14 @@ import React, { useState, useEffect } from "react";
 
         useEffect(() => {
             // const apiUrl = getApiUrl();
-            const apiUrl = "http://becodecogip2.rbarkersw.com/";
+            //const apiUrl = "http://becodecogip2.rbarkersw.com/";
             const fetchData = async () => {
                 try {
                   const [invoicesResponse, contactsResponse, companiesResponse] =
                     await Promise.all([
-                      fetch(`${apiUrl}invoices/all`).then((response) => response.json()),
-                      fetch(`${apiUrl}contacts/all`).then((response) => response.json()),
-                      fetch(`${apiUrl}companies/all/200/1`).then((response) => response.json()),
+                      fetch(`/api/invoices/all`).then((response) => response.json()),
+                      fetch(`/api/contacts/all`).then((response) => response.json()),
+                      fetch(`/api/companies/all/200/1`).then((response) => response.json()),
                     ]);
 
                     setInvoicesCount(invoicesResponse.length);  

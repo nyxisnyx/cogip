@@ -7,8 +7,8 @@ const ContactList = () => {
         const fetchContacts = async () => {
             try {
                 //const apiKey = "api";
-                const apiUrl = "http://becodecogip2.rbarkersw.com/";
-                const response = await fetch(`${apiUrl}contacts/all`); 
+                //const apiUrl = "http://becodecogip2.rbarkersw.com/";
+                const response = await fetch(`/api/contacts/all`); 
                 
                 if (!response.ok) {
                   throw new Error("Network response was not ok");

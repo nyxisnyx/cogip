@@ -7,9 +7,9 @@ const LastInvoices = ({ user }) => {
     useEffect(() => {
         const fetchInvoices = async () => {
             try {
-                 const apiUrl = "http://becodecogip2.rbarkersw.com/";
+                 //const apiUrl = "http://becodecogip2.rbarkersw.com/";
                 const apiKey = "api";
-                const response = await fetch(`${apiUrl}/admin/${apiKey}/all/5`); 
+                const response = await fetch(`/api/admin/${apiKey}/all/5`); 
                 if (!response.ok) {
                   throw new Error("Network response was not ok");
                 }

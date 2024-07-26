@@ -13,23 +13,47 @@ body {
   width: 80%;
 }
 
-.stats, .LastInvoices, .LastContacts, .LastCompanies, .invoices, .companies, .contacts {
+.stats,
+.LastInvoices,
+.LastContacts,
+.LastCompanies,
+.invoices,
+.companies,
+.contacts {
   background-color: #fff;
   border-radius: 1dvw;
   padding: 2dvw;
   margin-bottom: 3dvw;
 }
-.stats h3, .LastInvoices h3, .LastContacts h3, .LastCompanies h3, .invoices h3, .companies h3, .contacts h3 {
+.stats h3,
+.LastInvoices h3,
+.LastContacts h3,
+.LastCompanies h3,
+.invoices h3,
+.companies h3,
+.contacts h3 {
   margin: 0.5dvw;
   margin-top: 0;
   border-bottom: 2px solid #E0E0E0;
 }
-.stats th, .LastInvoices th, .LastContacts th, .LastCompanies th, .invoices th, .companies th, .contacts th {
+.stats th,
+.LastInvoices th,
+.LastContacts th,
+.LastCompanies th,
+.invoices th,
+.companies th,
+.contacts th {
   padding-right: 1.5dvw;
   font-size: 0.8rem;
   text-align: left;
 }
-.stats td, .LastInvoices td, .LastContacts td, .LastCompanies td, .invoices td, .companies td, .contacts td {
+.stats td,
+.LastInvoices td,
+.LastContacts td,
+.LastCompanies td,
+.invoices td,
+.companies td,
+.contacts td {
   font-size: 0.7rem;
   padding-right: 1.5dvw;
   font-weight: 300;
@@ -234,4 +258,13 @@ body {
 .newElement button {
   background-color: #9698d6;
   color: #fff;
+}
+
+select {
+  background-color: #fff;
+  border: none;
+  border-radius: 1dvw;
+  margin-bottom: 2dvw;
+  height: 4dvw;
+  padding-left: 2dvw;
 }/*# sourceMappingURL=styles.css.map */

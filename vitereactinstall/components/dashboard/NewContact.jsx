@@ -1,26 +1,75 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DashboardHeader from "./DashboardHeader";
 
 const NewContact = () => {
     const [inputs, setInputs] = useState({});
-    
+    const [companies, setCompanies] = useState([]);
+
+    useEffect(() => {
+        const fetchCompanies = async () => {
+            try {
+                const response = await fetch('/api/admin/:key/companies/all');
+                if (response.ok) {
+                    const data = await response.json();
+                    setCompanies(data);
+                } else {
+                    console.error('Failed to fetch companies');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+
+        fetchCompanies();
+    }, []);
+
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
 
-        setInputs(values => ({...values, [name]:value}))
-    }
+        setInputs(values => ({...values, [name]: value}));
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
         
-        const handleSubmit = (event) => {
-            event.preventDefault();
-            alert(JSON.stringify(inputs));
+        try {
+            const response = await fetch('/api/admin/api/contact/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(inputs)
+            });
+
+            if (response.ok) {
+                alert('Contact added successfully');
+            } else {
+                alert('Failed to add contact');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred while adding the contact');
         }
-    
+    };
+
     return (
         <div className="dashboard-main-container">
             <DashboardHeader />
-          <form className="newElement" onSubmit={ handleSubmit }>
-            <h3>New Contact</h3>
+            <form className="newElement" onSubmit={ handleSubmit }>
+                <h3>New Contact</h3>
+                <select
+                    name="company_id"
+                    value={inputs.company_id || ""}
+                    onChange={handleChange}
+                >
+                    <option value="">Select Company</option>
+                    {companies.map((company) => (
+                        <option key={company.company_id} value={company.company_id}>
+                            {company.company_name}
+                        </option>
+                    ))}
+                </select>
             <input 
             type="text"
             placeholder="First name"
