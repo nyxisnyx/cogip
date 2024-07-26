@@ -20,11 +20,11 @@
 // export default App;
 
 import React from 'react';
-// import '../Stacy/css/styles.css'; // Chemin mis à jour vers le fichier CSS
+// import '../Stacy/css/styles.css'; / Chemin mis à jour vers le fichier CSS
 // import ShowContactCameron from '../Stacy/scripts/ShowContactCameron'; // Chemin mis à jour vers le composant
 // import ShowContactBertram from '../components/Stacy/scripts/ShowContactBertram';
-
 import ShowContactJianYang from '../components/Stacy/scripts/ShowContactJianYang';
+
 // import Footer from '../components/Stacy/scripts/Footer';
 
 const App = () => {
