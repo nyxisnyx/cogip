@@ -5,6 +5,7 @@
     padding-right:10%;
     padding-bottom:5%;
     width:80%;
+    position:relative;
 }
 
 h2 {
@@ -61,4 +62,10 @@ td {
 
 .headType {
     width:auto;
+}
+
+.homeNotes {
+    position:absolute;
+    right:0;
+    bottom:0;
 }

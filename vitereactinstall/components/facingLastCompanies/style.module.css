@@ -5,6 +5,13 @@
     padding-right:10%;
     padding-bottom:5%;
     width:80%;
+    position:relative;
+}
+
+.homeLamp {
+    position:absolute;
+    top:-2rem;
+    left:0;
 }
 
 h2 {

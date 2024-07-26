@@ -29,6 +29,7 @@ export const FacingLastCompanies = () => {
 
     return (
             <div className={style.companiesContainer}>
+                <img src="home_lamp.png" alt="drawing of a lit lightbulb" className={style.homeLamp} />
                 <h2>Last Companies</h2>
                 {dataList.length > 0 && <table>
                     <thead>
