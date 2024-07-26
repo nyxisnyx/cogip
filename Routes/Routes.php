@@ -41,6 +41,10 @@ $router->mount('/companies', function () use ($router) {
         $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
         return (new CompaniesController($db))->getCompanie($id);
     });
+    $router->get('/form', function () {
+        $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
+        return (new CompaniesController($db))->getCompaniesFormSelect();
+    });
 });
 
 //Invoices
@@ -149,8 +153,6 @@ $router->mount('/admin/{key}', function () use ($router) {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
             return (new CompaniesController($db))->putCompanie($id);
         });
-
-
 
         $router->delete('/delete/{id}', function ($key, $id) {
             $db = new Database(DB_NAME, DB_USER, DB_PASS, DB_HOST);
