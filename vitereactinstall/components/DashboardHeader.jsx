@@ -7,7 +7,7 @@ const DashboardHeader = ({user}) => {
             <h2>Dashboard</h2>
             <div className='DBHeaderContainer'>
             <div className='imageElement'>
-                    <img src="./src/assets/img/dashboard_header.png" alt="Dashboard Header" />
+                    <img src="../src/assets/img/dashboard_header.png" alt="Dashboard Header" />
                 </div>
                 <div className='textElement'>
                     <h3>Welcome back {user}!</h3>

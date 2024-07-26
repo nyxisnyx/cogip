@@ -4,14 +4,19 @@ body {
     background-color: #F5F5FB;
     font-family: Inter;
     font-weight: 200;
-    width: 100dvw;
+    width: 100%;
 }
 
 .dashboard-main-container {
-    margin: 4dvw;
-    width: 75dvw;
+    // margin: 2dvw;
+    padding: 2dvw;
     flex-grow: 1;
     display: block;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    width: 80%;
+    
 }
 
 .stats, .LastInvoices, .LastContacts, .LastCompanies, .invoices, .companies, .contacts {
@@ -22,6 +27,7 @@ body {
 
     & h3 {
         margin: 0.5dvw;
+        margin-top: 0;
         border-bottom: 2px solid #E0E0E0;
     }
 
@@ -34,11 +40,12 @@ body {
     & td {
         font-size: 0.7rem;
         padding-right: 1.5dvw;
+        font-weight: 300;
 }
 }
 
 .stats, .LastInvoices {
-    margin-right: 3dvw;
+    
 }
 
 .stats {
@@ -47,26 +54,32 @@ body {
 
 .sections {
     display: flex;
-    //width: 75dvw;
-    margin: 4dwv;
+    justify-content: space-between;
+    gap: 3dvw;
+    padding: 0;
+    width: 100%;
 }
 .sections-fragment{
     display: flex;
     flex-direction: column;
-    
+    // padding: 0 1.5dvw;
+    width: 50%;
 }
 
 .stat-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     align-content: center;
     padding: 1dvw;
 }
 
 .stat-item {
-    background-color: #9698D6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     color: #fff;
     width: 6dvw;
     height: 6dvw;
@@ -74,8 +87,20 @@ body {
     
     & p {
         text-align: center;
-    font-size: 0.7rem;
-    font-weight: 400;
-    margin-bottom: 0;
+        font-size: 0.7rem;
+        font-weight: 500;
+        margin: 0;
     }
+}
+
+.stat-item1 {
+    background-color: #4D4CAC;
+}
+
+.stat-item2 {
+    background-color: #9698D6;
+}
+
+.stat-item3 {
+    background-color: #FF808B;
 }

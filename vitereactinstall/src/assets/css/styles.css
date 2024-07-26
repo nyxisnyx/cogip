@@ -3,14 +3,14 @@ body {
   background-color: #F5F5FB;
   font-family: Inter;
   font-weight: 200;
-  width: 100dvw;
+  width: 100%;
 }
 
 .dashboard-main-container {
-  margin: 4dvw;
-  width: 75dvw;
+  padding: 2dvw;
   flex-grow: 1;
   display: block;
+  width: 80%;
 }
 
 .stats, .LastInvoices, .LastContacts, .LastCompanies, .invoices, .companies, .contacts {
@@ -21,6 +21,7 @@ body {
 }
 .stats h3, .LastInvoices h3, .LastContacts h3, .LastCompanies h3, .invoices h3, .companies h3, .contacts h3 {
   margin: 0.5dvw;
+  margin-top: 0;
   border-bottom: 2px solid #E0E0E0;
 }
 .stats th, .LastInvoices th, .LastContacts th, .LastCompanies th, .invoices th, .companies th, .contacts th {
@@ -31,10 +32,7 @@ body {
 .stats td, .LastInvoices td, .LastContacts td, .LastCompanies td, .invoices td, .companies td, .contacts td {
   font-size: 0.7rem;
   padding-right: 1.5dvw;
-}
-
-.stats, .LastInvoices {
-  margin-right: 3dvw;
+  font-weight: 300;
 }
 
 .stats {
@@ -44,25 +42,32 @@ body {
 
 .sections {
   display: flex;
-  margin: 4dwv;
+  justify-content: space-between;
+  gap: 3dvw;
+  padding: 0;
+  width: 100%;
 }
 
 .sections-fragment {
   display: flex;
   flex-direction: column;
+  width: 50%;
 }
 
 .stat-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   align-content: center;
   padding: 1dvw;
 }
 
 .stat-item {
-  background-color: #9698D6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   color: #fff;
   width: 6dvw;
   height: 6dvw;
@@ -71,18 +76,32 @@ body {
 .stat-item p {
   text-align: center;
   font-size: 0.7rem;
-  font-weight: 400;
-  margin-bottom: 0;
+  font-weight: 500;
+  margin: 0;
+}
+
+.stat-item1 {
+  background-color: #4D4CAC;
+}
+
+.stat-item2 {
+  background-color: #9698D6;
+}
+
+.stat-item3 {
+  background-color: #FF808B;
 }
 
 .DBContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 100%;
 }
 
 .dashboardHeader {
   margin-bottom: 3dvw;
+  width: 100%;
 }
 
 .DBHeaderContainer {
@@ -122,6 +141,7 @@ body {
   background-color: #fff;
   padding-right: 3dvw;
   padding-top: 3dvw;
+  width: 20dvw;
 }
 
 .DBUser {
