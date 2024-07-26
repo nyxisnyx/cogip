@@ -17,8 +17,7 @@ const NewContact = () => {
         }
     
     return (
-        <div>
-             <>
+        <div className="dashboard-main-container">
             <DashboardHeader />
           <form className="newElement" onSubmit={ handleSubmit }>
             <h3>New Contact</h3>
@@ -56,12 +55,10 @@ const NewContact = () => {
             name = "phone"
             value = {inputs.phone || ""}
             onChange={ handleChange }
-            />
-            
+            />            
             <button type="submit">Save</button>
-
           </form>
-          </>
+
         </div>
     )
 }

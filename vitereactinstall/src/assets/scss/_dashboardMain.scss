@@ -1,12 +1,44 @@
-td {
-    padding-right: 1dvw;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+body {
+    background-color: #F5F5FB;
+    font-family: Inter;
+    font-weight: 200;
+    width: 100dvw;
 }
 
-.stats, .LastInvoices, .LastContacts, .LastCompanies {
+.dashboard-main-container {
+    margin: 4dvw;
+    width: 75dvw;
+    flex-grow: 1;
+    display: block;
+}
+
+.stats, .LastInvoices, .LastContacts, .LastCompanies, .invoices, .companies, .contacts {
     background-color: #fff;
     border-radius: 1dvw;
-    width: 30dvw;
-    padding: 1dvw;
+    padding: 2dvw;
+    margin-bottom: 3dvw;
+
+    & h3 {
+        margin: 0.5dvw;
+        border-bottom: 2px solid #E0E0E0;
+    }
+
+    & th {
+        padding-right: 1.5dvw;
+        font-size: 0.8rem;
+        text-align: left;
+    }
+    
+    & td {
+        font-size: 0.7rem;
+        padding-right: 1.5dvw;
+}
+}
+
+.stats, .LastInvoices {
+    margin-right: 3dvw;
 }
 
 .stats {
@@ -15,28 +47,35 @@ td {
 
 .sections {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    //width: 75dvw;
+    margin: 4dwv;
+}
+.sections-fragment{
+    display: flex;
+    flex-direction: column;
+    
 }
 
 .stat-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     align-content: center;
+    padding: 1dvw;
 }
 
 .stat-item {
     background-color: #9698D6;
     color: #fff;
-    width: 7dvw;
-    height: 7dvw;
+    width: 6dvw;
+    height: 6dvw;
     border-radius: 50%;
     
     & p {
         text-align: center;
     font-size: 0.7rem;
     font-weight: 400;
+    margin-bottom: 0;
     }
 }

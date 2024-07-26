@@ -1,13 +1,40 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
-td {
-  padding-right: 1dvw;
+body {
+  background-color: #F5F5FB;
+  font-family: Inter;
+  font-weight: 200;
+  width: 100dvw;
 }
 
-.stats, .LastInvoices, .LastContacts, .LastCompanies {
+.dashboard-main-container {
+  margin: 4dvw;
+  width: 75dvw;
+  flex-grow: 1;
+  display: block;
+}
+
+.stats, .LastInvoices, .LastContacts, .LastCompanies, .invoices, .companies, .contacts {
   background-color: #fff;
   border-radius: 1dvw;
-  width: 30dvw;
-  padding: 1dvw;
+  padding: 2dvw;
+  margin-bottom: 3dvw;
+}
+.stats h3, .LastInvoices h3, .LastContacts h3, .LastCompanies h3, .invoices h3, .companies h3, .contacts h3 {
+  margin: 0.5dvw;
+  border-bottom: 2px solid #E0E0E0;
+}
+.stats th, .LastInvoices th, .LastContacts th, .LastCompanies th, .invoices th, .companies th, .contacts th {
+  padding-right: 1.5dvw;
+  font-size: 0.8rem;
+  text-align: left;
+}
+.stats td, .LastInvoices td, .LastContacts td, .LastCompanies td, .invoices td, .companies td, .contacts td {
+  font-size: 0.7rem;
+  padding-right: 1.5dvw;
+}
+
+.stats, .LastInvoices {
+  margin-right: 3dvw;
 }
 
 .stats {
@@ -17,62 +44,84 @@ td {
 
 .sections {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  margin: 4dwv;
+}
+
+.sections-fragment {
+  display: flex;
+  flex-direction: column;
 }
 
 .stat-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   align-content: center;
+  padding: 1dvw;
 }
 
 .stat-item {
   background-color: #9698D6;
   color: #fff;
-  width: 7dvw;
-  height: 7dvw;
+  width: 6dvw;
+  height: 6dvw;
   border-radius: 50%;
 }
 .stat-item p {
   text-align: center;
   font-size: 0.7rem;
   font-weight: 400;
+  margin-bottom: 0;
+}
+
+.DBContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.dashboardHeader {
+  margin-bottom: 3dvw;
 }
 
 .DBHeaderContainer {
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  justify-content: flex-end;
+  align-items: center;
   position: relative;
-  margin-bottom: 2dvw;
-}
-
-.DBContainer {
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: space-between !important;
 }
 
 .imageElement {
   position: absolute;
-  right: 70px;
+  top: 0;
+  right: 50px;
+  height: 210px;
+  transform: translateY(-40%);
+}
+
+.imageElement img {
+  height: 100%;
+  width: auto;
 }
 
 .textElement {
   background-color: #9698d6;
   padding: 3dvw;
-  padding-right: 35dvw;
   border-radius: 1dvw;
   color: #fff;
+  flex-grow: 1;
 }
 
-body {
-  background-color: #F5F5FB;
-  font-family: Inter;
-  font-weight: 200;
+.DBNav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100dvh;
+  background-color: #fff;
+  padding-right: 3dvw;
+  padding-top: 3dvw;
 }
 
 .DBUser {
@@ -81,7 +130,8 @@ body {
   align-items: center;
   justify-content: center;
   justify-content: space-around;
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1.5px solid #E0E0E0;
+  padding-left: 3dvw;
 }
 .DBUserh3 {
   font-weight: 600;
@@ -93,15 +143,8 @@ body {
   width: 8dvw;
 }
 
-.DBNav {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100dvh;
-  background-color: #fff;
-  width: 10dvw;
-  padding: 3dvw;
-  margin-right: 4dvw;
+.DBMenu {
+  padding-left: 3dvw;
 }
 
 .DBNavButton {
@@ -127,8 +170,10 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-top: 1px solid #E0E0E0;
-  padding-top: 4dvw;
+  border-top: 1.5px solid #E0E0E0;
+  padding-top: 3dvw;
+  padding-left: 3dvw;
+  padding-bottom: 3dvw;
 }
 .DBLogout .DBNavButton {
   color: #9698D6;
@@ -137,7 +182,7 @@ body {
 
 .userImageLogout {
   border-radius: 50%;
-  width: 6dvw;
+  width: 4dvw;
 }
 
 .invoice-list h2 {
@@ -149,4 +194,24 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
+
+.AddButton {
+  color: #fff;
+  background-color: #9698d6;
+  border-radius: 1dvw;
+  margin: 0 auto 2dvw;
+}
+
+.newElement input {
+  background-color: #fff;
+  border: none;
+  border-radius: 1dvw;
+  margin-bottom: 2dvw;
+  height: 4dvw;
+  padding-left: 2dvw;
+}
+.newElement button {
+  background-color: #9698d6;
+  color: #fff;
 }/*# sourceMappingURL=styles.css.map */

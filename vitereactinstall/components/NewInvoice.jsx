@@ -17,8 +17,8 @@ const NewInvoice = () => {
         }
     
     return (
-        <div>
-            <>
+        <div className="dashboard-main-container">
+    
             <DashboardHeader />
             
         <form className="newElement" onSubmit={ handleSubmit }>
@@ -47,7 +47,6 @@ const NewInvoice = () => {
             <button type="submit">Save</button>
 
           </form>
-        </>
           
         </div>
     )

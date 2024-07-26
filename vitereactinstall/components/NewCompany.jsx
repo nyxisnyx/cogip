@@ -17,8 +17,7 @@ const NewCompany = () => {
         }
     
     return (
-        <div>
-            <>
+        <div className="dashboard-main-container">
             <DashboardHeader />
           <form className="newElement" onSubmit={ handleSubmit }>
             <h3>New Company</h3>
@@ -46,7 +45,6 @@ const NewCompany = () => {
             <button type="submit">Save</button>
 
           </form>
-            </>
         </div>
     )
 }

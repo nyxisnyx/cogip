@@ -8,10 +8,14 @@ import LastCompanies from "./LastCompanies";
 const DashboardSections = () => {
     return (
         <div className="sections">
-        <Statistics />
-        <LastInvoices />
-        <LastContacts />
-        <LastCompanies />
+            <div className="sections-fragment">
+            <Statistics />
+            <LastInvoices />
+            </div>
+            <div className="sections-fragment">
+            <LastContacts />
+            <LastCompanies />
+            </div>
         </div>
 
     );

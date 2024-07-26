@@ -23,6 +23,14 @@ const LastInvoices = ({ user }) => {
         fetchInvoices();
     }, []);
 
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${day}/${month}/${year}`;
+    };
+
     return (
         <div className="LastInvoices">
             <h3>Last Invoices</h3>
@@ -38,8 +46,8 @@ const LastInvoices = ({ user }) => {
                     {invoices.map(invoice => (
                         <tr key={invoice.invoice_id}>
                             <td>{invoice.invoice_id}</td>
-                            <td>{invoice.created_at}</td>
-                            <td>{invoice.company_name}</td>
+                            <td>{formatDate(invoice.created_at)}</td>
+                            <td>{invoice.name}</td>
                         </tr>
                     ))}
                 </tbody>

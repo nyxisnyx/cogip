@@ -4,7 +4,6 @@ import React from 'react';
 const DashboardHeader = ({user}) => {
     return (
         <header className='dashboardHeader'>
-            <>
             <h2>Dashboard</h2>
             <div className='DBHeaderContainer'>
             <div className='imageElement'>
@@ -16,7 +15,6 @@ const DashboardHeader = ({user}) => {
                     and some contacts</p>
                 </div>
             </div>
-            </>
         </header>
     );
 };

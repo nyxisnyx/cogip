@@ -1,0 +1,22 @@
+.AddButton {
+    color: #fff;
+    background-color: #9698d6;
+    border-radius: 1dvw;
+    margin: 0 auto 2dvw;
+}
+
+.newElement {
+    input{
+        background-color: #fff;
+        border: none;
+        border-radius: 1dvw;
+        margin-bottom: 2dvw;
+        height: 4dvw;
+        padding-left: 2dvw;
+    }
+
+    & button {
+        background-color: #9698d6;
+        color: #fff;
+    }
+}

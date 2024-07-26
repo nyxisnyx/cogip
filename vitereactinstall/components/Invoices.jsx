@@ -5,7 +5,7 @@ import DashboardHeader from "./DashboardHeader";
 
 const Invoices = () => {
     return (
-        <div>
+        <div className="dashboard-main-container">
             <DashboardHeader />
             <Link to="/invoices/new">
                 <button 

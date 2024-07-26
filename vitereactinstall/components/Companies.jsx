@@ -5,7 +5,7 @@ import DashboardHeader from "./DashboardHeader";
 
 const Companies = () => {
     return (
-        <div>
+        <div className="dashboard-main-container">
         <DashboardHeader />
 
         <Link to="/companies/new">

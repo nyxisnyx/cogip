@@ -6,7 +6,7 @@ import DashboardHeader from "./DashboardHeader";
 
 const Dashboard = () => {
     return (
-        <div>
+        <div className="dashboard-main-container">
          <DashboardHeader />
         <DashboardSections />
         </div>
