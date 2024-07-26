@@ -8,7 +8,7 @@ const Companies = () => {
         <div className="dashboard-main-container">
         <DashboardHeader />
 
-        <Link to="/companies/new">
+        <Link to="/dashboard-companies/new">
                 <button 
                     type="button" 
                     className="AddButton"
@@ -19,7 +19,7 @@ const Companies = () => {
 
             <CompanyList />
             
-            <Link to="/companies/new">
+            <Link to="/dashboard-companies/new">
                 <button 
                     type="button" 
                     className="AddButton"

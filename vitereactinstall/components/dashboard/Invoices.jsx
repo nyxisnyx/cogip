@@ -7,7 +7,7 @@ const Invoices = () => {
     return (
         <div className="dashboard-main-container">
             <DashboardHeader />
-            <Link to="/invoices/new">
+            <Link to="/dashboard-invoices/new">
                 <button 
                     type="button" 
                     className="AddButton"
@@ -16,7 +16,7 @@ const Invoices = () => {
                 </button>
             </Link>
             <InvoiceList />
-            <Link to="/invoices/new">
+            <Link to="/dashboard-invoices/new">
                 <button 
                     type="button" 
                     className="AddButton"

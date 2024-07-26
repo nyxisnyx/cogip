@@ -8,7 +8,7 @@ const Contacts = () => {
         <div className="dashboard-main-container">
         <DashboardHeader />
 
-        <Link to="/contacts/new">
+        <Link to="/dashboard-contacts/new">
                 <button 
                     type="button" 
                     className="AddButton"
@@ -19,7 +19,7 @@ const Contacts = () => {
 
             <ContactList />
             
-            <Link to="/contacts/new">
+            <Link to="/dashboard-contacts/new">
                 <button 
                     type="button" 
                     className="AddButton"

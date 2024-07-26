@@ -11,25 +11,25 @@ const DashboardMenu = () => {
             <div className='DBMenu'>
                 <div className="DBNavElement">
                     <img className='imgMenu' src="./src/assets/img/icons/Icon_dashboard.png" alt="Dashboard icon" />
-                    <Link to="/">
+                    <Link to="/dashboard">
                         <button className='DBNavButton'>Dashboard</button>
                     </Link>
                 </div>
                 <div className="DBNavElement">
                     <img className='imgMenu' src="./src/assets/img/icons/Icon_Invoices.png" alt="Invoices icon" />
-                    <Link to="/invoices">
+                    <Link to="/dashboard-invoices">
                         <button className='DBNavButton'>Invoices</button>
                     </Link>
                 </div>
                 <div className="DBNavElement">
                     <img className='imgMenu' src="./src/assets/img/icons/Icon_contact.png" alt="Contacts icon" />
-                    <Link to="/contacts">
+                    <Link to="/dashboard-contacts">
                         <button className='DBNavButton'>Contacts</button>
                     </Link>
                 </div>
                 <div className="DBNavElement">
                     <img className='imgMenu' src="./src/assets/img/icons/Icon_Companies.png" alt="Companies icon" />
-                    <Link to="/companies">
+                    <Link to="/dashboard-companies">
                         <button className='DBNavButton'>Companies</button>
                     </Link>
                 </div>

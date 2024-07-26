@@ -14,13 +14,13 @@ const DashboardPage = () => {
         <div className="DBContainer">
             <DashboardMenu />
             <Routes>
-                <Route path="/" element={<Dashboard />} />
-                <Route path="/invoices" element={<Invoices />} />
-                <Route path="/invoices/new" element={<NewInvoice />} />
-                <Route path="/contacts" element={<Contacts />} />
-                <Route path="/contacts/new" element={<NewContact />} />
-                <Route path="/companies" element={<Companies />} />
-                <Route path="/companies/new" element={<NewCompany />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/dashboard-invoices" element={<Invoices />} />
+                <Route path="/dashboard-invoices/new" element={<NewInvoice />} />
+                <Route path="/dashboard-contacts" element={<Contacts />} />
+                <Route path="/dashboard-contacts/new" element={<NewContact />} />
+                <Route path="/dashboard-companies" element={<Companies />} />
+                <Route path="/dashboard-companies/new" element={<NewCompany />} />
             </Routes>
         </div>
     );
