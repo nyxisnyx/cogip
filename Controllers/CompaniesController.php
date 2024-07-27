@@ -149,6 +149,8 @@ class CompaniesController extends Controller
                 $params
             );
 
+            $datas = Companies::loadData($datas);
+
             if ($datas) {
                 $response = [
                     'status' => 202,

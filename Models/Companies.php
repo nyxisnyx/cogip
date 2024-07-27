@@ -7,18 +7,20 @@ class Companies
 
     public int $id;
     public ?string $name;
-    public ?string $type_id;
+    public ?int $type_id;
+    public ?string $typeName;
     public ?string $country;
     public ?string $tva;
     public ?string $created_at;
     public ?string $updated_at;
     public ?string $payment_deadline;
 
-    public function __construct(int $id, ?string $name, ?string $type_id,?string $country,?string $tva, ?string $created_at, ?string $updated_at,?string $payment_deadline)
+    public function __construct(int $id, ?string $name, ?int $type_id,?string $typeName,?string $country,?string $tva, ?string $created_at, ?string $updated_at,?string $payment_deadline)
     {
         $this->id = $id;
         $this->name = $name;
         $this->type_id = $type_id;
+        $this->typeName = $typeName;
         $this->country = $country;
         $this->tva = $tva;
         $this->created_at = $created_at;
@@ -35,6 +37,7 @@ class Companies
                 $companie['company_id'],
                 $companie['name'],
                 $companie['type_id'],
+                $companie['typeName'],
                 $companie['country'],
                 $companie['tva'],
                 $companie['created_at'],
