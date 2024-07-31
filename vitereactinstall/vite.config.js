@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://becodecogip2.rbarkersw.com',
+        target: 'http://becodecogip2.sysadminhell.com/',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       }

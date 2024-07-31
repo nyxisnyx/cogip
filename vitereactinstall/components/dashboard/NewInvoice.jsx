@@ -1,8 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DashboardHeader from "./DashboardHeader";
 
 const NewInvoice = () => {
     const [inputs, setInputs] = useState({});
+    const [companies, setCompanies] = useState([]);
+
+    useEffect(() => {
+        const fetchCompanies = async () => {
+            try {
+                const response = await fetch('/api/companies/form');
+                if (response.ok) {
+                    const data = await response.json();
+                    setCompanies(data.datas);
+                } else {
+                    console.error('Failed to fetch companies');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+
+        fetchCompanies();
+    }, []);
+
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -53,13 +73,18 @@ const NewInvoice = () => {
                     value={inputs.price || ""}
                     onChange={handleChange}
                 />
-                <input
-                    type="text"
-                    placeholder="Company name"
-                    name="name"
-                    value={inputs.name || ""}
+                <select
+                    name="company_id"
+                    value={inputs.company_id || ""}
                     onChange={handleChange}
-                />
+                >
+                    <option value="">Select Company</option>
+                    {companies.map((company) => (
+                        <option key={company.company_id} value={company.company_id}>
+                            {company.name}
+                        </option>
+                    ))}
+                </select>
                 <button type="submit">Save</button>
             </form>
         </div>

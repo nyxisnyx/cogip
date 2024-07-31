@@ -8,10 +8,10 @@ const NewContact = () => {
     useEffect(() => {
         const fetchCompanies = async () => {
             try {
-                const response = await fetch('/api/admin/:key/companies/all');
+                const response = await fetch('/api/companies/form');
                 if (response.ok) {
                     const data = await response.json();
-                    setCompanies(data);
+                    setCompanies(data.datas);
                 } else {
                     console.error('Failed to fetch companies');
                 }
@@ -66,7 +66,7 @@ const NewContact = () => {
                     <option value="">Select Company</option>
                     {companies.map((company) => (
                         <option key={company.company_id} value={company.company_id}>
-                            {company.company_name}
+                            {company.name}
                         </option>
                     ))}
                 </select>
