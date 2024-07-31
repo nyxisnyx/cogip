@@ -16,7 +16,7 @@ export const LoginPopover = () => {
             "password" : e.target[1].value
         };
         try {
-            const response = await fetch('http://becodecogip2.sysadminhell.com/login', {method:'POST', body:JSON.stringify(body)});
+            const response = await fetch('/apilogin', {method:'POST', body:JSON.stringify(body)});
             const actualResponse = await response.json();
             if (actualResponse.status === 401) {
                 setDisplayError(true)

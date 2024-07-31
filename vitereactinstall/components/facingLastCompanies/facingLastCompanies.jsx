@@ -8,7 +8,7 @@ export const FacingLastCompanies = () => {
     useEffect(() => {
         const dataFetching = async () => {
             try {
-                const response = await fetch('http://becodecogip2.sysadminhell.com/companies/all/200/1');
+                const response = await fetch('/apicompanies/all/200/1');
                 const data = await response.json();
                 data.params.sort((a, b) => {
                     return new Date(b.created_at) - new Date(a.created_at);
