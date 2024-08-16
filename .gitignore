@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Ignore les fichiers dans le répertoire .sass-cache/
 .sass-cache/
 
@@ -21,3 +22,6 @@ db_data/
 mysql-data
 
 
+=======
+node_modules
+>>>>>>> 34a45372cb30f2e409ca3bbf0e353447a81d2618
